@@ -18,25 +18,23 @@ const Login = () => {
     const classes = useStyles();
    
     const googleSuccess = async (res) => {
-        console.log(res)
         const result = res?.profileObj;
+        console.log(res)
         
         console.log(result )
         // familyName givenName email googleId
 
         axios.get(`http://localhost:8000/api/users/email/${result.email}`)
         .then(response => {
-            
-            console.log(1)
+            response.data.user !== null ?
             googleLogin(result.email, result.googleId)
-        }).catch(err => {
+            :
             axios.post('http://localhost:8000/api/register', {
                 username : result.name,
                 email : result.email,
                 password : result.googleId,
                 confirm : result.googleId
             }) .then(res => {
-                console.log(2)
                 console.log("response from registering", res);
                 if (res.data.errors) {
                     setErrors(res.data.errors)
@@ -47,8 +45,9 @@ const Login = () => {
 
                 }
             })
-            .catch(err => console.log(err))
         })
+            .catch(err => console.log(err))
+        
 
       
     }

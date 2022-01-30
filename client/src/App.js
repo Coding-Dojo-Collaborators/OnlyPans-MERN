@@ -9,6 +9,10 @@ import Login from "./components/LoginReg/Login";
 import LogAndRegView from "./views/LogAndRegView"
 import Register from "./components/LoginReg/Register";
 import { Test } from "./components/Test";
+import SubscriptionCheckout from "./components/subscriptions/SubscriptionCheckout";
+
+import Success from "./components/Success";
+
 
 function App() {
   return (
@@ -27,6 +31,12 @@ function App() {
         <LogAndRegView>
         <Register/>
         </LogAndRegView>
+      </Route>
+      <Route exact path="/checkout">
+      <SubscriptionCheckout/>
+      </Route>
+      <Route exact path='/success'>
+      <Success/>
       </Route>
     </Switch>
     </BrowserRouter>

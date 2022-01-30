@@ -21,7 +21,10 @@ export const Test = () => {
           history.push('/login');
         })
     }
-    console.log(loggedinuser)
+    const checkout = () => {
+        history.push('/checkout')
+    }
+    
     return (
         <div>
             <h2>hello</h2>
@@ -29,6 +32,7 @@ export const Test = () => {
                 {loggedinuser.username}
             </h1>
             <button className='btn btn-danger' onClick={onClickHandler}>Log out</button>
+            <button className='btn btn-info' onClick={checkout}>SubScribe</button>
         </div>
 
     )
