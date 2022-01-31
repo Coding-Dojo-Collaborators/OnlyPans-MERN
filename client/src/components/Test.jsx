@@ -32,7 +32,7 @@ export const Test = () => {
                 {loggedinuser.username}
             </h1>
             <button className='btn btn-danger' onClick={onClickHandler}>Log out</button>
-            <button className='btn btn-info' onClick={checkout}>SubScribe</button>
+            <button className='btn btn-info' onClick={checkout}>Subscribe</button>
         </div>
 
     )
