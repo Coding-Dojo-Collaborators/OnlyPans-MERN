@@ -5,8 +5,8 @@ const cookies = require("cookie-parser");
 const app = express();
 const port = 8000;
 const db_name = 'onlyPans';
-const CLIENT_URL='http://localhost:3000'
-const stripe = require("stripe")('sk_test_51KNNztKhZMSaEpADteCgOnBWH0FuOJH7aBPFiuuloaAWBr6iLA1fW3DksmJwsE4LyXNtFYqi0ShMQoRMsBk1HPUj00G0BjCeOt')
+const CLIENT_URL=process.env.CLIENT_URL
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 app.use(cors({
     credentials:true,
@@ -21,11 +21,6 @@ app.listen(port, () => console.log(`Listening on port: ${port}`));
 
 
 // subscriptions
-const YOUR_DOMAIN = 'http://localhost:8000'
-    const storeItems = new Map([
-        [1, {  priceInCents: 10000, name: "Learn React Today"}],
-        [2, { priceInCents: 20000, name: "Learn CSS Today" }],
-      ])
       app.post("/api/create-checkout-session", async (req, res) => {
         try {
           const session = await stripe.checkout.sessions.create({
