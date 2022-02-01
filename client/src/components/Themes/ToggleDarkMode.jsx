@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import { useTheme, ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import Header from '../LandingPage/Header';
+import DashboardHeader from '../Dashboard/DashboardHeader';
+import NavLinks from '../LandingPage/NavLinks';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
@@ -54,16 +58,16 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-function MyApp({ children }) {
+function MyApp({ children, currentPage }) {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   return (
-    <div className='bg-transparent'
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        p: 0,
-      }}
+    <div className='bg-secondary'
+    // sx={{
+    //   display: 'flex',
+    //   justifyContent: 'center',
+    //   p: 0,
+    // }}
     >
       <Container
         sx={{
@@ -76,26 +80,71 @@ function MyApp({ children }) {
           p: 2,
         }}
       >
-        <FormGroup>
-          <div className='d-flex justify-content-end'>
-            <FormControlLabel
-              control={<MaterialUISwitch sx={{ m: 1 }}
-                // defaultChecked
-                onClick={colorMode.toggleColorMode}
-              />}
-              label=""
-            />
-          </div>
-          <div className='d-flex justify-content-center'>
-            {children}
-          </div>
-        </FormGroup>
+        {
+          currentPage === "landingPage" ?
+            (<FormGroup>
+              <div className='d-flex align-items-center justify-content-between'>
+                <div className='d-flex justify-content-start'>
+                  <Header />
+                </div>
+                <div className='d-flex justify-content-end'>
+                  <div className='d-flex justify-content-evenly'>
+                    <NavLinks />
+                    <FormControlLabel
+                      control={<MaterialUISwitch sx={{ m: 1 }}
+                        // defaultChecked
+                        onClick={colorMode.toggleColorMode}
+                      />}
+                      label=""
+                    />
+                  </div>
+                </div>
+              </div>
+              {children}
+            </FormGroup>) :
+            currentPage === "blog" ?
+              <FormGroup>
+                <div className='d-flex align-items-center justify-content-between'>
+                  <div className='d-flex justify-content-end'>
+                    <FormControlLabel
+                      control={<MaterialUISwitch sx={{ m: 1 }}
+                        // defaultChecked
+                        onClick={colorMode.toggleColorMode}
+                      />}
+                      label=""
+                    />
+                  </div>
+                  <div className='d-flex justify-content-center'>
+                    <Header />
+                  </div>
+                </div>
+                {children}
+              </FormGroup> :
+              currentPage === "dashboard" ?
+                <FormGroup>
+                  <div className='d-flex align-items-center justify-content-between'>
+                    <div className='d-flex justify-content-end'>
+                      <FormControlLabel
+                        control={<MaterialUISwitch sx={{ m: 1 }}
+                          // defaultChecked
+                          onClick={colorMode.toggleColorMode}
+                        />}
+                        label=""
+                      />
+                    </div>
+                    <div className=''>
+                      <DashboardHeader />
+                    </div>
+                  </div>
+                  {children}
+                </FormGroup> : <></>
+        }
       </Container>
     </div>
   );
 }
 
-export default function ToggleColorMode({ children }) {
+export default function ToggleColorMode({ children, currentPage }) {
   const [mode, setMode] = React.useState('light');
   const colorMode = React.useMemo(
     () => ({
@@ -105,7 +154,7 @@ export default function ToggleColorMode({ children }) {
     }),
     [],
   );
-
+  console.log(currentPage);
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -119,7 +168,7 @@ export default function ToggleColorMode({ children }) {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <MyApp>
+        <MyApp currentPage={currentPage}>
           {children}
         </MyApp>
       </ThemeProvider>

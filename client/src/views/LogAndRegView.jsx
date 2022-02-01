@@ -1,30 +1,29 @@
+/* eslint-disable import/no-anonymous-default-export */
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import ToggleColorMode from '../components/Themes/ToggleDarkMode';
 
-const UserView = ({children}) => {
-  
-  const history = useHistory()
-  useEffect(()=>{
-    axios.get("http://localhost:8000/api/users/getloggedinuser", {withCredentials:true})
-        .then(res=>{
-            history.push('/')
-            
-        })
-        .catch(err=> {
-            
-            console.log("noUser logged in")
-        })
-}, [])
+export default ({ children }) => {
+  const history = useHistory();
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+      .then(res => {
+        history.push('/')
+      })
+      .catch(err => {
+        console.log("noUser logged in")
+      })
+  }, [history]);
 
   return (
-    <div className=' '>
-      
-      <div >
-        {children}
+    <ToggleColorMode currentPage="">
+      <div className=' '>
+        <div >
+          {children}
         </div>
-    </div>
+      </div>
+    </ToggleColorMode>
   )
 };
-
-export default UserView;
