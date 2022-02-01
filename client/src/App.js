@@ -18,8 +18,7 @@ import Success from './components/Success';
 import ManagePostsTab from './components/Dashboard/ManagePostsTab';
 import UsersLiked from './components/Dashboard/UsersLiked';
 import FavoriteRecipes from './components/Dashboard/FavoriteRecipes';
-import SubscriptionPage from './components/Subscriptions/SubscriptionPage';
-import SubscriptionCheckout from './components/Subscriptions/SubscriptionCheckout';
+
 
 // Recipe Imports
 import CategoryViewAll from './views/RecipeCRUD/CategoryViewAll';
@@ -59,12 +58,6 @@ export default () => {
                 <Register />
               </LogAndRegView>
             </Route>
-            <Route exact path='/checkout'>
-              <SubscriptionCheckout />
-            </Route>
-            <Route exact path='/success'>
-              <Success />
-            </Route>
             {/* Dashboard Routes */}
             <Route exact path='/dashboard/:id'>
               <Dashboard />
@@ -78,9 +71,7 @@ export default () => {
             <Route exact path='/dashboard/favorites/:id'>
               <FavoriteRecipes />
             </Route>
-            <Route exact path='/subscriptions/:id'>
-              <SubscriptionPage />
-            </Route>
+            
             {/* User Routes */}
             <Route exact path='/users'>
               <ViewAllUsers />
