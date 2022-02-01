@@ -1,23 +1,28 @@
-
+import * as React from 'react';
 import {
   BrowserRouter,
   Switch,
   Route
 } from "react-router-dom"
-import './App.css';
+
+// Login and Registration Imports
 import Login from "./components/LoginReg/Login";
 import LogAndRegView from "./views/LogAndRegView"
 import Register from "./components/LoginReg/Register";
-import { Test } from "./components/Test";
 import SubscriptionCheckout from "./components/subscriptions/SubscriptionCheckout";
 
 import Success from "./components/Success";
+import { Test } from "./components/Test";
 
-// recipe imports
-import Detail from "./views/RecipeViews/Detail";
-import Update from "./views/RecipeViews/Update";
+// Recipe Imports
+import LandingPage from './views/RecipeViews/LandingPage';
 import Create from "./views/RecipeViews/Create";
 import ViewAll from "./views/RecipeViews/ViewAll";
+import Detail from "./views/RecipeViews/Detail";
+import Update from "./views/RecipeViews/Update";
+
+// Styling Imports
+import './App.css';
 
 function App() {
   return (
