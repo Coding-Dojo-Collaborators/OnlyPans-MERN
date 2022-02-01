@@ -37,11 +37,15 @@ import DetailUser from './views/UserCRUD/DetailUser';
 import EditUser from './views/UserCRUD/EditUser';
 import Main from './views/Main';
 import LandingPage from './views/LandingPage';
+import SubscriptionCheckout from './components/subscriptions/SubscriptionCheckout';
+import ToggleColorMode from './components/Themes/ToggleDarkMode';
 
 export default () => {
   return (
     <div className="App">
-      <ToggleDarkMode />
+      <ToggleColorMode>
+
+
       <BrowserRouter>
         <Switch>
           {/* Login & Registration Routes */}
@@ -59,6 +63,7 @@ export default () => {
             </LogAndRegView>
           </Route>
           <Route exact path='/checkout'>
+            <SubscriptionCheckout/>
            
           </Route>
           <Route exact path='/success'>
@@ -110,6 +115,8 @@ export default () => {
 
         </Switch>
       </BrowserRouter>
+      
+      </ToggleColorMode>
     </div>
   );
 };

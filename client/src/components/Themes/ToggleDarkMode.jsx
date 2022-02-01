@@ -57,7 +57,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-function MyApp() {
+function MyApp({children}) {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   return (
@@ -77,18 +77,19 @@ function MyApp() {
         <FormControlLabel
           control={<MaterialUISwitch sx={{ m: 1 }}
           // defaultChecked
+          onClick={colorMode.toggleColorMode}
           />}
           label=""
-        />
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+          />
+        
+       
+          {children}
       </FormGroup>
     </Container>
   );
 }
 
-export default function ToggleColorMode() {
+export default function ToggleColorMode({children}) {
   const [mode, setMode] = React.useState('light');
   const colorMode = React.useMemo(
     () => ({
@@ -112,7 +113,10 @@ export default function ToggleColorMode() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <MyApp />
+        <MyApp>
+          {children}
+        </MyApp>
+        
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
