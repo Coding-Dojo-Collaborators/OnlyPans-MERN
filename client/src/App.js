@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+import './App.css';
 import * as React from 'react';
 import {
   BrowserRouter,
@@ -9,8 +10,8 @@ import {
 // Login and Registration Imports
 import Login from './components/LoginReg/Login';
 import Register from './components/LoginReg/Register';
-import SubscriptionCheckout from './components/Subscriptions/SubscriptionCheckout';
 import LogAndRegView from './views/LogAndRegView';
+
 
 import Success from './components/Success';
 // import { Test } from './components/Test';
@@ -19,7 +20,7 @@ import Success from './components/Success';
 import ManagePostsTab from './components/Dashboard/ManagePostsTab';
 import UsersLiked from './components/Dashboard/UsersLiked';
 import FavoriteRecipes from './components/Dashboard/FavoriteRecipes';
-import SubscriptionPage from './components/Subscriptions/SubscriptionPage';
+
 
 // Recipe Imports
 import CategoryViewAll from './views/RecipeCRUD/CategoryViewAll';
@@ -29,7 +30,13 @@ import Update from './views/RecipeCRUD/Update';
 
 // Styling Imports
 import ToggleDarkMode from './components/Themes/ToggleDarkMode';
-import './App.css';
+import Dashboard from './views/Dashboard';
+import SubscriptionPage from './components/subscriptions/SubscriptionPage';
+import ViewAllUsers from './views/UserCRUD/ViewAllUsers';
+import DetailUser from './views/UserCRUD/DetailUser';
+import EditUser from './views/UserCRUD/EditUser';
+import Main from './views/Main';
+import LandingPage from './views/LandingPage';
 
 export default () => {
   return (
@@ -39,7 +46,7 @@ export default () => {
         <Switch>
           {/* Login & Registration Routes */}
           <Route exact path='/'>
-            <LandingPage />
+            <LandingPage/>
           </Route>
           <Route exact path='/login'>
             <LogAndRegView>
@@ -52,40 +59,41 @@ export default () => {
             </LogAndRegView>
           </Route>
           <Route exact path='/checkout'>
-            <SubscriptionCheckout />
+           
           </Route>
           <Route exact path='/success'>
             <Success />
           </Route>
           {/* Dashboard Routes */}
           <Route exact path='/dashboard/:id'>
-            <Dashboard />
+            <Dashboard/>
           </Route>
           <Route exact path='/dashboard/edit/:id'>
-            <ManagePostsTab />
+            
+            <ManagePostsTab/>
           </Route>
           <Route exact path='/dashboard/users/:id'>
-            <UsersLiked />
+            <UsersLiked/>
           </Route>
           <Route exact path='/dashboard/favorites/:id'>
-            <FavoriteRecipes />
+            <FavoriteRecipes/>
           </Route>
           <Route exact path='/subscriptions/:id'>
-            <SubscriptionPage />
+            <SubscriptionPage/>
           </Route>
           {/* User Routes */}
           <Route exact path='/users'>
-            <ViewAllUsers />
+           <ViewAllUsers/>
           </Route>
           <Route exact path='/user/:id'>
-            <DetailUser />
+            <DetailUser/>
           </Route>
           <Route exact path='/user/edit/:id'>
-            <EditUser />
+            <EditUser/>
           </Route>
           {/* Recipe Routes */}
           <Route exact path='/recipes'>
-            <Main />
+            <Main/>
           </Route>
           <Route exact path='/:category/recipes'>
             <CategoryViewAll />
