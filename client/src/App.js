@@ -14,10 +14,10 @@ import SubscriptionCheckout from "./components/subscriptions/SubscriptionCheckou
 import Success from "./components/Success";
 
 // recipe imports
-import Main from "./views/RecipeViews/Main";
 import Detail from "./views/RecipeViews/Detail";
 import Update from "./views/RecipeViews/Update";
 import Create from "./views/RecipeViews/Create";
+import ViewAll from "./views/RecipeViews/ViewAll";
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
 
           {/* recipe routing */}
           <Route exact path="/home">
-            <Main />
+            <ViewAll />
           </Route>
           <Route exact path='/recipe/new'>
             <Create />
