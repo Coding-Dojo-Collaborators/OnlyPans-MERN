@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import RecipeList from '../../components/RecipeComponents/RecipeList';
+import RecipeAPI from '../../components/RecipeComponents/RecipeAPI';
 import { Link } from 'react-router-dom';
 
 export default () => {
@@ -24,6 +25,7 @@ export default () => {
         <div>
             <Link to = '/recipe/new'>Add a Recipe</Link>
             <hr />
+            {loaded && <RecipeAPI recipes={recipes} />}
             {loaded && <RecipeList recipes={recipes} removeFromDom={removeFromDom} />}
         </div>
     )
