@@ -6,6 +6,16 @@ import {
   Route
 } from 'react-router-dom';
 
+<<<<<<< HEAD
+=======
+// Login and Registration Imports
+import Login from './components/LoginReg/Login';
+import Register from './components/LoginReg/Register';
+import LogAndRegView from './views/LogAndRegView';
+
+// import { Test } from './components/Test';
+
+>>>>>>> b340fdc025904f0027bfc3eb394f832e9cfff612
 // Dashboard Imports
 import ManagePostsTab from './components/Dashboard/ManagePostsTab';
 import UsersLiked from './components/Dashboard/UsersLiked';
@@ -32,6 +42,7 @@ import './App.css';
 export default () => {
   return (
     <div className="App">
+<<<<<<< HEAD
       {/* <ToggleColorMode> */}
       <BrowserRouter>
         <Switch>
@@ -81,6 +92,55 @@ export default () => {
         </Switch>
       </BrowserRouter>
       {/* </ToggleColorMode> */}
+=======
+      <ToggleColorMode>
+        <BrowserRouter>
+          <Switch>
+    
+            {/* Dashboard Routes */}
+            <Route exact path='/dashboard/:id'>
+              <Dashboard />
+            </Route>
+            <Route exact path='/dashboard/edit/:id'>
+              <ManagePostsTab />
+            </Route>
+            <Route exact path='/dashboard/users/:id'>
+              <UsersLiked />
+            </Route>
+            <Route exact path='/dashboard/favorites/:id'>
+              <FavoriteRecipes />
+            </Route>
+            
+            {/* User Routes */}
+            <Route exact path='/users'>
+              <ViewAllUsers />
+            </Route>
+            <Route exact path='/user/:id'>
+              <DetailUser />
+            </Route>
+            <Route exact path='/user/edit/:id'>
+              <EditUser />
+            </Route>
+            {/* Recipe Routes */}
+            <Route exact path='/recipes'>
+              <Main />
+            </Route>
+            <Route exact path='/:category/recipes'>
+              <CategoryViewAll />
+            </Route>
+            <Route exact path='/recipe/new'>
+              <Create />
+            </Route>
+            <Route exact path='/recipe/:id'>
+              <Detail />
+            </Route>
+            <Route exact path='/recipe/edit/:id'>
+              <Update />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </ToggleColorMode>
+>>>>>>> b340fdc025904f0027bfc3eb394f832e9cfff612
     </div>
   );
 };
