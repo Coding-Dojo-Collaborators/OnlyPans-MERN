@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login'; 
 
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
@@ -175,6 +175,7 @@ export default function TransitionsModal() {
                     label="Remember me"
                   />
                   <Button
+                    onclick={handleClose}
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -206,7 +207,8 @@ export default function TransitionsModal() {
                     }}
                   >
                     <Grid item>
-                      <RegistrationModal variant="body2" />
+                      <RegistrationModal variant="body2"
+                      onclick={handleClose}/>
                     </Grid>
                   </Grid>
                 </Box>

@@ -14,7 +14,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -22,7 +22,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  borderRadius: 2,
   boxShadow: 24,
   p: 4,
 };
@@ -42,19 +42,18 @@ const Copyright = (props) => {
   );
 }
 
-
 export default function TransitionsModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const history = useHistory();
   const [userName, setUserName] = useState("");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState(false);
-
+  const logo = require('../static/images/onlypansegglogo.png')
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post('http://localhost:8000/api/register', {
@@ -88,7 +87,6 @@ export default function TransitionsModal() {
       .catch(err => console.log(err))
   };
 
-
   return (
     <div>
       <Button onClick={handleOpen}>
@@ -111,18 +109,24 @@ export default function TransitionsModal() {
             <Container component="main" maxWidth="xs">
               <CssBaseline />
               <Box
-                sx={{
-                  marginTop: 8,
+                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                 }}
               >
-                <Avatar sx={{ m: 1, bgcolor: '#003892' }}>
-                  <LockOutlinedIcon sx={{ m: 1, color: '#fff' }} />
+                <Avatar variant="square"
+                  src={logo} alt="logo"
+                  sx={{
+                    height: 42,
+                    width: 53,
+                    mb: 3,
+                    pl: 1
+                  }}
+                >
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                  Sign up
+                  Create Account
                 </Typography>
                 <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
@@ -179,6 +183,7 @@ export default function TransitionsModal() {
                     </Grid>
                   </Grid>
                   <Button
+                    onclick={handleClose}
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -188,9 +193,7 @@ export default function TransitionsModal() {
                   </Button>
                   <Grid container justifyContent="center">
                     <Grid item>
-                      <Link to='/login' variant="body2">
-                        Already Have an Account? Log In
-                      </Link>
+                      <Button onclick={handleClose} variant="body2">Log In</Button>                     
                     </Grid>
                   </Grid>
                 </Box>
