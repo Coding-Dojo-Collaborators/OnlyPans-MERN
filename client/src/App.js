@@ -4,19 +4,11 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-<<<<<<< HEAD
-
-// Login and Registration Imports
-import Login from "./components/LoginReg/Login";
-import LogAndRegView from "./views/LogAndRegView"
-import Register from "./components/LoginReg/Register";
-=======
 import './App.css';
 import {Login }from "./components/LoginReg/Login";
 import LogAndRegView from "./views/LogAndRegView"
 import {Register} from "./components/LoginReg/Register";
 import { Test } from "./components/Test";
->>>>>>> d0fa0290a984d9cc67ab515c17ed0e3cd2b501f0
 import SubscriptionCheckout from "./components/subscriptions/SubscriptionCheckout";
 
 import Success from "./components/Success";
