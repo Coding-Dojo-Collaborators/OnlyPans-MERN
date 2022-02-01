@@ -1,7 +1,10 @@
-import React from 'react';
+/* eslint-disable import/no-anonymous-default-export */
+import * as React from 'react';
 
-const LandingPage = () => {
-  return <div></div>;
+export default () => {
+  return (
+    <div className='container'>
+
+    </div>
+  );
 };
-
-export default LandingPage;

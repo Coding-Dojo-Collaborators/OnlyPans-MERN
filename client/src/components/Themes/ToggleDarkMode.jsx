@@ -1,9 +1,6 @@
 import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import { useTheme, ThemeProvider, createTheme, styled } from '@mui/material/styles';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
@@ -57,39 +54,48 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-function MyApp({children}) {
+function MyApp({ children }) {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   return (
-    <Container
+    <div className='bg-transparent'
       sx={{
         display: 'flex',
-        minWidth: '100%',
-        minHeight: '100vh',
-        // alignItems: 'center',
-        // justifyContent: 'center',
-        bgcolor: 'background.default',
-        color: 'text.primary',
-        p: 2,
+        justifyContent: 'center',
+        p: 0,
       }}
     >
-      <FormGroup>
-        <FormControlLabel
-          control={<MaterialUISwitch sx={{ m: 1 }}
-          // defaultChecked
-          onClick={colorMode.toggleColorMode}
-          />}
-          label=""
-          />
-        
-       
-          {children}
-      </FormGroup>
-    </Container>
+      <Container
+        sx={{
+          display: 'block',
+          minWidth: '100%',
+          minHeight: '100vh',
+          // justifyContent: ' center',
+          bgcolor: 'background.default',
+          color: 'text.primary',
+          p: 2,
+        }}
+      >
+        <FormGroup>
+          <div className='d-flex justify-content-end'>
+            <FormControlLabel
+              control={<MaterialUISwitch sx={{ m: 1 }}
+                // defaultChecked
+                onClick={colorMode.toggleColorMode}
+              />}
+              label=""
+            />
+          </div>
+          <div className='d-flex justify-content-center'>
+            {children}
+          </div>
+        </FormGroup>
+      </Container>
+    </div>
   );
 }
 
-export default function ToggleColorMode({children}) {
+export default function ToggleColorMode({ children }) {
   const [mode, setMode] = React.useState('light');
   const colorMode = React.useMemo(
     () => ({
@@ -116,7 +122,6 @@ export default function ToggleColorMode({children}) {
         <MyApp>
           {children}
         </MyApp>
-        
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
