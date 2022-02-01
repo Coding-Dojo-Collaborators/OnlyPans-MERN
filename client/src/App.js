@@ -5,9 +5,9 @@ import {
   Route
 } from "react-router-dom"
 import './App.css';
-import Login from "./components/LoginReg/Login";
+import {Login }from "./components/LoginReg/Login";
 import LogAndRegView from "./views/LogAndRegView"
-import Register from "./components/LoginReg/Register";
+import {Register} from "./components/LoginReg/Register";
 import { Test } from "./components/Test";
 import SubscriptionCheckout from "./components/subscriptions/SubscriptionCheckout";
 
