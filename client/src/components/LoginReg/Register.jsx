@@ -1,113 +1,177 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+// import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom';
 
 
 
-const Register = () => {
-    const history = useHistory()
-    const [emailErrors, setEmailErrors] = useState(false)
 
-    const [registerInfo, setRegisterInfo] = useState({
-        username: "",
-        email: "",
-        password: "",
-        confirm: ""
-    })
-    const [loginInfo, setLoginInfo] = useState({})
-
-
-    const [errors, setErrors] = useState({
-        username: "",
-        email: "",
-        password: "",
-        confirm: ""
-    })
-
-    const regChangeHandler = (e) => {
-        setRegisterInfo({
-            ...registerInfo,
-            [e.target.name]: e.target.value
-        })
-    }
-
-
-    const register = async (e) => {
-        e.preventDefault();
-        await axios.post("http://localhost:8000/api/register", registerInfo, { withCredentials: true })
-            .then(res => {
-                console.log("response from registering", res);
-                if (res.data.errors) {
-                    setErrors(res.data.errors)
-                } else {
-                    console.log("success!")
-                    setLoginInfo({
-
-                        email: registerInfo.email,
-                        password: registerInfo.password,
-                    })
-                    login(loginInfo)
-
-                }
-            })
-            .catch(err => console.log(err))
-
-    }
-    const login = (loginInfo) => {
-        axios.post("http://localhost:8000/api/login", loginInfo, { withCredentials: true })
-            .then(res => {
-                if (res.data.msg == "success!") {
-                    history.push("/")
-                } else {
-                    console.log(res.data.msg)
-                    setErrors(res.data.msg)
-                }
-            })
-            .catch(err => console.log(err))
-    }
-
+function Copyright(props) {
     return (
-        <>
-            <div className="text-center mt-3">
-                <form className='card col-4 p-3 mx-auto mt-3' onSubmit={register}>
-                    <div className="form-group">
-                        <label>User Name</label>
-                        <input onChange={regChangeHandler} type="text" className="form-control" name='username' />
-                        {errors.username ? <p className="text-danger">{errors.username.message}</p> : ""}
-                        {
-                            (registerInfo.username.length !== 0 && registerInfo.username.length < 3) &&
-                            <p className="alert alert-danger">UserName must be at least 3 characters long.</p>
-                        }
-                    </div>
-                    <div className="form-group my-3">
-                        <label>Email</label>
-                        <input onChange={regChangeHandler} type="text" className="form-control" name='email' autoComplete='off' />
-                        {errors.email ? <p className="text-danger">{errors.email.message}</p> : ""}
-                    </div>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input onChange={regChangeHandler} type="password" className="form-control" name='password' />
-                        {errors.password ? <p className="text-danger">{errors.password.message}</p> : ""}
-                        
-
-                    </div>
-                    <div className="form-group my-3">
-                        <label>Confirm Password</label>
-                        <input onChange={regChangeHandler} type="password" className="form-control" name='confirm' />
-                        {errors.confirm ? <p className="text-danger">{errors.confirm.message}</p> : ""}
-                        
-                    </div>
-                    <div className='d-flex justify-content-between p-3'>
-                        <input disabled={registerInfo.username.length < 3 } type="submit" value="Sign Up" className="btn btn-primary" />
-                        <Link to="/">Already Registered? Login Here!</Link>
-                    </div>
-                </form>
-            </div>
-
-        </>
+        <Typography variant="body2" color="text.secondary" align="center" {...props}>
+            {'Copyright © '}
+            <Link color="inherit" href="https://mui.com/">
+                Your Website
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
     );
-};
+}
 
+const theme = createTheme();
 
+export const Register = () => {
+    
+    const history = useHistory()
+    const [userName, setUserName] = useState('')
+    
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [errors, setErrors] = useState(false)
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await axios.post("http://localhost:8000/api/register", {
+            email: email,
+            username : userName,
+            password : password,
+            confirm: confirmPassword
+        })
+        .then(res => {
+            console.log("response from registering", res);
+            if (res.data.errors) {
+                setErrors(res.data.message)
+               
+            } else {
+                axios.post("http://localhost:8000/api/login", {
+                    email: email,
+                    password : password
+                }, { withCredentials: true })
+            .then(res => {
+                console.log(res)
+                if (res.data.message == "success!") {
+                    history.push("/")
+                } else if (res.data.message){
+                    console.log(res.data.message)
+                    setErrors(res.data)
+                }
+            })
+            .catch(err => console.log(err))
+                // login()
 
-export default Register;
+            }
+        })
+        .catch(err => console.log(err))
+    };
+    
+    
+    return (
+        <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <Box
+                    sx={{
+                        marginTop: 8,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign up
+                    </Typography>
+                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} >
+                            {errors? <p className="text-danger">{errors}</p> : ""}
+                                <TextField
+                                    onChange={(e) => setUserName(e.target.value)}
+                                    required
+                                    fullWidth
+                                    id="userName"
+                                    label="User Name"
+                                    name="userName"
+                                    autoComplete="family-name"
+                                />
+                                {/* {errors.last_name? <p className="text-danger">{errors.last_name}</p>: ""} */}
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                />
+                                {/* {errors.email? <p className="text-danger">{errors.email}</p>: ""} */}
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="new-password"
+                                />
+                                {/* {errors.password? <p className="text-danger">{errors.password}</p>: ""} */}
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    required
+                                    fullWidth
+                                    name="confirmPassword"
+                                    label="Confirm Password"
+                                    type="password"
+                                    id="confirmPassword"
+                                    autoComplete="new-password"
+                                />
+                                {/* {errors.confirm_password? <p className="text-danger">{errors.confirm_password}</p>: ""} */}
+                            </Grid>
+                            
+                        </Grid>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                        >
+                            Sign Up
+                        </Button>
+                        <Grid container justifyContent="flex-end">
+                            <Grid item>
+                                <Link to="/login" variant="body2">
+                                    Already have an account? Sign in
+                                </Link>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                </Box>
+                <Copyright sx={{ mt: 5 }} />
+            </Container>
+        </ThemeProvider>
+    );
+}

@@ -1,4 +1,4 @@
-const { Recipe } = require('../models/onlyPans.model');
+const { Recipe } = require('../models/onlypans.model');
 module.exports.getRecipe = (request, response) => {
     Recipe.find()
         .then(recipe => response.json(recipe))
