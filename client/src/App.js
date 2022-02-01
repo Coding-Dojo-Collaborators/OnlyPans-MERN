@@ -12,7 +12,6 @@ import { Test } from "./components/Test";
 import SubscriptionCheckout from "./components/subscriptions/SubscriptionCheckout";
 
 import Success from "./components/Success";
-import { Test } from "./components/Test";
 
 // Recipe Imports
 import LandingPage from './views/RecipeViews/LandingPage';
