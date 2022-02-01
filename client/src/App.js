@@ -11,7 +11,6 @@ import Login from './components/LoginReg/Login';
 import Register from './components/LoginReg/Register';
 import LogAndRegView from './views/LogAndRegView';
 
-import Success from './components/Success';
 // import { Test } from './components/Test';
 
 // Dashboard Imports
