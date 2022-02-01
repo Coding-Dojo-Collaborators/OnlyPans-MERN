@@ -43,7 +43,11 @@ export default () => {
       <ToggleColorMode>
         <BrowserRouter>
           <Switch>
-    
+            {/* Login & Registration Routes */}
+            <Route exact path='/'>
+              <LandingPage />
+            </Route>
+            
             {/* Dashboard Routes */}
             <Route exact path='/dashboard/:id'>
               <Dashboard />
