@@ -1,28 +1,29 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { Link, useHistory } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
+
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
-/* eslint-disable import/no-anonymous-default-export */
-import { useState } from 'react';
-import axios from 'axios';
-import { Link, useHistory } from 'react-router-dom';
-import { GoogleLogin } from 'react-google-login';
 import Avatar from '@mui/material/Avatar';
-
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
-
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { Icon } from '@material-ui/core';
 import useStyles from './Styles';
+import RegistrationModal from './RegistrationModal'
 
 
 const Copyright = (props) => {
@@ -45,10 +46,12 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  borderRadius: 2,
   boxShadow: 24,
   p: 4,
 };
+
+const theme = createTheme();
 
 export default function TransitionsModal() {
   const [open, setOpen] = React.useState(false);
@@ -61,6 +64,8 @@ export default function TransitionsModal() {
   });
   const history = useHistory();
   const classes = useStyles();
+  const logo = require('../static/images/onlypansegglogo.png')
+
   const loginChangeHandler = (e) => {
     setLoginInfo({
       ...loginInfo,
@@ -101,6 +106,7 @@ export default function TransitionsModal() {
   const googleFailure = () => {
     console.log("Google sign in not working!");
   };
+
   return (
     <div>
       <Button onClick={handleOpen}>Log In</Button>
@@ -119,90 +125,94 @@ export default function TransitionsModal() {
           <Box sx={style}>
             {/* ENTER FORM HERE */}
             <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Avatar sx={{ m: 1, bgcolor: '#003892' }}>
-          <LockOutlinedIcon sx={{ m: 1, color: '#fff' }} />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign In
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          {errors.message ? <p className="text-danger">{errors.message}</p> : ""}
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={loginChangeHandler}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={loginChangeHandler}
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Sign In
-          </Button>
-          <GoogleLogin
-            clientId='28144132869-865k00rjanquba9oel14bbtt75rn8tv5.apps.googleusercontent.com'
-            render={(renderProps) => (
-              <Button className={classes.googleButton}
-                color="primary"
-                fullWidth
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
-                startIcon={<Icon />}
-                variant="contained"
-                sx={{ mb: 2 }}
-              >Google Sign In </Button>
-            )}
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-            cookiePolicy='single_host_origin'
-          />
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot Password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link to='/register' variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
-    </Container>
+              <CssBaseline />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              >
+                <Avatar variant="square"
+                  src={logo} alt="logo"
+                  sx={{
+                    height: 42,
+                    width: 53,
+                    mb: 3,
+                    pl: 1
+                  }}
+                >
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                  Log In
+                </Typography>
+                <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                  {errors.message ? <p className="text-danger">{errors.message}</p> : ""}
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                    onChange={loginChangeHandler}
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    onChange={loginChangeHandler}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Sign In
+                  </Button>
+                  <GoogleLogin
+                    clientId='28144132869-865k00rjanquba9oel14bbtt75rn8tv5.apps.googleusercontent.com'
+                    render={(renderProps) => (
+                      <Button className={classes.googleButton}
+                        color="primary"
+                        fullWidth
+                        onClick={renderProps.onClick}
+                        disabled={renderProps.disabled}
+                        startIcon={<Icon />}
+                        variant="contained"
+                        sx={{ mb: 2 }}
+                      >Google Sign In </Button>
+                    )}
+                    onSuccess={googleSuccess}
+                    onFailure={googleFailure}
+                    cookiePolicy='single_host_origin'
+                  />
+                  <Grid container
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <Grid item>
+                      <RegistrationModal variant="body2" />
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Box>
+              <Copyright sx={{ mt: 8, mb: 4, pt: 4 }} />
+            </Container>
           </Box>
         </Fade>
       </Modal>
