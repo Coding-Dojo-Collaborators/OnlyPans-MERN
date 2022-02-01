@@ -44,4 +44,5 @@ module.exports = app => {
           res.status(500).json({ error: e.message })
         }
       })
+      // stripe.subscriptions.update('sub_49ty4767H20z6a', {cancel_at_period_end: true});
 }

@@ -29,15 +29,14 @@ import Detail from './views/RecipeCRUD/Detail';
 import Update from './views/RecipeCRUD/Update';
 
 // Styling Imports
-import ToggleDarkMode from './components/Themes/ToggleDarkMode';
+
 import Dashboard from './views/Dashboard';
-import SubscriptionPage from './components/subscriptions/SubscriptionPage';
+
 import ViewAllUsers from './views/UserCRUD/ViewAllUsers';
 import DetailUser from './views/UserCRUD/DetailUser';
 import EditUser from './views/UserCRUD/EditUser';
 import Main from './views/Main';
 import LandingPage from './views/LandingPage';
-import SubscriptionCheckout from './components/subscriptions/SubscriptionCheckout';
 import ToggleColorMode from './components/Themes/ToggleDarkMode';
 
 export default () => {
@@ -62,13 +61,7 @@ export default () => {
               <Register />
             </LogAndRegView>
           </Route>
-          <Route exact path='/checkout'>
-            <SubscriptionCheckout/>
-           
-          </Route>
-          <Route exact path='/success'>
-            <Success />
-          </Route>
+          
           {/* Dashboard Routes */}
           <Route exact path='/dashboard/:id'>
             <Dashboard/>
@@ -83,9 +76,7 @@ export default () => {
           <Route exact path='/dashboard/favorites/:id'>
             <FavoriteRecipes/>
           </Route>
-          <Route exact path='/subscriptions/:id'>
-            <SubscriptionPage/>
-          </Route>
+          
           {/* User Routes */}
           <Route exact path='/users'>
            <ViewAllUsers/>
