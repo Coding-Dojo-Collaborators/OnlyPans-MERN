@@ -11,18 +11,14 @@ const SubscriptionCheckout = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        items: [
-          { id: 1 },
-          { id: 2 },
-        ],
-      }),
     })
       .then(res => {
+        console.log(res.json)
         if (res.ok) return res.json()
         return res.json().then(json => Promise.reject(json))
       })
       .then(({ url }) => {
+
         window.location = url
       })
       .catch(e => {

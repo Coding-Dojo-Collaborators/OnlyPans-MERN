@@ -23,25 +23,26 @@ module.exports = app => {
     app.post('/api/google/login', UserController.googleLogin)
 
     // subscriptions
-    app.post("/api/create-checkout-session", async (req, res) => {
-        try {
-          const session = await stripe.checkout.sessions.create({
-            line_items: [
-                {
-                  // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                  price:'price_1KNSJrKhZMSaEpADbgJVgeiZ',
-                  quantity: 1,
-                },
-              ],
-            payment_method_types: ["card"],
-            mode: "subscription",
+    // app.post("/api/create-checkout-session", async (req, res) => {
+    //     try {
+    //       const session = await stripe.checkout.sessions.create({
+    //         line_items: [
+    //             {
+    //               // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+    //               price:'price_1KNSJrKhZMSaEpADbgJVgeiZ',
+    //               quantity: 1,
+    //             },
+    //           ],
+    //         payment_method_types: ["card"],
+    //         mode: "subscription",
             
-            success_url: `${CLIENT_URL}/success`,
-            cancel_url: `${CLIENT_URL}/checkout`,
-          })
-          res.json({ url: session.url })
-        } catch (e) {
-          res.status(500).json({ error: e.message })
-        }
-      })
+    //         success_url: `${CLIENT_URL}/success`,
+    //         cancel_url: `${CLIENT_URL}/checkout`,
+    //       })
+    //       res.json({ url: session.url })
+    //     } catch (e) {
+    //       res.status(500).json({ error: e.message })
+    //     }
+    //   })
+      // stripe.subscriptions.update('sub_49ty4767H20z6a', {cancel_at_period_end: true});
 }
