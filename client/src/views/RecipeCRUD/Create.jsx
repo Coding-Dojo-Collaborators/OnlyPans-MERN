@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Form from '../../components/RecipeComponents/Form';
+import Form from '../../components/FormComponents/Form';
 
 export default () => {
     const history = useHistory();
@@ -23,10 +23,10 @@ export default () => {
                 setErrors(errorArr);
             })
     }
-    
+
     return (
         <div>
-            <Link to = '/home'>Home</Link>
+            <Link to='/home'>Home</Link>
             <Form
                 onSubmitProp={createRecipe}
                 initialName=''
@@ -36,7 +36,7 @@ export default () => {
                 initialInstructions=''
                 initialImage=''
                 initialAllergies=''
-                errors = {errors}
+                errors={errors}
             />
         </div>
     )
