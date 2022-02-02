@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 // import RegistrationModal from '../modals/RegistrationModal';
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 
 export default () => {
 
@@ -10,7 +10,8 @@ export default () => {
     color: '#fff',
     fontFamily: 'Playfair Display',
     marginTop: 220,
-    marginLeft: 50
+    marginLeft: 50,
+    width: '500px'
   }
 
   const metaStyle = {
@@ -21,19 +22,19 @@ export default () => {
     width: '420px'
   }
 
-  const buttonStyle = {
-    ':hover': {
-      bgcolor: '#ef5350', // theme.palette.primary.main
-      color: 'white',
-    },
-    color: '#ef5350',
-    fontWeight: 'bold',
-    marginTop: 5,
-    marginLeft: 8,
-    padding: '8px 15px',
-    border: 1,
-    borderColor: '#ef5350'
-  }
+  // const buttonStyle = {
+  //   ':hover': {
+  //     bgcolor: '#ef5350', // theme.palette.primary.main
+  //     color: 'white',
+  //   },
+  //   color: '#ef5350',
+  //   fontWeight: 'bold',
+  //   marginTop: 5,
+  //   marginLeft: 8,
+  //   padding: '8px 15px',
+  //   border: 1,
+  //   borderColor: '#ef5350'
+  // }
 
   return (
     <div style={welcomeStyle} className='ps-5 ms-5'>
@@ -55,11 +56,11 @@ export default () => {
         Access our collection of recipes made by our community of bloggers
       </Typography>
       <div>
-        <Button
+        {/* <Button
           sx={buttonStyle}
         >
           Get Started
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
