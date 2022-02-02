@@ -7,21 +7,25 @@ const CLIENT_URL=process.env.CLIENT_URL
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 //replace names for current project
 module.exports = app => {
-        // recipe
-        app.get('/api/recipe', RecipeController.getRecipe);
-        app.post('/api/recipe/new', RecipeController.createRecipe);
-        app.get('/api/recipe/:id', RecipeController.getOneRecipe);
-        app.put('/api/recipe/edit/:id', RecipeController.updateRecipe);
-        app.delete('/api/recipe/:id', RecipeController.deleteRecipe);
+    // recipe
+    app.post('/api/recipe/new', RecipeController.createRecipe);
+    app.get('/api/recipe', RecipeController.getRecipe);
+    app.get('/api/recipe/:id', RecipeController.getOneRecipe);
+    app.get('/api/recipe/:category',RecipeController.searchByCategory)
+    app.get('/api/recipe/:userId', RecipeController.getAllRecipeByUser)
+    app.get('/api/recipe/sort', RecipeController.RecipeSortByAlphabetical)
+    app.put('/api/recipe/edit/:id', RecipeController.updateRecipe);
+    app.delete('/api/recipe/:id', RecipeController.deleteRecipe);
+
     // users
+    app.post('/api/google/login', UserController.googleLogin)
     app.post("/api/register", UserController.register);
-    app.get('/api/users', UserController.findAllUsers)
-    app.delete("/api/user/delete/:id", UserController.deleteUser)
     app.post("/api/login", UserController.login);
+    app.get('/api/users', UserController.findAllUsers)
     app.get("/api/users/getloggedinuser", authenticate, UserController.getLoggedInUser);
     app.get("/api/logout", UserController.logout)
-    app.post('/api/google/login', UserController.googleLogin)
     app.put('/api/user/update/:id',UserController.updateUser)
+    app.delete("/api/user/delete/:id", UserController.deleteUser)
     // subscriptions
     // app.post("/api/create-checkout-session", async (req, res) => {
     //     try {
