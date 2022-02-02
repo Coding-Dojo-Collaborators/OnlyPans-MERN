@@ -1,7 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import RegistrationModal from '../modals/RegistrationModal';
+// import RegistrationModal from '../modals/RegistrationModal';
+import { Button } from '@mui/material';
 
 export default () => {
 
@@ -21,8 +22,17 @@ export default () => {
   }
 
   const buttonStyle = {
-    marginTop: 20,
-    marginLeft: 55
+    ':hover': {
+      bgcolor: '#ef5350', // theme.palette.primary.main
+      color: 'white',
+    },
+    color: '#ef5350',
+    fontWeight: 'bold',
+    marginTop: 5,
+    marginLeft: 8,
+    padding: '8px 15px',
+    border: 1,
+    borderColor: '#ef5350'
   }
 
   return (
@@ -44,8 +54,12 @@ export default () => {
       >
         Access our collection of recipes made by our community of bloggers
       </Typography>
-      <div style={buttonStyle}>
-        <RegistrationModal />
+      <div>
+        <Button
+          sx={buttonStyle}
+        >
+          Get Started
+        </Button>
       </div>
     </div>
   );
