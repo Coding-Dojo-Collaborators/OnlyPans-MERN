@@ -1,12 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-<<<<<<< HEAD
 // import RegistrationModal from '../modals/RegistrationModal';
 import { Button } from '@mui/material';
-=======
-import RegistrationModal from '../modals/RegistrationModal';
->>>>>>> a5562a120d8ccc872f1fbaf7110f01c642f5a51f
 
 export default () => {
 
