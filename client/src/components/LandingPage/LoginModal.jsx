@@ -54,16 +54,17 @@ const style = {
 const theme = createTheme();
 
 export default function TransitionsModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const [errors, setErrors] = useState("");
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const history = useHistory();
   const classes = useStyles();
+
   const logo = require('../static/images/onlypansegglogo.png')
 
   const loginChangeHandler = (e) => {

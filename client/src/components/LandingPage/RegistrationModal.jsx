@@ -43,15 +43,16 @@ const Copyright = (props) => {
 }
 
 export default function TransitionsModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const history = useHistory();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  // const history = useHistory();
+
   const logo = require('../static/images/onlypansegglogo.png')
   
   const handleSubmit = async (e) => {
@@ -74,7 +75,8 @@ export default function TransitionsModal() {
             .then(res => {
               console.log(res)
               if (res.data.message === "success!") {
-                history.push('/')
+                // history.push('/')
+                handleClose();
               } else if (res.data.message) {
                 console.log(res.data.message)
                 setErrors(res.data)
@@ -183,7 +185,6 @@ export default function TransitionsModal() {
                     </Grid>
                   </Grid>
                   <Button
-                    onclick={handleClose}
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -193,7 +194,7 @@ export default function TransitionsModal() {
                   </Button>
                   <Grid container justifyContent="center">
                     <Grid item>
-                      <Button onclick={handleClose} variant="body2">Log In</Button>                     
+                      <Button variant="body2">Log In</Button>                     
                     </Grid>
                   </Grid>
                 </Box>

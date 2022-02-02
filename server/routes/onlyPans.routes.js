@@ -21,7 +21,7 @@ module.exports = app => {
     app.get("/api/users/getloggedinuser", authenticate, UserController.getLoggedInUser);
     app.get("/api/logout", UserController.logout)
     app.post('/api/google/login', UserController.googleLogin)
-
+    app.put('/api/user/update/:id',UserController.updateUser)
     // subscriptions
     // app.post("/api/create-checkout-session", async (req, res) => {
     //     try {
