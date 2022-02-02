@@ -20,10 +20,7 @@ export default () => {
   return (
     <div>
       <Container>
-        <Typography variant="h2" gutterBottom component="div">
-          h2. Heading
-        </Typography>
-        <Typography
+        <Typography variant="h2" gutterBottom component="div"
           style={welcomeStyle}
           sx={{
             fontSize: '4.5rem',
@@ -34,10 +31,7 @@ export default () => {
         </Typography>
       </Container>
       <Container>
-        <Typography variant="h4" gutterBottom component="div">
-          h4. Heading
-        </Typography>
-        <Typography
+        <Typography variant="h4" gutterBottom component="div"
           // style={subtitleStyle}
           sx={{
             fontSize: '1.5rem',
