@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Row } from '@mui-treasury/components/flex';
 import Button from '@mui/material/Button';
-import LoginModal from '../LandingPage/LoginModal'
+import LoginModal from '../modals/LoginModal'
 import axios from 'axios';
 
 export default ({user, setUser}) => {
@@ -22,7 +22,6 @@ export default ({user, setUser}) => {
     axios.get('http://localhost:8000/api/logout', { withCredentials: true })
     .then(res=>{
       setUser('')
-      history.push('/');
     })
   }
 
@@ -38,25 +37,25 @@ export default ({user, setUser}) => {
         {user == '' ?
         <ul className='navlinks d-flex pt-3 px-3'>
           <li className='list-unstyled ps-2'>
-            <LoginModal>Log In</LoginModal>
+            <LoginModal setUser={setUser} >Log In</LoginModal>
           </li>
           </ul>
           :
           <ul className='navlinks d-flex pt-3 px-3'>
           <li className='list-unstyled pe-5'>
             <Button component={Link} to={`/dashboard/${user._id}`}
-              // variant={`${variantMod}`}
-              style={buttonStyle}
+              
+              sx={buttonStyle}
             >Home</Button>
           </li>
           <li className='list-unstyled pe-5'>
             <Button component={Link} to='/recipes'
-              style={buttonStyle}
+              sx={buttonStyle}
             >Blog</Button>
           </li>
           <li className='list-unstyled pe-5'>
             <Button onClick={logout}
-              style={buttonStyle}
+              sx={buttonStyle}
             >Log out</Button>
           </li>
         </ul>

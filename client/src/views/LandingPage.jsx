@@ -1,7 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import { useState, useEffect} from 'react'
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 // import ToggleColorMode from '../components/Themes/ToggleDarkMode';
 import bgImage from '../components/static/images/bgimage2.jpg';
@@ -10,9 +9,8 @@ import NavLinks from '../components/LandingPage/NavLinks';
 import LandingBody from '../components/LandingPage/LandingBody';
 
 export default () => {
-  const history = useHistory();
   const [user, setUser] = useState('')
- 
+
   const myStyle = {
     backgroundImage:
       `url(${bgImage})`,
@@ -32,7 +30,7 @@ export default () => {
         console.log("noUser logged in")
         
       })
-  }, []);
+  }, [user]);
   return (
     <div className='landingPage'
       style={myStyle}>

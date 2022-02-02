@@ -32,7 +32,7 @@ const Copyright = (props) => {
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-export default () => {
+export default ({handleClose, setUser}) => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,7 +62,9 @@ export default () => {
             .then(res => {
               console.log(res)
               if (res.data.message === "success!") {
-                history.push('/')
+                setUser(res.data)
+                handleClose()
+
               } else if (res.data.message) {
                 console.log(res.data.message)
                 setErrors(res.data)
@@ -166,12 +168,14 @@ export default () => {
           >
             Create Account
           </Button>
-          {/* <Grid container justifyContent="center">
+          <Grid container justifyContent="center">
             <Grid item sx={{ textAlign: 'center' }}>
               Already have an Account?
-              <LoginModal variant="body2" />
+              <Button onClick={handleClose} variant="body2" >
+                Log In
+              </Button>
             </Grid>
-          </Grid> */}
+          </Grid>
         </Box>
       </Box>
       <Copyright sx={{ pt: 3, mb: 4 }} />
