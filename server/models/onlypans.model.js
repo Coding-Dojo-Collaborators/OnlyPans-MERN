@@ -51,7 +51,7 @@ const RecipeSchema = new mongoose.Schema({
         required: true
     },
     favoritedUsers : {
-        type : String
+        type : Array
     },
     allergies: {
         type: String
