@@ -21,6 +21,7 @@ export default () => {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   };
+
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
@@ -28,7 +29,7 @@ export default () => {
       })
       .catch(err => {
         console.log("noUser logged in")
-        
+
       })
   }, [user]);
   return (
@@ -41,7 +42,7 @@ export default () => {
         </div>
         <div className='d-flex justify-content-end'>
           <div className='d-flex justify-content-evenly'>
-            <NavLinks user={user} setUser={setUser}/>
+            <NavLinks user={user} setUser={setUser} />
           </div>
         </div>
       </div>
