@@ -7,6 +7,7 @@ import axios from 'axios';
 import bgImage from '../components/static/images/bgimage2.jpg';
 import Header from '../components/LandingPage/Header';
 import NavLinks from '../components/LandingPage/NavLinks';
+import LandingBody from '../components/LandingPage/LandingBody';
 
 export default () => {
   const history = useHistory();
@@ -46,6 +47,7 @@ export default () => {
           </div>
         </div>
       </div>
+      <LandingBody />
     </div>
   );
 };
