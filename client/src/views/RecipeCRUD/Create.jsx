@@ -7,8 +7,23 @@ export default () => {
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
-    const createRecipe = recipe => {
-        axios.post('http://localhost:8000/api/recipe/new', recipe)
+    const [user, setUser] = useState('')
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+            .then(res => {
+                console.log(res.data);
+                setUser(res.data)
+            })
+            .catch(err => {
+                history.pushState('/')
+                console.log("noUser logged in")
+            });
+    }, []);
+
+    const createRecipe = (recipe) => {
+        console.log(recipe);
+        axios.post('http://localhost:8000/api/recipe/new', recipe )
             .then(res => {
                 history.push('/home');
             })
@@ -23,7 +38,7 @@ export default () => {
                 setErrors(errorArr);
             })
     }
-
+    console.log(user._id);
     return (
         <div>
             <Link to='/home'>Home</Link>
@@ -32,11 +47,13 @@ export default () => {
                 initialName=''
                 initialCuisine=''
                 initialDescription=''
-                iniitalIngredients=''
+                initialIngredients=''
                 initialInstructions=''
                 initialImage=''
                 initialAllergies=''
+                initialCategory=''
                 errors={errors}
+                userId={user._id}
             />
         </div>
     )

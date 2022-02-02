@@ -7,16 +7,8 @@ module.exports.getRecipe = (request, response) => {
 }
 // The method below is new
 module.exports.createRecipe = (request, response) => {
-    const { name, cuisine, description, ingredients, instructions, image, allergies } = request.body;
-    Recipe.create({
-        name,
-        cuisine,
-        description,
-        ingredients,
-        instructions,
-        image,
-        allergies
-    })
+    
+    Recipe.create(request.body)
         .then(recipe => response.json(recipe))
         .catch(err => response.status(400).json(err))
 }

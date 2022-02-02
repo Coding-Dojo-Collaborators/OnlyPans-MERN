@@ -9,27 +9,27 @@ import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
 import './Dashboard.css';
 
-export default () => {
-  const [user, setUser] = useState({});
+export default ({username, setLogout}) => {
+  // const [user, setUser] = useState({});
   const { id } = useParams();
   const history = useHistory();
 
-  const apiURL = 'http://localhost:8000/api/users/getloggedinuser';
+  // const apiURL = 'http://localhost:8000/api/users/getloggedinuser';
 
-  useEffect(() => {
-    axios.get(apiURL)
-      .then(res => {
-        console.log(res.data.results);
-        setUser(res.data.results)
-        history.push(`/${id}`)
-      })
-      .catch(err => console.log(err));
-  }, [apiURL, history, id]);
+  // useEffect(() => {
+  //   axios.get(apiURL,  )
+  //     .then(res => {
+  //       console.log(res.data.results);
+  //       setUser(res.data.results)
+  //       history.push(`/${id}`)
+  //     })
+  //     .catch(err => console.log(err));
+  // }, [apiURL, history, id]);
 
   const logout = () => {
     axios.get('http://localhost:8000/api/logout', { withCredentials: true })
       .then(res => {
-        setUser('')
+        setLogout('')
       });
   };
 
@@ -116,8 +116,8 @@ export default () => {
               </li>
             </ul>
             <div className="footer text-center text-white fw-bold mb-3 pb-4">
-              <p>User Name</p>
-              {user.username}
+              <p>{username}</p>
+              
               <p>
                 <Button onClick={logout}
                   component={Link}

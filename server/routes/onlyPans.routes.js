@@ -12,10 +12,10 @@ module.exports = app => {
     app.get('/api/recipe', RecipeController.getRecipe);
     app.get('/api/recipe/:id', RecipeController.getOneRecipe);
     app.get('/api/recipe/:category',RecipeController.searchByCategory)
-    app.get('/api/recipe/:userId', RecipeController.getAllRecipeByUser)
+    app.get('/api/recipe/user/:userId', RecipeController.getAllRecipeByUser)
     app.get('/api/recipe/sort', RecipeController.RecipeSortByAlphabetical)
     app.put('/api/recipe/edit/:id', RecipeController.updateRecipe);
-    app.delete('/api/recipe/:id', RecipeController.deleteRecipe);
+    app.delete('/api/recipe/delete/:id', RecipeController.deleteRecipe);
 
     // users
     app.post('/api/google/login', UserController.googleLogin)

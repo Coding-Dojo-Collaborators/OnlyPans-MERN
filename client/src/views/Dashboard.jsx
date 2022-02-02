@@ -1,18 +1,37 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
+import {useState, useEffect} from "react"
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import ToggleColorMode from '../components/Themes/ToggleDarkMode';
 import SideNav from '../components/Dashboard/SideNav';
 import DashboardBody from '../components/Dashboard/DashboardBody';
 
 export default () => {
+  const [user, setUser] = useState('')
+  const [ logout, setLogout] = useState()
+  const history = useHistory()
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+      .then(res => {
+        console.log(res.data);
+        setUser(res.data)
+      })
+      .catch(err => {
+        console.log("noUser logged in")
+        history.push('/')
+      });
+  }, [logout]);
+
+  console.log(user);
   return (
     <div className=''>
       <div className='position-fixed'>
-        <SideNav />
+        <SideNav setLogout={setLogout} username={user.username}/>
       </div>
       <div className='dashboard-body'>
         <ToggleColorMode currentPage="dashboard">
-          <DashboardBody />
+          <DashboardBody user={user._id}/>
         </ToggleColorMode>
       </div>
     </div>
