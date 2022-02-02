@@ -97,6 +97,11 @@ class UserController {
             .then(allUsers => res.json({ users: allUsers }))
             .catch(err => res.json({ message: 'Something went wrong', error: err }));
     }
+    updateUser = (req, res) => {
+        User.findOneAndUpdate({_id : req.params.id} , req.body)
+        .then(updateUser => res.json({user : updateUser}))
+        .catch(err => res.json(err))
+    }
 }
 
 
