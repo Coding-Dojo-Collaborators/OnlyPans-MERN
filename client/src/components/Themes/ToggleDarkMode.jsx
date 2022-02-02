@@ -124,7 +124,7 @@ function MyApp({ children, currentPage }) {
             currentPage === "dashboard" ?
               <FormGroup>
                 <div className='d-flex align-items-center justify-content-between ms-5'
-                  style={{ paddingTop: '32px' }}>
+                  style={{ paddingTop: '32px', paddingBottom: '15px' }}>
                   <Typography sx={{ fontSize: 30, fontWeight: 'bold' }}>Dashboard</Typography>
                   <div className='d-flex align-items-center justify-content-end gap-3 me-3'>
                     <DashboardHeader sx={{ mb: 1 }} />
@@ -137,6 +137,7 @@ function MyApp({ children, currentPage }) {
                     />
                   </div>
                 </div>
+                <hr className='hrline' />
                 {children}
               </FormGroup> : <></>
         }

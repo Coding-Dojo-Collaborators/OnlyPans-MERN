@@ -11751,6 +11751,10 @@ a[data-toggle="collapse"] {
   border-color: #f8b739 !important;
 }
 
+.hrline {
+  margin: 15px 30px 15px 30px;
+}
+
 .dashboard-body {
   padding-left: 300px;
 }
