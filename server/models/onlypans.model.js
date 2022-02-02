@@ -7,6 +7,10 @@ const RecipeSchema = new mongoose.Schema({
             'Recipe is required'
         ]
     },
+    category:  {
+        type : String,
+        required : true
+    },
     cuisine: {
         type: String,
         required: [
