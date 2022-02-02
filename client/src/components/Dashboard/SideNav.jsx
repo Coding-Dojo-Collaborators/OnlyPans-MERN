@@ -37,7 +37,10 @@ export default () => {
 
   const logoutStyle = {
     color: '#ffc107',
-    fontSize: 16
+    fontSize: 16,
+    ':hover': {
+      color: '#ffc107',
+    },
   }
 
   return (

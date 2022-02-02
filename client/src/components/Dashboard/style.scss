@@ -1,8 +1,8 @@
-@import "bootstrap/bootstrap";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
-$font-primary: "Poppins", Arial, sans-serif;
+$font-primary: "Open Sans", "Roboto", sans-serif;
 $primary: #f8b739;
 
 body {
@@ -15,7 +15,7 @@ body {
 }
 a {
   transition: 0.3s all ease;
-  color: $primary;
+  // color: $primary;
   &:hover,
   &:focus {
     text-decoration: none !important;
@@ -136,6 +136,7 @@ h5,
         display: block;
         color: rgba(255, 255, 255, 0.8);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-decoration: none;
         &:hover {
           color: $primary;
         }
@@ -195,38 +196,41 @@ a[data-toggle="collapse"] {
   }
 }
 
-// .create-new {
-//   position: relative;
-//   display: inline-flex;
-//   align-items: center;
-//   justify-content: flex-start;
-//   overflow: hidden;
-//   padding: 8px;
-//   border: 1px solid #ccc;
-//   border-radius: 8px;
-//   background: #eee;
-//   transition: 0.2s;
-//   .material-icons {
-//     font-size: 24px;
-//     transition: 0.2s;
-//   }
+.create-recipe {
+  // position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  // padding: 8px;
+  transition: 0.2s;
+  .iconButton {
+    font-size: 38px;
+    transition: 0.2s;
+    color: #6c757d;
+  }
 
-//   .label-hidden {
-//     max-width: 0;
-//     opacity: 0;
-//     max-height: 1em;
-//     white-space: nowrap;
-//     transition: 0.2s;
-//   }
+  .label-hidden {
+    max-width: 0;
+    opacity: 0;
+    margin: 0;
+    max-height: 1em;
+    white-space: nowrap;
+    transition: 0.2s;
+    text-decoration: none;
+    color: #6c757d;
+    padding-top: 2px;
+    font-weight: bold;
+  }
 
-//   &:hover {
-//     .label-hidden {
-//       max-width: 200px;
-//       margin-left: 8px;
-//       opacity: 1;
-//     }
-//   }
-// }
+  &:hover {
+    .label-hidden {
+      max-width: 200px;
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
+}
 
 .footer {
   p {

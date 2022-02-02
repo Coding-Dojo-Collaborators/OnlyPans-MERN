@@ -128,7 +128,7 @@ function MyApp({ children, currentPage }) {
                   <Typography sx={{ fontSize: 30, fontWeight: 'bold' }}>Dashboard</Typography>
                   <div className='d-flex align-items-center justify-content-end gap-3 me-3'>
                     <DashboardHeader sx={{ mb: 1 }} />
-                    <FormControlLabel sx={{ pt: 1 }}
+                    <FormControlLabel sx={{ pt: 0 }}
                       control={<MaterialUISwitch sx={{ m: 1 }}
                         // defaultChecked
                         onClick={colorMode.toggleColorMode}
