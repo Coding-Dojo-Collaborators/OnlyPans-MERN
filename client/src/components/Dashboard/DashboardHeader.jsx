@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
-// import AddCircleIcon from '@mui/icons-material/AddCircle';
-import './Dashboard.css';
-import './style.scss';
 
 export default () => {
   return (

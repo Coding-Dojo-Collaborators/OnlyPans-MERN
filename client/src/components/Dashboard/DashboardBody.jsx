@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
-import './Dashboard.css';
 
 export default () => {
 

@@ -203,7 +203,7 @@ a[data-toggle="collapse"] {
   justify-content: flex-start;
   overflow: hidden;
   // padding: 8px;
-  transition: 0.2s;
+  transition: all 1s;
   .iconButton {
     font-size: 38px;
     transition: 0.2s;
@@ -216,7 +216,7 @@ a[data-toggle="collapse"] {
     margin: 0;
     max-height: 1em;
     white-space: nowrap;
-    transition: 0.2s;
+    transition: all 1s;
     text-decoration: none;
     color: #6c757d;
     padding-top: 2px;
