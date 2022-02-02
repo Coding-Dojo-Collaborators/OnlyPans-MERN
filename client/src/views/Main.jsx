@@ -1,10 +1,13 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import RecipeList from '../components/RecipeBlog/RecipeList';
 import { useHistory } from 'react-router-dom';
-const Main = () => {
-    const history = useHistory();
-    const [user, setUser] = useState('')
+import RecipeList from '../components/RecipeBlog/RecipeList';
+
+export default () => {
+  const [user, setUser] = useState("");
+  const history = useHistory();
+
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
@@ -14,12 +17,11 @@ const Main = () => {
         console.log("noUser logged in")
         history.push('/')
       })
-  }, []);
+  }, [history]);
+
   return (
-      <div>
-          <RecipeList user={user}/>
-      </div>
+    <div>
+      <RecipeList user={user} />
+    </div>
   )
 };
-
-export default Main;
