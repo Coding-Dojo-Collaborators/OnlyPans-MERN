@@ -195,6 +195,39 @@ a[data-toggle="collapse"] {
   }
 }
 
+// .create-new {
+//   position: relative;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   overflow: hidden;
+//   padding: 8px;
+//   border: 1px solid #ccc;
+//   border-radius: 8px;
+//   background: #eee;
+//   transition: 0.2s;
+//   .material-icons {
+//     font-size: 24px;
+//     transition: 0.2s;
+//   }
+
+//   .label-hidden {
+//     max-width: 0;
+//     opacity: 0;
+//     max-height: 1em;
+//     white-space: nowrap;
+//     transition: 0.2s;
+//   }
+
+//   &:hover {
+//     .label-hidden {
+//       max-width: 200px;
+//       margin-left: 8px;
+//       opacity: 1;
+//     }
+//   }
+// }
+
 .footer {
   p {
     color: rgb(255, 255, 255);

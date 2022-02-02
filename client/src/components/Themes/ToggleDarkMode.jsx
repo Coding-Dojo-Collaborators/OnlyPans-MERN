@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react';
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import { useTheme, ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
 import Header from '../LandingPage/Header';
 import DashboardHeader from '../Dashboard/DashboardHeader';
 import NavLinks from '../LandingPage/NavLinks';
@@ -69,7 +70,7 @@ function MyApp({ children, currentPage }) {
     //   p: 0,
     // }}
     >
-      <Container
+      <Box
         sx={{
           display: 'block',
           minWidth: '100%',
@@ -122,9 +123,12 @@ function MyApp({ children, currentPage }) {
             </FormGroup> :
             currentPage === "dashboard" ?
               <FormGroup>
-                <div className='d-flex align-items-center justify-content-between'>
-                  <div className='d-flex justify-content-end'>
-                    <FormControlLabel
+                <div className='d-flex align-items-center justify-content-between ms-5'
+                  style={{ paddingTop: '32px' }}>
+                  <Typography sx={{ fontSize: 30, fontWeight: 'bold' }}>Dashboard</Typography>
+                  <div className='d-flex align-items-center justify-content-end gap-3 me-3'>
+                    <DashboardHeader sx={{ mb: 1 }} />
+                    <FormControlLabel sx={{ pt: 1 }}
                       control={<MaterialUISwitch sx={{ m: 1 }}
                         // defaultChecked
                         onClick={colorMode.toggleColorMode}
@@ -132,14 +136,11 @@ function MyApp({ children, currentPage }) {
                       label=""
                     />
                   </div>
-                  <div className=''>
-                    <DashboardHeader />
-                  </div>
                 </div>
                 {children}
               </FormGroup> : <></>
         }
-      </Container>
+      </Box>
     </div>
   );
 }

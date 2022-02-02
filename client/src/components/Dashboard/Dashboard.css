@@ -4414,6 +4414,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  text-decoration: none;
 }
 .nav-link:hover,
 .nav-link:focus {
@@ -10506,15 +10507,16 @@ h5,
 }
 
 #sidebar {
+  /* position: fixed; */
   min-width: 300px;
   max-width: 300px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #1d1919;
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-  /* padding-top: 40px; */
+  padding-top: 40px;
 }
 #sidebar.active {
   margin-left: -300px;
@@ -10554,9 +10556,9 @@ h5,
   color: #f8b739;
 }
 @media (max-width: 991.98px) {
-  #sidebar {
+  /* #sidebar {
     margin-left: -300px;
-  }
+  } */
   #sidebar.active {
     margin-left: 0;
   }
@@ -10576,16 +10578,10 @@ a[data-toggle="collapse"] {
   transform: translateY(-50%);
 }
 
-@media (max-width: 991.98px) {
-  #sidebarCollapse span {
-    display: none;
-  }
-}
-
 #content {
   width: 100%;
   padding: 0;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -10599,4 +10595,13 @@ a[data-toggle="collapse"] {
 .btn.btn-primary:focus {
   background: #f8b739 !important;
   border-color: #f8b739 !important;
+}
+
+.dashboard-body {
+  padding-left: 300px;
+}
+
+.footer p {
+  letter-spacing: 2px;
+  font-size: 18px;
 }

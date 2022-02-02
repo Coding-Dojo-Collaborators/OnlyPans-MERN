@@ -37,10 +37,11 @@ export default () => {
 
   const logoutStyle = {
     color: '#ffc107',
+    fontSize: 16
   }
 
   return (
-    <div>
+    <div className=''>
       <div className="wrapper d-flex align-items-stretch">
         <div id="sidebar" className='bg-dark'>
           <Row
