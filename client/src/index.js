@@ -1,20 +1,21 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import { StyledEngineProvider } from '@mui/material/styles';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 
-
-const store = createStore( compose(applyMiddleware(thunk)));
+const store = createStore(compose(applyMiddleware(thunk)));
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <StyledEngineProvider injectFirst>
+      <App />
+    </StyledEngineProvider>,
   </Provider>,
-
   document.getElementById('root')
 );
 

@@ -1,32 +1,26 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
-import { useState , useEffect} from "react"
+import { useState, useEffect } from "react"
+import axios from 'axios';
 // import { Link } from 'react-router-dom';
 // import Avatar from '@mui/material/Avatar';
 // import { Row, Item } from '@mui-treasury/components/flex';
 // import { Info, InfoTitle } from '@mui-treasury/components/info';
-import './Dashboard.css';
-import axios from 'axios';
-import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import ChromeTabs from './ChromeTabs';
 
-
-export default ({user}) => {
+export default ({ user }) => {
   const [recipe, setRecipe] = useState([])
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/recipe/user/${user}`)
-    .then(res => {
-      console.log(res.data);
-      // setRecipe(res.data)
-    }).catch(err => console.log(err))
-  },[])
-  
-
-
+      .then(res => {
+        console.log(res.data);
+        // setRecipe(res.data)
+      }).catch(err => console.log(err))
+  }, [user]);
 
   return (
     <div className='d-flex justify-content-center'>
