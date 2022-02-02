@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,11 +12,9 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
-// import Link from '@mui/material/Link';
-
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+// import LoginModal from './LoginModal';
 
 const Copyright = (props) => {
   return (
@@ -31,16 +29,18 @@ const Copyright = (props) => {
   );
 }
 
+// eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
 export default () => {
-  const history = useHistory();
   const [userName, setUserName] = useState("");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState(false);
+  const history = useHistory();
+
+  const logo = require('../static/images/onlypansegglogo.png')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -81,22 +81,33 @@ export default () => {
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: '#003892' }}>
-          <LockOutlinedIcon sx={{ m: 1, color: '#fff' }} />
+        <Avatar variant="square"
+          src={logo} alt="logo"
+          sx={{
+            height: 42,
+            width: 53,
+            mb: 3,
+            pl: 1
+          }}
+        >
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Sign Up
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} >
-              {errors ? <p className="text-danger">{errors}</p> : ""}
+              {
+                errors.message ?
+                  <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                    <Alert severity="error">{errors.message}</Alert>
+                  </Stack> : ""
+              }
               <TextField
                 onChange={(e) => setUserName(e.target.value)}
                 required
@@ -153,18 +164,17 @@ export default () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign Up
+            Create Account
           </Button>
-          <Grid container justifyContent="center">
-            <Grid item>
-              <Link to='/login' variant="body2">
-                Already Have an Account? Log In
-              </Link>
+          {/* <Grid container justifyContent="center">
+            <Grid item sx={{ textAlign: 'center' }}>
+              Already have an Account?
+              <LoginModal variant="body2" />
             </Grid>
-          </Grid>
+          </Grid> */}
         </Box>
       </Box>
-      <Copyright sx={{ mt: 5 }} />
+      <Copyright sx={{ pt: 3, mb: 4 }} />
     </Container>
     // </ThemeProvider>
   );

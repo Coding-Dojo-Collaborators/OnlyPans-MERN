@@ -5,7 +5,7 @@ import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
 
 export default () => {
-  const logo = require('../static/images/onlypansegglogo.png')
+  const logo = require('../static/images/onlypansegglogo.png');
 
   return (
     <Row
@@ -21,6 +21,7 @@ export default () => {
           sx={{
             height: 60,
             width: 65,
+            ml: 5
           }}
         >
         </Avatar>
@@ -36,10 +37,10 @@ export default () => {
       >
         <InfoTitle
           sx={{
-            fontSize: '3rem',
+            fontSize: '3rem'
           }}
         >
-          <span className='h1 fw-bold pe-5'>
+          <span className='h1 fw-bold text-white pe-5'>
             N L Y P A N S
           </span>
         </InfoTitle>

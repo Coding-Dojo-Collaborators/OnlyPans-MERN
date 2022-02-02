@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
+import { createTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,12 +13,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme } from '@mui/material/styles';
-import { Icon } from '@material-ui/core';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 import useStyles from './Styles';
+import RegistrationModal from './RegistrationModal';
 
 
 const Copyright = (props) => {
@@ -33,6 +34,7 @@ const Copyright = (props) => {
   );
 }
 
+// eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
 export default () => {
@@ -43,6 +45,9 @@ export default () => {
   });
   const history = useHistory();
   const classes = useStyles();
+
+  const logo = require('../static/images/onlypansegglogo.png')
+
   const loginChangeHandler = (e) => {
     setLoginInfo({
       ...loginInfo,
@@ -90,20 +95,31 @@ export default () => {
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: '#003892' }}>
-          <LockOutlinedIcon sx={{ m: 1, color: '#fff' }} />
+        <Avatar variant="square"
+          src={logo} alt="logo"
+          sx={{
+            height: 42,
+            width: 53,
+            mb: 3,
+            pl: 1
+          }}
+        >
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign In
+          Log In
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          {errors.message ? <p className="text-danger">{errors.message}</p> : ""}
+          {
+            errors.message ?
+              <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                <Alert severity="error">{errors.message}</Alert>
+              </Stack> : ""
+          }
           <TextField
             margin="normal"
             required
@@ -146,7 +162,7 @@ export default () => {
                 fullWidth
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
-                startIcon={<Icon />}
+                // startIcon={<Icon />}
                 variant="contained"
                 sx={{ mb: 2 }}
               >Google Sign In </Button>
@@ -155,21 +171,20 @@ export default () => {
             onFailure={googleFailure}
             cookiePolicy='single_host_origin'
           />
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot Password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link to='/register' variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
+          <Grid container
+            sx={{
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <Grid item sx={{ textAlign: 'center' }}>
+              Don't have an Account?
+              <RegistrationModal variant="body2" />
             </Grid>
           </Grid>
         </Box>
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
+      <Copyright sx={{ pt: 3, mb: 4 }} />
     </Container>
     // </ThemeProvider>
   );

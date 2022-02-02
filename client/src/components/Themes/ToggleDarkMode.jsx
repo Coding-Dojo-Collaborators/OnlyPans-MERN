@@ -81,28 +81,46 @@ function MyApp({ children, currentPage }) {
         }}
       >
         {
-          currentPage === "landingPage" ?
-            (<FormGroup>
+          // currentPage === "landingPage" ?
+          //   (<FormGroup>
+          //     <div className='d-flex align-items-center justify-content-between'>
+          //       <div className='d-flex justify-content-start'>
+          //         <Header />
+          //       </div>
+          //       <div className='d-flex justify-content-end'>
+          //         <div className='d-flex justify-content-evenly'>
+          //           <NavLinks />
+          //           {/* <FormControlLabel
+          //             control={<MaterialUISwitch sx={{ m: 1 }}
+          //               // defaultChecked
+          //               onClick={colorMode.toggleColorMode}
+          //             />}
+          //             label=""
+          //           /> */}
+          //         </div>
+          //       </div>
+          //     </div>
+          //     {children}
+          //   </FormGroup>) :
+          currentPage === "blog" ?
+            <FormGroup>
               <div className='d-flex align-items-center justify-content-between'>
-                <div className='d-flex justify-content-start'>
-                  <Header />
-                </div>
                 <div className='d-flex justify-content-end'>
-                  <div className='d-flex justify-content-evenly'>
-                    <NavLinks />
-                    <FormControlLabel
-                      control={<MaterialUISwitch sx={{ m: 1 }}
-                        // defaultChecked
-                        onClick={colorMode.toggleColorMode}
-                      />}
-                      label=""
-                    />
-                  </div>
+                  <FormControlLabel
+                    control={<MaterialUISwitch sx={{ m: 1 }}
+                      // defaultChecked
+                      onClick={colorMode.toggleColorMode}
+                    />}
+                    label=""
+                  />
+                </div>
+                <div className='d-flex justify-content-center'>
+                  <Header />
                 </div>
               </div>
               {children}
-            </FormGroup>) :
-            currentPage === "blog" ?
+            </FormGroup> :
+            currentPage === "dashboard" ?
               <FormGroup>
                 <div className='d-flex align-items-center justify-content-between'>
                   <div className='d-flex justify-content-end'>
@@ -114,30 +132,12 @@ function MyApp({ children, currentPage }) {
                       label=""
                     />
                   </div>
-                  <div className='d-flex justify-content-center'>
-                    <Header />
+                  <div className=''>
+                    <DashboardHeader />
                   </div>
                 </div>
                 {children}
-              </FormGroup> :
-              currentPage === "dashboard" ?
-                <FormGroup>
-                  <div className='d-flex align-items-center justify-content-between'>
-                    <div className='d-flex justify-content-end'>
-                      <FormControlLabel
-                        control={<MaterialUISwitch sx={{ m: 1 }}
-                          // defaultChecked
-                          onClick={colorMode.toggleColorMode}
-                        />}
-                        label=""
-                      />
-                    </div>
-                    <div className=''>
-                      <DashboardHeader />
-                    </div>
-                  </div>
-                  {children}
-                </FormGroup> : <></>
+              </FormGroup> : <></>
         }
       </Container>
     </div>
