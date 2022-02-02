@@ -24,13 +24,19 @@ export default function TransitionsModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const buttonStyle = {
+    ':hover': {
+      bgcolor: '#ef5350', // theme.palette.primary.main
+      color: 'white',
+    },
+    color: '#fff',
+    fontWeight: 'bold'
+  }
+
   return (
     <div>
       <Button onClick={handleOpen}
-        sx={{
-          color: '#fff',
-          fontWeight: 'bold'
-        }}
+        sx={buttonStyle}
       >
         Log In
       </Button>

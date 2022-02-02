@@ -7,12 +7,14 @@ import LoginModal from '../LandingPage/LoginModal'
 
 export default () => {
 
-  const textTheme = {
+  const buttonStyle = {
+    ':hover': {
+      bgcolor: '#ef5350', // theme.palette.primary.main
+      color: 'white',
+    },
     color: '#fff',
     fontWeight: 'bold'
   }
-
-  // let variantMod = "text";
 
   return (
     <div className='mx-5'>
@@ -23,16 +25,17 @@ export default () => {
           justifyContent: 'space-evenly',
         }}
       >
-        <ul className='navlinks d-flex pt-3 px-3'>
+        <ul className='d-flex pt-3 px-3'>
           <li className='list-unstyled pe-5'>
             <Button component={Link} to='/dashboard/:id'
-              // variant={`${variantMod}`}
-              style={textTheme}
+              variant="text"
+              sx={buttonStyle}
             >Home</Button>
           </li>
           <li className='list-unstyled pe-5'>
             <Button component={Link} to='/recipes'
-              style={textTheme}
+              variant="text"
+              sx={buttonStyle}
             >Blog</Button>
           </li>
           <li className='list-unstyled ps-2'>

@@ -4,6 +4,7 @@ import * as React from 'react';
 import bgImage from '../components/static/images/bgimage2.jpg';
 import Header from '../components/LandingPage/Header';
 import NavLinks from '../components/LandingPage/NavLinks';
+import LandingBody from '../components/LandingPage/LandingBody';
 
 export default () => {
 
@@ -32,6 +33,7 @@ export default () => {
           </div>
         </div>
       </div>
+      <LandingBody />
     </div>
   );
 };
