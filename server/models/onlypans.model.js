@@ -42,6 +42,13 @@ const RecipeSchema = new mongoose.Schema({
             'Image is required'
         ]
     },
+    userId : {
+        type : String,
+        required: true
+    },
+    favoritedUsers : {
+        type : String
+    },
     allergies: {
         type: String
     }
