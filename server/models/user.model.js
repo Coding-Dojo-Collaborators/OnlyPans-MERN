@@ -25,6 +25,9 @@ const UserSchema = new mongoose.Schema({
   favoriteRecipe: {
     type: Array
   },
+  userLiked: {
+    type : Array
+  },
   likes: {
     type: Number
   },
