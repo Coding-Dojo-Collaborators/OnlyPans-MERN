@@ -4221,8 +4221,10 @@ fieldset:disabled .btn {
 }
 
 .nav-tabs {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 0 solid transparent !important;
+  margin-right: 3px;
 }
+
 .nav-tabs .nav-link {
   margin-bottom: -1px;
   background: none;
@@ -4244,6 +4246,7 @@ fieldset:disabled .btn {
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
   background-color: #fff;
+  font-weight: bold;
   border-color: #dee2e6 #dee2e6 #fff;
 }
 .nav-tabs .dropdown-menu {
@@ -4283,6 +4286,11 @@ fieldset:disabled .btn {
 
 .tab-content > .tab-pane {
   display: none;
+  border: 1px solid #dee2e6;
+  /* border-top: 0; */
+  border-top-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
 .tab-content > .active {
   display: block;
@@ -6429,7 +6437,8 @@ fieldset:disabled .btn {
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: 100% 100%;
-} */
+}
+*/
 
 /* rtl:options: {
   "autoRename": true,
@@ -6508,7 +6517,7 @@ fieldset:disabled .btn {
 }
 .carousel-dark .carousel-caption {
   color: #000;
-} 
+}
 
 @-webkit-keyframes spinner-border {
   to {

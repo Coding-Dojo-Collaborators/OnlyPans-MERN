@@ -3,6 +3,10 @@ import * as React from 'react';
 import ToggleColorMode from '../components/Themes/ToggleDarkMode';
 import SideNav from '../components/Dashboard/SideNav';
 import DashboardBody from '../components/Dashboard/DashboardBody';
+import { createTheme } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
+
+const baseTheme = createTheme();
 
 export default () => {
   return (
@@ -12,7 +16,11 @@ export default () => {
       </div>
       <div className='dashboard-body'>
         <ToggleColorMode currentPage="dashboard">
-          <DashboardBody />
+          <ThemeProvider theme={baseTheme}>
+            <div className="App">
+              <DashboardBody />
+            </div>
+          </ThemeProvider>
         </ToggleColorMode>
       </div>
     </div>

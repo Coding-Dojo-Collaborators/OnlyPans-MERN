@@ -137,7 +137,7 @@ function MyApp({ children, currentPage }) {
                     />
                   </div>
                 </div>
-                <hr className='hrline' />
+                <hr className='hrline mb-5' />
                 {children}
               </FormGroup> : <></>
         }
