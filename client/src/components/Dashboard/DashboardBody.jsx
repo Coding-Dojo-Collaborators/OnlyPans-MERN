@@ -6,6 +6,9 @@ import axios from 'axios';
 // import Avatar from '@mui/material/Avatar';
 // import { Row, Item } from '@mui-treasury/components/flex';
 // import { Info, InfoTitle } from '@mui-treasury/components/info';
+
+import axios from 'axios';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import ChromeTabs from './ChromeTabs';
@@ -22,7 +25,17 @@ export default ({ user }) => {
       }).catch(err => console.log(err))
   }, [user]);
 
-  return (
+    .then(res => {
+    console.log(res.data);
+    setRecipe(res.data)
+  }).catch(err => console.log(err))
+}, [])
+
+
+
+console.log(recipe);
+return (
+  <div>
     <div className='d-flex justify-content-center'>
       <AppBar
         position={''}
@@ -50,5 +63,17 @@ export default ({ user }) => {
         </Toolbar>
       </AppBar>
     </div>
-  );
+    <div>
+      {
+        recipe.map((recipe, i) => {
+          return (
+            <p>
+              {recipe.name}
+            </p>
+          )
+        })
+      }
+    </div>
+  </div>
+);
 };

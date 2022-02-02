@@ -32,15 +32,18 @@ module.exports.deleteRecipe = (request, response) => {
 }
 
 module.exports.searchByCategory = (request, response) => {
-    Recipe.find({category : request.params.category})
+    Recipe.find({'Recipe.category' : request.params.category})
         .then(category => response.json(category))
         .catch(err => response.json(err))
 }
 
 module.exports.getAllRecipeByUser = (request, response) => {
-    Recipe.find({userId : request.params.id})
+    // Recipe.find( { $where: function() {
+    //     return (hex_md5(userId) == request.params.id)
+    //  } } )
+    Recipe.find({'Recipe.userId' : request.params.id})
         .then(userRecipes => response.json(userRecipes))
-        .catch(err => response.json(err))
+         .catch(err => response.json(err))
 }
 
 module.exports.RecipeSortByAlphabetical = (request, response) => {
