@@ -6,6 +6,10 @@ import axios from 'axios';
 import ToggleColorMode from '../components/Themes/ToggleDarkMode';
 import SideNav from '../components/Dashboard/SideNav';
 import DashboardBody from '../components/Dashboard/DashboardBody';
+import { createTheme } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
+
+const baseTheme = createTheme();
 
 export default () => {
   const [user, setUser] = useState('')
@@ -31,7 +35,11 @@ export default () => {
       </div>
       <div className='dashboard-body'>
         <ToggleColorMode currentPage="dashboard">
-          <DashboardBody user={user._id}/>
+          <ThemeProvider theme={baseTheme}>
+            <div className="App">
+              <DashboardBody user={user._id}/>
+            </div>
+          </ThemeProvider>
         </ToggleColorMode>
       </div>
     </div>

@@ -28,6 +28,7 @@ import EditUser from './views/UserCRUD/EditUser';
 // Styling Imports
 // import ToggleColorMode from './components/Themes/ToggleDarkMode';
 import './App.css';
+import './style.scss';
 
 export default () => {
   return (

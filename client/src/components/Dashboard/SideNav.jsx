@@ -7,7 +7,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
-import './Dashboard.css';
 
 export default ({username, setLogout}) => {
   // const [user, setUser] = useState({});
@@ -37,7 +36,10 @@ export default ({username, setLogout}) => {
 
   const logoutStyle = {
     color: '#ffc107',
-    fontSize: 16
+    fontSize: 16,
+    ':hover': {
+      color: '#ffc107',
+    },
   }
 
   return (
