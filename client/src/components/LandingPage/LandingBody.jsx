@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import RegistrationModal from './RegistrationModal';
+import RegistrationModal from '../modals/RegistrationModal';
 
 export default () => {
 
