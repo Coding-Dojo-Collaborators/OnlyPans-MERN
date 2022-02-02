@@ -12,6 +12,8 @@ export default () => {
     fontWeight: 'bold'
   }
 
+  // let variantMod = "text";
+
   return (
     <div className='mx-5'>
       <Row
@@ -21,9 +23,10 @@ export default () => {
           justifyContent: 'space-evenly',
         }}
       >
-        <ul className='d-flex pt-3 px-3'>
+        <ul className='navlinks d-flex pt-3 px-3'>
           <li className='list-unstyled pe-5'>
             <Button component={Link} to='/dashboard/:id'
+              // variant={`${variantMod}`}
               style={textTheme}
             >Home</Button>
           </li>

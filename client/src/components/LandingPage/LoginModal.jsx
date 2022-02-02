@@ -20,65 +20,9 @@ const style = {
 };
 
 export default function TransitionsModal() {
-<<<<<<< HEAD
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-=======
-  const [errors, setErrors] = useState("");
-  const [loginInfo, setLoginInfo] = useState({
-    email: "",
-    password: "",
-  });
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const history = useHistory();
-  const classes = useStyles();
-
-  const logo = require('../static/images/onlypansegglogo.png')
-
-  const loginChangeHandler = (e) => {
-    setLoginInfo({
-      ...loginInfo,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post('http://localhost:8000/api/login', loginInfo, { withCredentials: true })
-      .then(res => {
-        console.log(res)
-        if (res.data.message === "success!") {
-          history.push('/')
-        } else if (res.data.message) {
-          console.log(res.data.message)
-          setErrors(res.data)
-        }
-      })
-      .catch(err => console.log(err));
-  };
-
-  const googleSuccess = async (res) => {
-    axios.post('http://localhost:8000/api/google/login',
-      res.profileObj
-      , { withCredentials: true })
-      .then(res => {
-        console.log(res)
-        if (res.data.message === "success!") {
-          history.push('/')
-        } else {
-          setErrors(res.data)
-        }
-      })
-      .catch(err => console.log(err));
-  };
-
-  const googleFailure = () => {
-    console.log("Google sign in not working!");
-  };
->>>>>>> 7936eafd31af1fe167e456526c54d723d0498bed
 
   return (
     <div>
