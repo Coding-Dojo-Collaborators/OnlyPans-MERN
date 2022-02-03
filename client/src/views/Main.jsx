@@ -3,7 +3,6 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import RecipeList from '../components/RecipeBlog/RecipeList';
-import MainCarouselContainer from '../components/RecipeBlog/MainCarouselContainer';
 import BlogHeader from '../components/RecipeBlog/BlogHeader';
 
 export default () => {
@@ -22,9 +21,8 @@ export default () => {
   }, [history]);
 
   return (
-    <div className='header'>
-      <BlogHeader />
-      <MainCarouselContainer />
+    <div className='container'>
+      <BlogHeader pageComponent='viewallrecipes' />
       <RecipeList user={user} />
     </div>
   )

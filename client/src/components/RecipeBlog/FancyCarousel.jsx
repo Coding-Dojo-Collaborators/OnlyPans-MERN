@@ -6,7 +6,7 @@ import fancy2 from '../static/images/fancy/fancy2.jpg';
 import fancy3 from '../static/images/fancy/fancy3.jpg';
 import fancy4 from '../static/images/fancy/fancy4.jpg';
 import fancy5 from '../static/images/fancy/fancy5.jpg';
-import fancy6 from '../static/images/fancy/fancy6.jpg';
+import fancy6 from '../static/images/fancy/fancy6.png';
 import fancy7 from '../static/images/fancy/fancy7.jpg';
 import fancy8 from '../static/images/fancy/fancy8.jpg';
 import fancy9 from '../static/images/fancy/fancy9.jpg';

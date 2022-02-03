@@ -56,7 +56,6 @@ export default ({ currentPage }) => {
                 </span>
                 :
                 <></>
-
           }
         </InfoTitle>
       </Info>

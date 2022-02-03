@@ -1,68 +1,73 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
-// import Avatar from '@mui/material/Avatar';
 import { Row, Item } from '@mui-treasury/components/flex';
-import { Info, InfoTitle } from '@mui-treasury/components/info';
-import { Typography } from '@mui/material';
+import MainCarouselContainer from './MainCarouselContainer';
+import ViewOneCarousel from './ViewOneCarousel';
+import BreakfastCarousel from './BreakfastCarousel';
+import LunchCarousel from './LunchCarousel';
+import DinnerCarousel from './DinnerCarousel';
+import QuickiesCarousel from './QuickiesCarousel';
+import FancyCarousel from './FancyCarousel';
+import SweetsCarousel from './SweetsCarousel';
 
-export default ({ currentPage }) => {
+export default ({ pageComponent }) => {
   const logo = require('../static/images/bloglogo.png');
 
   return (
-    <Row
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        bgcolor: 'transparent',
-        marginTop: 50,
-        px: 5,
-        py: 5,
-        border: '5px solid #000',
-      }}
-    >
-      <Item>
-        <img src={logo} alt="logo"
-          style={{
-            height: 60,
-            width: 'auto',
-            ml: 5
-          }}
-        />
-      </Item>
-      <Info position={'middle'}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          pl: 1,
-          pt: 1,
-        }}
-      >
-        <InfoTitle
+    <div className='container-header'>
+      <div className='header-links'>
+        <div className="blog-links">
+          {/* <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul> */}
+        </div>
+      </div>
+      {
+        pageComponent === 'viewallrecipes' ?
+          <MainCarouselContainer /> :
+          pageComponent === 'viewonerecipe' ?
+            <ViewOneCarousel /> :
+            pageComponent === 'breakfastrecipes' ?
+              <BreakfastCarousel /> :
+              pageComponent === 'lunchrecipes' ?
+                <LunchCarousel /> :
+                pageComponent === 'dinnerrecipes' ?
+                  <DinnerCarousel /> :
+                  pageComponent === 'quickrecipes' ?
+                    <QuickiesCarousel /> :
+                    pageComponent === 'wineanddine' ?
+                      <FancyCarousel /> :
+                      pageComponent === 'bakedgoods' ?
+                        <SweetsCarousel /> :
+                        <></>
+      }
+      <div className="carousel blog-logo">
+        <Row
           sx={{
-            fontSize: '3rem'
+            display: 'flex',
+            justifyContent: 'center',
+            bgcolor: 'transparent',
+            marginTop: '-310px'
           }}
         >
-          {
-            currentPage === 'landingPage' ?
-              <span className='h1 fw-bold text-white pe-5'>
-                N L Y P A N S
-              </span>
-              :
-              currentPage === 'createRecipe' ?
-                <span className='h1 fw-bold text-white pe-5'>
-                  <Typography
-                    sx={{ color: 'text.primary' }}>
-                    N L Y P A N S
-                  </Typography>
-                </span>
-                :
-                <></>
-
-          }
-        </InfoTitle>
-      </Info>
-    </Row>
+          <Item sx={{
+            boxSizing: 'content-box !important',
+            border: '5px solid #000',
+            bgcolor: '#fff',
+          }}>
+            <img src={logo} alt="logo"
+              style={{
+                height: 80,
+                width: 'auto',
+                padding: '10px 20px 15px',
+              }}
+            />
+          </Item>
+        </Row>
+      </div>
+    </div>
   );
 };
 

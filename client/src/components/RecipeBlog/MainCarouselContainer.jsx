@@ -12,7 +12,7 @@ import Assorted from '../static/images/main-carousel/Assorted.jpg';
 
 export default () => {
   return (
-    <div className='carousel  py-4'>
+    <div className='carousel'>
       <Carousel prevIcon={
         <span aria-hidden="true" className="carousel-control-prev-icon" />}>
         <Carousel.Item>
