@@ -63,46 +63,18 @@ function MyApp({ children, currentPage }) {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   return (
-    <div className='bg-secondary'
-    // sx={{
-    //   display: 'flex',
-    //   justifyContent: 'center',
-    //   p: 0,
-    // }}
-    >
+    <div className='bg-secondary'>
       <Box
         sx={{
           display: 'block',
           minWidth: '100%',
           minHeight: '100vh',
-          // justifyContent: ' center',
           bgcolor: 'background.default',
           color: 'text.primary',
           p: 2,
         }}
       >
         {
-          // currentPage === "landingPage" ?
-          //   (<FormGroup>
-          //     <div className='d-flex align-items-center justify-content-between'>
-          //       <div className='d-flex justify-content-start'>
-          //         <Header />
-          //       </div>
-          //       <div className='d-flex justify-content-end'>
-          //         <div className='d-flex justify-content-evenly'>
-          //           <NavLinks />
-          //           {/* <FormControlLabel
-          //             control={<MaterialUISwitch sx={{ m: 1 }}
-          //               // defaultChecked
-          //               onClick={colorMode.toggleColorMode}
-          //             />}
-          //             label=""
-          //           /> */}
-          //         </div>
-          //       </div>
-          //     </div>
-          //     {children}
-          //   </FormGroup>) :
           currentPage === "blog" ?
             <FormGroup>
               <div className='d-flex align-items-center justify-content-between'>
@@ -124,7 +96,10 @@ function MyApp({ children, currentPage }) {
             currentPage === "dashboard" ?
               <FormGroup>
                 <div className='d-flex align-items-center justify-content-between ms-5'
-                  style={{ paddingTop: '32px', paddingBottom: '15px' }}>
+                  style={{
+                    paddingTop: '32px',
+                    paddingBottom: '15px',
+                  }}>
                   <Typography sx={{ fontSize: 30, fontWeight: 'bold' }}>Dashboard</Typography>
                   <div className='d-flex align-items-center justify-content-end gap-3 me-3'>
                     <DashboardHeader sx={{ mb: 1 }} />

@@ -1,7 +1,11 @@
-import React from 'react';
+/* eslint-disable import/no-anonymous-default-export */
+import * as React from 'react';
 
-const ManagePostsTab = () => {
-  return <div></div>;
+export default () => {
+  return (
+    <div>
+
+    </div>
+  );
 };
 
-export default ManagePostsTab;

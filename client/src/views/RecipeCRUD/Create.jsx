@@ -1,13 +1,13 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Form from '../../components/FormComponents/Form';
 
 export default () => {
-    const history = useHistory();
     const [errors, setErrors] = useState([]);
-
     const [user, setUser] = useState('')
+    const history = useHistory();
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
@@ -19,13 +19,13 @@ export default () => {
                 history.pushState('/')
                 console.log("noUser logged in")
             });
-    }, []);
+    }, [history]);
 
     const createRecipe = (recipe) => {
         console.log(recipe);
-        axios.post('http://localhost:8000/api/recipe/new', recipe )
+        axios.post('http://localhost:8000/api/recipe/new', recipe)
             .then(res => {
-                history.push('/home');
+                history.push('/');
             })
             .catch(err => {
                 console.log(err.response.data.errors)
@@ -36,12 +36,13 @@ export default () => {
                 }
                 // Set Errors
                 setErrors(errorArr);
-            })
-    }
+            });
+    };
     console.log(user._id);
+
     return (
         <div>
-            <Link to='/home'>Home</Link>
+            <Link to='/'>Home</Link>
             <Form
                 onSubmitProp={createRecipe}
                 initialName=''

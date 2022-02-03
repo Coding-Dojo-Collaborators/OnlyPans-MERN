@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
@@ -11,8 +12,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-// import { Link } from 'react-router-dom';
-// import Avatar from '@mui/material/Avatar';
+import ManagePostsTab from './ManagePostsTab';
+import Avatar from '@mui/material/Avatar';
 // import { Row, Item } from '@mui-treasury/components/flex';
 // import { Info, InfoTitle } from '@mui-treasury/components/info';
 
@@ -78,11 +79,13 @@ export default function BasicTabs({ user }) {
             onChange={handleChange}
             indicatorColor="secondary"
             textColor="inherit"
-            variant=""
             aria-label="basic tabs example"
+            sx={{
+              bgcolor: '#272727'
+            }}
           >
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
+            <Tab label="Latest Posts" {...a11yProps(0)} />
+            <Tab label="Manage Posts" {...a11yProps(1)} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -93,16 +96,35 @@ export default function BasicTabs({ user }) {
           <div>
             {
               recipe.map((recipe, i) => {
+                let made = recipe.createdAt,
+                  cdate = (new Date(made)).toLocaleString();
                 return (
-                  <DashboardBody value={value} index={0} dir={theme.direction}>
-                    {recipe.name}
+                  <DashboardBody
+                    key={i}
+                    value={value}
+                    index={0}
+                    dir={theme.direction}
+                  >
+                    <div className='d-flex align-items-center gap-3 ms-2'>
+                      <Avatar
+                        src={recipe.image}
+                        variant="rounded"
+                      />
+                      <div className='d-flex justify-content-between gap-5'>
+                        {recipe.name}
+                        <span className='ms-4 pe-2'>{cdate}</span>
+                      </div>
+                    </div>
                   </DashboardBody>
                 );
               })
             }
           </div>
-          <DashboardBody value={value} index={1} dir={theme.direction}>
-            Item Two
+          <DashboardBody
+            value={value}
+            index={1}
+            dir={theme.direction}>
+            <ManagePostsTab />
           </DashboardBody>
         </SwipeableViews>
       </Box>
