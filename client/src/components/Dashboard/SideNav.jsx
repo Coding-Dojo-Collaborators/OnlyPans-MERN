@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import axios from 'axios';
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import { Row, Item } from '@mui-treasury/components/flex';
@@ -39,7 +39,8 @@ export default ({ username, setLogout }) => {
               alignItems: 'center',
               bgcolor: 'transparent',
               pt: 2,
-              pb: 1
+              pb: 1,
+              textDecoration: 'none'
             }}
           >
             <Item>

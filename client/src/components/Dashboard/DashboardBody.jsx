@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
@@ -14,8 +14,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ManagePostsTab from './ManagePostsTab';
 import Avatar from '@mui/material/Avatar';
-// import { Row, Item } from '@mui-treasury/components/flex';
-// import { Info, InfoTitle } from '@mui-treasury/components/info';
 
 const DashboardBody = ({ user, children, value, index, ...other }) => {
   return (
@@ -70,6 +68,18 @@ export default function BasicTabs({ user }) {
   };
   console.log(recipe[1]);
 
+  const thStyle = {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'text.primary'
+  }
+
+  const tdStyle = {
+    fontSize: 14,
+    // fontWeight: 'bold',
+    color: 'text.primary'
+  }
+
   return (
     <div className='d-flex justify-content-center'>
       <Box sx={{ bgcolor: 'background.paper', width: 750 }}>
@@ -97,25 +107,57 @@ export default function BasicTabs({ user }) {
             {
               recipe.map((recipe, i) => {
                 let made = recipe.createdAt,
-                  cdate = (new Date(made)).toLocaleString();
+                  createdDate = (new Date(made)).toLocaleString();
                 return (
-                  <DashboardBody
-                    key={i}
-                    value={value}
-                    index={0}
-                    dir={theme.direction}
-                  >
-                    <div className='d-flex align-items-center gap-3 ms-2'>
-                      <Avatar
-                        src={recipe.image}
-                        variant="rounded"
-                      />
-                      <div className='d-flex justify-content-between gap-5'>
-                        {recipe.name}
-                        <span className='ms-4 pe-2'>{cdate}</span>
-                      </div>
-                    </div>
-                  </DashboardBody>
+                  <>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            <Typography
+                              sx={thStyle}>
+                              Recipe Name
+                            </Typography>
+                          </th>
+                          <th scope="col">
+                            <Typography
+                              sx={thStyle}>
+                              Publish Date
+                            </Typography>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <DashboardBody
+                            key={i}
+                            value={value}
+                            index={0}
+                            dir={theme.direction}
+                          >
+                            <td>
+                              <div className='d-flex align-items-center gap-3 ms-2'>
+                                <Avatar
+                                  src={recipe.image}
+                                  variant="rounded"
+                                />
+                                <Typography
+                                  sx={tdStyle}>
+                                  {recipe.name}
+                                </Typography>
+                              </div>
+                            </td>
+                            <td>
+                              <Typography
+                                sx={tdStyle}>
+                                {createdDate}
+                              </Typography>
+                            </td>
+                          </DashboardBody>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </>
                 );
               })
             }
@@ -128,6 +170,11 @@ export default function BasicTabs({ user }) {
           </DashboardBody>
         </SwipeableViews>
       </Box>
-    </div>
+      <div className='sticky-footer text-center fixed-bottom'>
+        <p>© <Link to='/' sx={{ textDecoration: 'none !important' }}>
+          OnlyPans</Link> 2022 by Unlimited Nerd Works, Inc.
+        </p>
+      </div>
+    </div >
   );
 };

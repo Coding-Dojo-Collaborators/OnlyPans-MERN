@@ -11764,13 +11764,18 @@ a[data-toggle="collapse"] {
   margin: 15px 30px 15px 30px;
 }
 
-.dashboard-body {
+.dashboard-body,
+.sticky-footer {
   padding-left: 300px;
 }
 
 .footer p {
   letter-spacing: 2px;
   font-size: 18px;
+}
+
+.sticky-footer {
+  height: 50px;
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
@@ -11785,4 +11790,8 @@ a[data-toggle="collapse"] {
 
 .MuiTabs-indicator {
   background-color: #ffc107 !important;
+}
+
+.MuiLink-underlineNone {
+  text-decoration: none !important;
 }
