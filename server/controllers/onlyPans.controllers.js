@@ -38,9 +38,6 @@ module.exports.searchByCategory = (request, response) => {
 }
 
 module.exports.getAllRecipeByUser = (request, response) => {
-    // Recipe.find( { $where: function() {
-    //     return (hex_md5(userId) == request.params.id)
-    //  } } )
     Recipe.find({'Recipe.userId' : request.params.id})
         .then(userRecipes => response.json(userRecipes))
          .catch(err => response.json(err))

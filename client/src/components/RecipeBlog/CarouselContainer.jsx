@@ -6,29 +6,31 @@ import Main3 from '../static/images/Main3.jpg'
 
 const CarouselContainer = () => {
     return (
-        <Carousel>
-            <Carousel.Item>
-                <img
-                    className="d-block w-70"
-                    src={Main1}
-                    alt="First slide"
-                />
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-70"
-                    src={Main2}
-                    alt="Second slide"
-                />
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-70"
-                    src={Main3}
-                    alt="Third slide"
-                />
-            </Carousel.Item>
-        </Carousel>
+        <div className=' carousel  py-4'>
+            <Carousel prevIcon={<span aria-hidden="true" className="carousel-control-prev-icon" />}>
+                <Carousel.Item>
+                    <img
+                        className="d-block item-carousel"
+                        src={Main1}
+                        alt="First slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block item-carousel"
+                        src={Main2}
+                        alt="Second slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block item-carousel"
+                        src={Main3}
+                        alt="Third slide"
+                    />
+                </Carousel.Item>
+            </Carousel>
+        </div>
     )
 };
 

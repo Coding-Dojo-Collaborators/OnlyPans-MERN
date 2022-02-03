@@ -11774,3 +11774,12 @@ a[data-toggle="collapse"] {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
+
+.carousel{
+  
+  margin: 0 auto;
+  width: 60%;
+}
+.item-carousel{
+  height: 50vh;
+}
