@@ -12,7 +12,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ManagePostsTab from './ManagePostsTab';
+// import ManagePostsTab from './ManagePostsTab';
 import Avatar from '@mui/material/Avatar';
 
 const DashboardBody = ({ user, children, value, index, ...other }) => {

@@ -8,12 +8,12 @@ import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
 import EditUserModal from '../modals/EditUserModal'
 
-export default ({ username, setLogout}) => {
+export default ({ username, setLogout }) => {
 
   const logout = () => {
     axios.get('http://localhost:8000/api/logout', { withCredentials: true })
       .then(res => {
-        
+
         setLogout('')
       });
   };
@@ -99,12 +99,9 @@ export default ({ username, setLogout}) => {
                 </ul>
               </li>
               <li>
-                <Link to="#">Contact</Link>
-              </li>
-              <li>
                 {/* <Link to="/user/edit/:id">Edit Info</Link> */}
                 <EditUserModal
-                setLogout = {setLogout}
+                  setLogout={setLogout}
                 >Edit Info</EditUserModal>
               </li>
             </ul>
@@ -118,7 +115,6 @@ export default ({ username, setLogout}) => {
                 >Log out</Button>
               </p>
             </div>
-
           </div>
         </div>
       </div>

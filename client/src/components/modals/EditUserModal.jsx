@@ -32,12 +32,20 @@ export default function TransitionsModal({ setLogout }) {
     const [user, setUser] = useState('')
 
     const buttonStyle = {
+        paddingTop: 2,
+        paddingLeft: 0,
+        display: 'block',
+        color: 'rgba(255, 255, 255, 0.8)',
+        textDecoration: 'none',
+        textTransform: 'capitalize',
+        fontSize: 16,
+        fontWeight: 'normal',
         ':hover': {
-            bgcolor: '#ef5350', // theme.palette.primary.main
-            color: 'white',
+            color: '#f8b739',
+            bgColor: 'transparent',
+            border: 0,
+            fontWeight: 'bold'
         },
-        color: '#fff',
-        fontWeight: 'bold'
     }
 
     useEffect(() => {
@@ -50,7 +58,7 @@ export default function TransitionsModal({ setLogout }) {
                 console.log("noUser logged in")
                 history.push('/')
             });
-    }, []);
+    }, [history]);
 
     return (
         <div>
@@ -73,11 +81,11 @@ export default function TransitionsModal({ setLogout }) {
                 <Fade in={open}>
                     <Box sx={style}>
                         {/* ENTER LOGIN HERE */}
-                        <EditUser handleClose={handleClose} 
-                        username = {user.username} 
-                        email = {user.email} 
-                        id = {user._id}
-                        setLogout = {setLogout}
+                        <EditUser handleClose={handleClose}
+                            username={user.username}
+                            email={user.email}
+                            id={user._id}
+                            setLogout={setLogout}
                         />
                     </Box>
                 </Fade>
