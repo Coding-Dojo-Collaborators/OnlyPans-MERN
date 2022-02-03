@@ -28,6 +28,7 @@ const Detail = (props) => {
             <h1>{recipe.name}</h1>
             <img src = {recipe.image}></img>
             <p>Type of Cuisine: {recipe.cuisine}</p>
+            <p>Category: {recipe.category}</p>
             <p>Description: {recipe.description}</p>
             <p>Ingredients: {recipe.ingredients}</p>
             <p>Instructions: {recipe.instructions}</p>
