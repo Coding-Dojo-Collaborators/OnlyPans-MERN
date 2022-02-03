@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
@@ -14,8 +14,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ManagePostsTab from './ManagePostsTab';
 import Avatar from '@mui/material/Avatar';
-// import { Row, Item } from '@mui-treasury/components/flex';
-// import { Info, InfoTitle } from '@mui-treasury/components/info';
 
 const DashboardBody = ({ user, children, value, index, ...other }) => {
   return (
@@ -128,6 +126,9 @@ export default function BasicTabs({ user }) {
           </DashboardBody>
         </SwipeableViews>
       </Box>
+      <div className='sticky-footer text-center fixed-bottom'>
+        <p>© <Link to='/' underlineNone>OnlyPans</Link> 2022 by Unlimited Nerd Works, Inc.</p>
+      </div>
     </div>
   );
 };
