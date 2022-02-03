@@ -1,17 +1,17 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-import { Carousel } from 'react-bootstrap'
-import dinner1 from '../static/images/dinner/dinner1.jpg'
-import dinner2 from '../static/images/dinner/dinner2.jpg'
-import dinner3 from '../static/images/dinner/dinner3.jpg'
-import dinner4 from '../static/images/dinner/dinner4.jpg'
-import dinner5 from '../static/images/dinner/dinner5.jpg'
-import dinner6 from '../static/images/dinner/dinner6.jpg'
-import dinner7 from '../static/images/dinner/dinner7.jpg'
-import dinner8 from '../static/images/dinner/dinner8.jpg'
-import dinner9 from '../static/images/dinner/dinner9.jpg'
-import dinner10 from '../static/images/dinner/dinner10.jpg'
-import dinner11 from '../static/images/dinner/dinner11.jpg'
+import { Carousel } from 'react-bootstrap';
+import dinner1 from '../static/images/dinner/dinner1.jpg';
+import dinner2 from '../static/images/dinner/dinner2.jpg';
+import dinner3 from '../static/images/dinner/dinner3.jpg';
+import dinner4 from '../static/images/dinner/dinner4.jpg';
+import dinner5 from '../static/images/dinner/dinner5.jpg';
+import dinner6 from '../static/images/dinner/dinner6.jpg';
+import dinner7 from '../static/images/dinner/dinner7.jpg';
+import dinner8 from '../static/images/dinner/dinner8.jpg';
+import dinner9 from '../static/images/dinner/dinner9.jpg';
+import dinner10 from '../static/images/dinner/dinner10.jpg';
+import dinner11 from '../static/images/dinner/dinner11.jpg';
 
 export default () => {
   return (
@@ -97,5 +97,5 @@ export default () => {
         </Carousel.Item>
       </Carousel>
     </div>
-  )
+  );
 };

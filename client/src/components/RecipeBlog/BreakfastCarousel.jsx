@@ -1,20 +1,18 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-import { Carousel } from 'react-bootstrap'
-import breakfast1 from '../static/images/breakfast/breakfast1.jpg'
-import breakfast2 from '../static/images/breakfast/breakfast2.jpg'
-import breakfast3 from '../static/images/breakfast/breakfast3.jpg'
-import breakfast4 from '../static/images/breakfast/breakfast4.jpg'
-import breakfast5 from '../static/images/breakfast/breakfast5.jpg'
-import breakfast6 from '../static/images/breakfast/breakfast6.jpg'
-import breakfast7 from '../static/images/breakfast/breakfast7.jpg'
-import breakfast8 from '../static/images/breakfast/breakfast8.jpg'
-import breakfast9 from '../static/images/breakfast/breakfast9.jpg'
-import breakfast10 from '../static/images/breakfast/breakfast10.jpg'
-import breakfast11 from '../static/images/breakfast/breakfast11.jpg'
-import breakfast12 from '../static/images/breakfast/breakfast12.jpg'
-import breakfast13 from '../static/images/breakfast/breakfast13.jpg'
-import breakfast14 from '../static/images/breakfast/breakfast14.jpg'
+import { Carousel } from 'react-bootstrap';
+import breakfast1 from '../static/images/breakfast/breakfast1.jpg';
+import breakfast2 from '../static/images/breakfast/breakfast2.jpg';
+import breakfast3 from '../static/images/breakfast/breakfast3.jpg';
+import breakfast4 from '../static/images/breakfast/breakfast4.jpg';
+import breakfast5 from '../static/images/breakfast/breakfast5.jpg';
+import breakfast6 from '../static/images/breakfast/breakfast6.jpg';
+import breakfast7 from '../static/images/breakfast/breakfast7.jpg';
+import breakfast8 from '../static/images/breakfast/breakfast8.jpg';
+import breakfast9 from '../static/images/breakfast/breakfast9.jpg';
+import breakfast10 from '../static/images/breakfast/breakfast10.jpg';
+import breakfast11 from '../static/images/breakfast/breakfast11.jpg';
+import breakfast12 from '../static/images/breakfast/breakfast12.jpg';
 
 export default () => {
   return (
@@ -105,21 +103,7 @@ export default () => {
             alt="Twelvth slide"
           />
         </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block item-carousel"
-            src={breakfast13}
-            alt="Thirteenth slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block item-carousel"
-            src={breakfast14}
-            alt="Fourteenth slide"
-          />
-        </Carousel.Item>
       </Carousel>
     </div>
-  )
+  );
 };

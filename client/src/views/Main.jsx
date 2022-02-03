@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import RecipeList from '../components/RecipeBlog/RecipeList';
 import MainCarouselContainer from '../components/RecipeBlog/MainCarouselContainer';
+import BlogHeader from '../components/RecipeBlog/BlogHeader';
 
 export default () => {
   const [user, setUser] = useState("");
@@ -21,7 +22,8 @@ export default () => {
   }, [history]);
 
   return (
-    <div>
+    <div className='header'>
+      <BlogHeader />
       <MainCarouselContainer />
       <RecipeList user={user} />
     </div>
