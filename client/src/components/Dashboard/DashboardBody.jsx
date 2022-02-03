@@ -19,7 +19,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const DashboardBody = ({ user, children, value, index, ...other }) => {
   return (
-<<<<<<< HEAD
     <div
       role="tabpanel"
       hidden={value !== index}
@@ -32,22 +31,6 @@ const DashboardBody = ({ user, children, value, index, ...other }) => {
           <Typography>{children}</Typography>
         </Box>
       )}
-=======
-    <div className=''>
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`full-width-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
->>>>>>> 38e419d23573e1f19c73acc6a3ee1a00cf00bcec
     </div>
   );
 }
@@ -65,7 +48,6 @@ function a11yProps(index) {
   };
 }
 
-<<<<<<< HEAD
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
@@ -76,8 +58,6 @@ const useStyles = makeStyles((theme) =>
 
 const theme = createTheme();
 
-=======
->>>>>>> 38e419d23573e1f19c73acc6a3ee1a00cf00bcec
 export default function BasicTabs({ user }) {
   const [recipe, setRecipe] = useState([]);
   const [value, setValue] = React.useState(0);
@@ -86,18 +66,10 @@ export default function BasicTabs({ user }) {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/recipe/user/${user}`)
       .then(res => {
-<<<<<<< HEAD
         // console.log(res.data);
         setRecipe(res.data)
       }).catch(err => console.log(err))
   }, [user]);
-=======
-        console.log(res.data);
-        setRecipe(res.data)
-      }).catch(err => console.log(err))
-  }, [user]);
-  console.log(recipe);
->>>>>>> 38e419d23573e1f19c73acc6a3ee1a00cf00bcec
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -109,7 +81,6 @@ export default function BasicTabs({ user }) {
   console.log(recipe[1]);
 
   return (
-<<<<<<< HEAD
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <div className='d-flex justify-content-center'>
@@ -151,47 +122,5 @@ export default function BasicTabs({ user }) {
         </div>
       </div>
     </ThemeProvider>
-=======
-    <div className='d-flex justify-content-center'>
-      <Box sx={{ bgcolor: 'background.paper', width: 750 }}>
-        <AppBar position="static">
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="secondary"
-            bgColor=""
-            textColor="inherit"
-            variant=""
-            aria-label="basic tabs example"
-          >
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-          </Tabs>
-        </AppBar>
-        <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={value}
-          onChangeIndex={handleChangeIndex}
-        >
-          <DashboardBody value={value} index={0} dir={theme.direction}>
-            <div>
-              {
-                recipe.map((recipe, i) => {
-                  return (
-                    <p key={i}>
-                      {recipe.name}
-                    </p>
-                  );
-                })
-              }
-            </div>
-          </DashboardBody>
-          <DashboardBody value={value} index={1} dir={theme.direction}>
-            Item Two
-          </DashboardBody>
-        </SwipeableViews>
-      </Box>
-    </div>
->>>>>>> 38e419d23573e1f19c73acc6a3ee1a00cf00bcec
   );
 };
