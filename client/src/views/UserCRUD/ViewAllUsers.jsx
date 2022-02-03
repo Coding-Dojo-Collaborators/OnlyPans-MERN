@@ -7,7 +7,8 @@ const ViewAllUsers = () => {
   useEffect(() => {
     axios.get('http://localhost:8000/api/users')
       .then(res => {
-        setUsers(res.data);
+        console.log(res.data);
+        setUsers(res.data.users);
       })
       .catch(err => console.log(err));
   }, [])

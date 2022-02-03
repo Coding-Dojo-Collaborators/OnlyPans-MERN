@@ -6,6 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
+import EditUserModal from '../modals/EditUserModal'
 
 export default ({ username, setLogout }) => {
 
@@ -99,7 +100,10 @@ export default ({ username, setLogout }) => {
                 <Link to="#">Contact</Link>
               </li>
               <li>
-                <Link to="/user/edit/:id">Edit Info</Link>
+                {/* <Link to="/user/edit/:id">Edit Info</Link> */}
+                <EditUserModal
+                setLogout = {setLogout}
+                >Edit Info</EditUserModal>
               </li>
             </ul>
             <div className="footer text-center text-white fw-bold mb-3 pb-4">
