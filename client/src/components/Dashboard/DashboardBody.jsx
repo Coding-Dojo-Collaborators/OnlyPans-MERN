@@ -31,10 +31,10 @@ const DashboardBody = ({ user, children, value, index, ...other }) => {
 
   return (
     <div
-      role="DashboardBody"
+      role="tabpanel"
       hidden={value !== index}
-      id={`full-width-DashboardBody-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
       {value === index && (
@@ -54,12 +54,12 @@ DashboardBody.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-DashboardBody-${index}`,
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 
-export default function FullWidthTabs() {
+export default function BasicTabs() {
   // eslint-disable-next-line no-unused-vars
   const [recipe, setRecipe] = useState([]);
   const [value, setValue] = React.useState(0);
@@ -81,8 +81,8 @@ export default function FullWidthTabs() {
           onChange={handleChange}
           indicatorColor="secondary"
           textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example"
+          variant=""
+          aria-label="basic tabs example"
         >
           <Tab label="Item One" {...a11yProps(0)} />
           <Tab label="Item Two" {...a11yProps(1)} />
