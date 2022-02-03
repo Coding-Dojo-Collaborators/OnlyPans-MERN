@@ -1,6 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
@@ -8,22 +7,7 @@ import Button from '@mui/material/Button';
 import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
 
-export default ({username, setLogout}) => {
-  // const [user, setUser] = useState({});
-  const { id } = useParams();
-  const history = useHistory();
-
-  // const apiURL = 'http://localhost:8000/api/users/getloggedinuser';
-
-  // useEffect(() => {
-  //   axios.get(apiURL,  )
-  //     .then(res => {
-  //       console.log(res.data.results);
-  //       setUser(res.data.results)
-  //       history.push(`/${id}`)
-  //     })
-  //     .catch(err => console.log(err));
-  // }, [apiURL, history, id]);
+export default ({ username, setLogout }) => {
 
   const logout = () => {
     axios.get('http://localhost:8000/api/logout', { withCredentials: true })
@@ -47,6 +31,7 @@ export default ({username, setLogout}) => {
       <div className="wrapper d-flex align-items-stretch">
         <div id="sidebar" className='bg-dark'>
           <Row
+            component={Link} to='/'
             sx={{
               display: 'flex',
               justifyContent: 'center',
@@ -119,7 +104,7 @@ export default ({username, setLogout}) => {
             </ul>
             <div className="footer text-center text-white fw-bold mb-3 pb-4">
               <p>{username}</p>
-              
+
               <p>
                 <Button onClick={logout}
                   component={Link}

@@ -7,7 +7,6 @@ module.exports.getRecipe = (request, response) => {
 }
 // The method below is new
 module.exports.createRecipe = (request, response) => {
-    
     Recipe.create(request.body)
         .then(recipe => response.json(recipe))
         .catch(err => response.status(400).json(err))
@@ -20,7 +19,7 @@ module.exports.getOneRecipe = (request, response) => {
 }
 
 module.exports.updateRecipe = (request, response) => {
-    Recipe.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators : true })
+    Recipe.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
         .then(updatedRecipe => response.json(updatedRecipe))
         .catch(err => response.status(400).json(err))
 }
@@ -32,19 +31,19 @@ module.exports.deleteRecipe = (request, response) => {
 }
 
 module.exports.searchByCategory = (request, response) => {
-    Recipe.find({'Recipe.category' : request.params.category})
+    Recipe.find({ 'Recipe.category': request.params.category })
         .then(category => response.json(category))
         .catch(err => response.json(err))
 }
 
 module.exports.getAllRecipeByUser = (request, response) => {
-    Recipe.find({'Recipe.userId' : request.params.id})
+    Recipe.find({ 'Recipe.userId': request.params.id })
         .then(userRecipes => response.json(userRecipes))
-         .catch(err => response.json(err))
+        .catch(err => response.json(err))
 }
 
 module.exports.RecipeSortByAlphabetical = (request, response) => {
-    Recipe.find().sort({category : 1})
+    Recipe.find().sort({ category: 1 })
         .then(sortedRecipes => response.json(sortedRecipes))
         .catch(err => response.json(err))
 
