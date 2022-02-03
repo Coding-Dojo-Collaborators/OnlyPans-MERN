@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { createTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
@@ -37,13 +37,12 @@ const Copyright = (props) => {
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-export default ({handleClose , setUser}) => {
+export default ({ handleClose, setUser }) => {
   const [errors, setErrors] = useState("");
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
-  const history = useHistory();
   const classes = useStyles();
 
   const logo = require('../static/images/onlypansegglogo.png')
@@ -182,7 +181,7 @@ export default ({handleClose , setUser}) => {
           >
             <Grid item sx={{ textAlign: 'center' }}>
               Don't have an Account?
-              <RegistrationModal variant="body2" setUser={setUser}/>
+              <RegistrationModal variant="body2" setUser={setUser} />
             </Grid>
           </Grid>
         </Box>

@@ -46,6 +46,20 @@ function a11yProps(index) {
   };
 }
 
+const Copyright = (props) => {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" to="#"
+        className="copyright-link">
+        OnlyPans
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
 export default function BasicTabs({ user }) {
   const [recipe, setRecipe] = useState([]);
   const [value, setValue] = React.useState(0);
@@ -78,7 +92,10 @@ export default function BasicTabs({ user }) {
     fontSize: 14,
     // fontWeight: 'bold',
     color: 'text.primary',
-    textDecoration: 'none !important'
+    textDecoration: 'none !important',
+    ':hover': {
+      color: '#ffc107'
+    }
   }
 
   return (
@@ -178,9 +195,7 @@ export default function BasicTabs({ user }) {
         </SwipeableViews>
       </Box>
       <div className='sticky-footer text-center fixed-bottom'>
-        <span>© <Link to='/' sx={{ textDecoration: 'none !important' }}>
-          OnlyPans</Link> 2022 by Unlimited Nerd Works, Inc.
-        </span>
+        <Copyright />
       </div>
     </div >
   );

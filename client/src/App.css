@@ -268,7 +268,7 @@ a {
 }
 a:hover {
   color: #0a58ca;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 a:not([href]):not([class]),
@@ -11810,4 +11810,13 @@ a[data-toggle="collapse"] {
   margin-right: 0px;
   display: inline-block;
   position: relative;
+}
+
+.copyright-link {
+  text-decoration: none !important;
+  color: #ffc107;
+}
+
+.copyright-link:hover {
+  color: gray;
 }

@@ -10,7 +10,7 @@ export default ({ user, setUser }) => {
 
   const buttonStyle = {
     ':hover': {
-      bgcolor: '#ef5350', // theme.palette.primary.main
+      bgcolor: '#ef5350',
       color: 'white',
     },
     color: '#fff',
@@ -43,7 +43,6 @@ export default ({ user, setUser }) => {
           <ul className='navlinks d-flex pt-3 px-3'>
             <li className='list-unstyled pe-5'>
               <Button component={Link} to={`/dashboard/${user._id}`}
-
                 sx={buttonStyle}
               >Home</Button>
             </li>
