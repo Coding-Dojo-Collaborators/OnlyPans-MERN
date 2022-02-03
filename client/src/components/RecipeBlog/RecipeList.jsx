@@ -11,7 +11,7 @@ const RecipeList = ({ user }) => {
   useEffect(() => {
     axios.get('http://localhost:8000/api/recipe')
       .then(res => setRecipes(res.data));
-  }, [])
+  }, []);
 
   const removeFromDom = recipeId => {
     setRecipes(recipes.filter(recipe => recipe._id !== recipeId))
@@ -24,17 +24,12 @@ const RecipeList = ({ user }) => {
     })
       .then(res => {
         console.log(res)
-
       }).catch(err => {
         console.log(err)
-      })
-  }
+      });
+  };
+  console.log(user);
 
-
-
-
-
-  console.log(user)
   return (
     <div>
       <div>
@@ -77,7 +72,6 @@ const RecipeList = ({ user }) => {
             >
               Favorite
             </Button>
-
           </p>
         )
       })}

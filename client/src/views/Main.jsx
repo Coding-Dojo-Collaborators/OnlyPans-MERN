@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import RecipeList from '../components/RecipeBlog/RecipeList';
-import CarouselContainer from '../components/RecipeBlog/CarouselContainer';
+import MainCarouselContainer from '../components/RecipeBlog/MainCarouselContainer';
 
 export default () => {
   const [user, setUser] = useState("");
@@ -22,7 +22,7 @@ export default () => {
 
   return (
     <div>
-      <CarouselContainer />
+      <MainCarouselContainer />
       <RecipeList user={user} />
     </div>
   )
