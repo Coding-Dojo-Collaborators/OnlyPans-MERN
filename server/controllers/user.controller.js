@@ -99,7 +99,7 @@ class UserController {
     }
     updateUser = (req, res) => {
         User.findOneAndUpdate({_id : req.params.id} , req.body)
-        .then(updateUser => res.json({user : updateUser}))
+        .then(updateUser => res.json({user : updateUser, message : 'success!'}))
         .catch(err => res.json(err))
     }
 }
