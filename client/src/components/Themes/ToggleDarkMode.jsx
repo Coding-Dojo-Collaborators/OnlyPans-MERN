@@ -114,7 +114,28 @@ function MyApp({ children, currentPage }) {
                 </div>
                 <hr className='hrline mb-5' />
                 {children}
-              </FormGroup> : <></>
+              </FormGroup> : 
+              <FormGroup>
+              <div className='d-flex align-items-center justify-content-between'>
+                <div className='d-flex justify-content-center'>
+                  
+                  <Header currentPage={currentPage} />
+                  
+                </div>
+                <div className='d-flex justify-content-end'>
+                  <FormControlLabel
+                    control={<MaterialUISwitch sx={{ m: 1 }}
+                      // defaultChecked
+                      onClick={colorMode.toggleColorMode}
+                    />}
+                    label=""
+                  />
+                </div>
+              </div>
+              {children}
+            </FormGroup>
+             
+              
         }
       </Box>
     </div>

@@ -45,6 +45,11 @@ export default ({ initialName, initialCuisine,
     // const [userId, setUserId] = useState(user._id)
     const [favoritedUsers, setFavoritedUsers] = useState([])
     const logo = require('../static/images/onlypansegglogo.png')
+    
+    const formStyle = {
+        color:'text.primary'
+        }
+
 
 
     const onSubmitHandler = e => {
@@ -65,8 +70,12 @@ export default ({ initialName, initialCuisine,
 
 
     return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="md">
+        // <ThemeProvider theme={theme}>
+            <Container 
+            sx={formStyle}
+            component="main" 
+            maxWidth="md"
+            >
                 <CssBaseline />
                 <Box
                     sx={{
@@ -76,17 +85,11 @@ export default ({ initialName, initialCuisine,
                         alignItems: 'center',
                     }}
                 >
-                    <Avatar variant="square"
-                        src={logo} alt="logo"
-                        sx={{
-                            height: 42,
-                            width: 53,
-                            mb: 3,
-                            pl: 1
-                        }}
-                    >
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
+                   
+                    <Typography 
+                    sx={formStyle}
+                    component="h1" 
+                    variant="h5">
                         {formName}
                     </Typography>
                     <Box component="form" noValidate onSubmit={onSubmitHandler} sx={{ mt: 3 }}>
@@ -208,7 +211,7 @@ export default ({ initialName, initialCuisine,
                 </Box>
                 <Copyright sx={{ mt: 5 }} />
             </Container>
-        </ThemeProvider>
+        
 
     );
 }
