@@ -69,16 +69,16 @@ export default function BasicTabs({ user }) {
   console.log(recipe[1]);
 
   const thStyle = {
-    fontSize : 15,
-    fontWeight : 'bold',
-    color : 'text.primary'
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'text.primary'
   }
 
   const tdStyle = {
-    fontSize : 14,
+    fontSize: 14,
     // fontWeight: 'bold',
-    color : 'text.primary',
-    textDecoration : 'none !important'
+    color: 'text.primary',
+    textDecoration: 'none !important'
   }
 
   return (
@@ -96,7 +96,7 @@ export default function BasicTabs({ user }) {
             }}
           >
             <Tab label="Latest Posts" {...a11yProps(0)} />
-            
+
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -105,32 +105,32 @@ export default function BasicTabs({ user }) {
           onChangeIndex={handleChangeIndex}
         >
           <div>
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <div className='d-flex justify-content-between align-items-center gap-5 px-5'>
-                        <th scope="" className='ps-4'>
-                          <Typography
-                            sx={thStyle}>
-                            Recipe Name
-                          </Typography>
-                        </th>
-                        <th scope="" className='pe-4'>
-                          <Typography
-                            sx={thStyle}>
-                            Publish Date
-                          </Typography>
-                        </th>
-                      </div>
-                    </tr>
-                  </thead>
-                  <tbody>
-            {
-              recipe.map((recipe, i) => {
-                let made = recipe.createdAt,
-                  createdDate = (new Date(made)).toLocaleString();
-                return (
-                  <>
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <div className='d-flex justify-content-between align-items-center gap-5 px-5 my-1'>
+                    <th scope="">
+                      <Typography
+                        sx={thStyle}>
+                        Recipe Name
+                      </Typography>
+                    </th>
+                    <th scope="" align='left'>
+                      <Typography
+                        sx={thStyle}>
+                        Publish Date
+                      </Typography>
+                    </th>
+                  </div>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  recipe.map((recipe, i) => {
+                    let made = recipe.createdAt,
+                      createdDate = (new Date(made)).toLocaleString();
+                    return (
+                      <>
                         <tr >
                           <DashboardBody
                             key={i}
@@ -142,12 +142,12 @@ export default function BasicTabs({ user }) {
                               <td className=''>
                                 <div className='d-flex align-items-center gap-3 ms-2'>
                                   <Avatar
-                                  component={Link} to={`/recipe/${recipe._id}`}
+                                    component={Link} to={`/recipe/${recipe._id}`}
                                     src={recipe.image}
                                     variant="rounded"
                                   />
                                   <Typography
-                                  component={Link} to={`/recipe/${recipe._id}`}
+                                    component={Link} to={`/recipe/${recipe._id}`}
                                     sx={tdStyle}>
                                     {recipe.name}
                                   </Typography>
@@ -162,12 +162,12 @@ export default function BasicTabs({ user }) {
                             </div>
                           </DashboardBody>
                         </tr>
-                  </>
-                );
-              })
-            }
-            </tbody>
-          </table>
+                      </>
+                    );
+                  })
+                }
+              </tbody>
+            </table>
           </div>
           {/* <DashboardBody
             value={value}
