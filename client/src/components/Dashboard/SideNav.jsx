@@ -20,6 +20,14 @@ export default ({ username, id, setLogout, avatar }) => {
 
   const logo = require('../static/images/onlypansegglogo.png');
 
+  const avatarSize = {
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    objectFit: 'cover',
+    height: 120,
+  }
+
   const logoutStyle = {
     color: '#ffc107',
     fontSize: 16,
@@ -78,7 +86,8 @@ export default ({ username, id, setLogout, avatar }) => {
             <div className="avatar-upload">
               <Link to='#'>
                 <img src={avatar}
-                  alt="{name}" className="img logo rounded-circle mb-1"></img>
+                  alt="{name}" className="img logo rounded-circle mb-1"
+                  style={avatarSize}></img>
               </Link>
               <ImgUploadModal
                 id={id}
