@@ -38,7 +38,7 @@ export default function TransitionsModal({ setLogout }) {
         color: 'rgba(255, 255, 255, 0.8)',
         textDecoration: 'none',
         textTransform: 'capitalize',
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: 'normal',
         ':hover': {
             color: '#f8b739',
@@ -64,6 +64,7 @@ export default function TransitionsModal({ setLogout }) {
         <div>
             <Button onClick={handleOpen}
                 sx={buttonStyle}
+                variant="text"
             >
                 Edit Info
             </Button>

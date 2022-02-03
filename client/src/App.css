@@ -11795,3 +11795,8 @@ a[data-toggle="collapse"] {
 .MuiLink-underlineNone {
   text-decoration: none !important;
 }
+
+.MuiButtonBase-root:hover {
+  border: transparent !important;
+  background-color: transparent !important;
+}
