@@ -4,35 +4,40 @@ import { useHistory } from 'react-router-dom';
 
 const FavoriteRecipes = ({ favoriteRecipes }) => {
   const [recipes, setRecipes] = useState([]);
-
+  
   console.log(favoriteRecipes);
-  useEffect(() => {
+  // useEffect(() => {
 
-    axios.get(`http://localhost:8000/api/recipe/`,
-      favoriteRecipes
-    )
-      .then(res => {
-        console.log(res.data)
-        setRecipes(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+  //   axios.get(`http://localhost:8000/api/recipe/favorites`,
+  //     favoriteRecipes
+  //   )
+  //     .then(res => {
+  //       console.log(res.data)
+  //       setRecipes(res.data)
 
-  }, [])
+  //     //   setRecipes(res.data)
+  //      })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
 
-  console.log(recipes)
+  // }, [])
 
+  // console.log(recipes)
+
+console.log(favoriteRecipes)
   return (
     <div className='showOne'>
-      {recipes.filter(function (currentElement) {
-        return (
-          favoriteRecipes.map((recipe, i) => {
-            recipes._id == recipe
-          })
-        )
-      })
-      }
+     {
+       favoriteRecipes.map((recipe, i) => {
+         return(
+          <div>
+            <p>{recipe.name}</p>
+            <img src={recipe.img} alt="" />
+          </div>
+         )
+       })
+     }
     </div>
   )
 };
