@@ -17,6 +17,7 @@ import Box from '@mui/material/Box';
 // import { Info, InfoTitle } from '@mui-treasury/components/info';
 
 const DashboardBody = ({ user, children, value, index, ...other }) => {
+<<<<<<< HEAD
   return (
     <div className=''>
       <div
@@ -32,9 +33,27 @@ const DashboardBody = ({ user, children, value, index, ...other }) => {
           </Box>
         )}
       </div>
+=======
+  // eslint-disable-next-line no-unused-vars
+  
+  return (
+    <div
+    role="tabpanel"
+    hidden={value !== index}
+    id={`full-width-tabpanel-${index}`}
+    aria-labelledby={`simple-tab-${index}`}
+    {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+>>>>>>> 12062ceca302a27552b66acaf152ff07eaed8991
     </div>
   );
 }
+
 
 DashboardBody.propTypes = {
   children: PropTypes.node,
@@ -49,6 +68,7 @@ function a11yProps(index) {
   };
 }
 
+<<<<<<< HEAD
 export default function BasicTabs({ user }) {
   // eslint-disable-next-line no-unused-vars
   const [recipe, setRecipe] = useState([]);
@@ -64,6 +84,23 @@ export default function BasicTabs({ user }) {
   }, [user]);
   console.log(recipe);
 
+=======
+export default function BasicTabs({user}) {
+  
+  
+  const [value, setValue] = React.useState(0);
+  const theme = useTheme();
+  const [recipe, setRecipe] = useState([]);
+  
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/recipe/user/${user}`)
+      .then(res => {
+        // console.log(res.data);
+        setRecipe(res.data)
+      }).catch(err => console.log(err))
+  }, [user]);
+  
+>>>>>>> 12062ceca302a27552b66acaf152ff07eaed8991
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -71,7 +108,7 @@ export default function BasicTabs({ user }) {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-
+  console.log(recipe[1])
   return (
     <div className='d-flex justify-content-center'>
       <Box sx={{ bgcolor: 'background.paper', width: 750 }}>
@@ -94,6 +131,7 @@ export default function BasicTabs({ user }) {
           index={value}
           onChangeIndex={handleChangeIndex}
         >
+<<<<<<< HEAD
           <DashboardBody value={value} index={0} dir={theme.direction}>
             <div>
               {
@@ -113,5 +151,33 @@ export default function BasicTabs({ user }) {
         </SwipeableViews>
       </Box>
     </div>
+=======
+          <Tab label="Item One" {...a11yProps(0)} />
+          <Tab label="Item Two" {...a11yProps(1)} />
+          
+        </Tabs>
+      </AppBar>
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+          <div>
+            {
+              recipe.map((recipe, i) => {
+                return (
+                  <DashboardBody value={value} index={0} dir={theme.direction}>
+                    {recipe.name}
+            </DashboardBody>
+                );
+              })
+            }
+          </div>
+        <DashboardBody value={value} index={1} dir={theme.direction}>
+          Item Two
+        </DashboardBody>
+      </SwipeableViews>
+    </Box>
+>>>>>>> 12062ceca302a27552b66acaf152ff07eaed8991
   );
 };
