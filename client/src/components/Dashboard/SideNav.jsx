@@ -38,7 +38,8 @@ export default ({ username, setLogout }) => {
               alignItems: 'center',
               bgcolor: 'transparent',
               pt: 2,
-              pb: 1
+              pb: 1,
+              textDecoration: 'none'
             }}
           >
             <Item>
