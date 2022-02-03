@@ -37,7 +37,7 @@ module.exports.searchByCategory = (request, response) => {
 }
 
 module.exports.getAllRecipeByUser = (request, response) => {
-    Recipe.find({ 'Recipe.userId': request.params.id })
+    Recipe.find({ 'userId': request.params.userId })
         .then(userRecipes => response.json(userRecipes))
         .catch(err => response.json(err))
 }
