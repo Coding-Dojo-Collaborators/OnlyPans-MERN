@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import ToggleColorMode from '../components/Themes/ToggleDarkMode';
@@ -12,9 +12,10 @@ import { ThemeProvider } from "@material-ui/styles";
 const baseTheme = createTheme();
 
 export default () => {
-  const [user, setUser] = useState('')
-  const [ logout, setLogout] = useState()
-  const history = useHistory()
+  const [user, setUser] = useState('');
+  const [logout, setLogout] = useState();
+  const history = useHistory();
+
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
@@ -25,19 +26,22 @@ export default () => {
         console.log("noUser logged in")
         history.push('/')
       });
-  }, [logout]);
-
+  }, [history, logout]);
   console.log(user);
+
   return (
     <div className=''>
       <div className='position-fixed'>
-        <SideNav setLogout={setLogout} avatar={user.profileAvatar} username={user.username}/>
+        <SideNav setLogout={setLogout}
+          avatar={user.profileAvatar}
+          username={user.username}
+          id={user._id} />
       </div>
       <div className='dashboard-body'>
         <ToggleColorMode currentPage="dashboard">
           <ThemeProvider theme={baseTheme}>
             <div className="App">
-              <DashboardBody user={user._id}/>
+              <DashboardBody user={user._id} />
             </div>
           </ThemeProvider>
         </ToggleColorMode>

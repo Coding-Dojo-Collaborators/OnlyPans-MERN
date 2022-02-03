@@ -2,18 +2,18 @@
 import * as React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
-import EditUserModal from '../modals/EditUserModal'
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import EditUserModal from '../modals/EditUserModal';
+import ImgUploadModal from '../modals/ImgUploadModal';
 
-export default ({ username, setLogout,avatar }) => {
+export default ({ username, id, setLogout, avatar }) => {
 
   const logout = () => {
     axios.get('http://localhost:8000/api/logout', { withCredentials: true })
       .then(res => {
-
         setLogout('')
       });
   };
@@ -75,11 +75,16 @@ export default ({ username, setLogout,avatar }) => {
             </Info>
           </Row>
           <div className="px-5 pt-4">
-            <Link to='#'> {/* edit user link above */}
-              <img src={avatar}
-                // {user.profileAvatar}
-                alt="{name}" className="img logo rounded-circle mb-5"></img>
-            </Link>
+            <div className="avatar-upload">
+              <Link to='#'>
+                <img src={avatar}
+                  alt="{name}" className="img logo rounded-circle mb-1"></img>
+              </Link>
+              <ImgUploadModal
+                id={id}
+                setLogout={setLogout}
+                className="upload" />
+            </div>
             <ul className="list-unstyled components mb-5">
               <li>
                 <Link to="/dashboard/:id">Overview</Link>
@@ -115,7 +120,6 @@ export default ({ username, setLogout,avatar }) => {
                 >Log out</Button>
               </p>
             </div>
-
           </div>
         </div>
       </div>

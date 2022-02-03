@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import { useState } from 'react';
 import axios from 'axios'
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -32,7 +33,7 @@ const Copyright = (props) => {
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-export default ({handleClose, setUser}) => {
+export default ({ handleClose, setUser }) => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,7 +50,7 @@ export default ({handleClose, setUser}) => {
       username: userName,
       password: password,
       confirm: confirmPassword,
-      profileAvatar :profileAvatar
+      profileAvatar: profileAvatar
     })
       .then(res => {
         console.log("response from registering", res);
