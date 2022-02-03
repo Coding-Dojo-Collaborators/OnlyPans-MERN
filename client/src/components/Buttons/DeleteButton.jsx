@@ -6,7 +6,7 @@ export default props => {
   const { recipeId, successCallback } = props;
 
   const deleteRecipe = e => {
-    axios.delete('http://localhost:8000/api/recipe/' + recipeId)
+    axios.delete('http://localhost:8000/api/recipe/delete/' + recipeId)
       .then(res => {
         successCallback();
       })
