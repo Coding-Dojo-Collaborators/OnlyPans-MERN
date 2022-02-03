@@ -13,7 +13,7 @@ module.exports.createRecipe = (request, response) => {
 }
 
 module.exports.getOneRecipe = (request, response) => {
-    Recipe.findOne({ _id: request.params.id })
+    Recipe.findOne({ '_id': request.params.id })
         .then(recipe => response.json(recipe))
         .catch(err => response.json(err))
 }
