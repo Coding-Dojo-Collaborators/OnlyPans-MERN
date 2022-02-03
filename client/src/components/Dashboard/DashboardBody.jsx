@@ -18,24 +18,14 @@ import Box from '@mui/material/Box';
 
 const DashboardBody = ({ user, children, value, index, ...other }) => {
   // eslint-disable-next-line no-unused-vars
-  const [recipe, setRecipe] = useState([]);
-
-  useEffect(() => {
-    axios.get(`http://localhost:8000/api/recipe/user/${user}`)
-      .then(res => {
-        console.log(res.data);
-        setRecipe(res.data)
-      }).catch(err => console.log(err))
-  }, [user]);
-  console.log(recipe);
-
+  
   return (
     <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
+    role="tabpanel"
+    hidden={value !== index}
+    id={`full-width-tabpanel-${index}`}
+    aria-labelledby={`simple-tab-${index}`}
+    {...other}
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -45,6 +35,7 @@ const DashboardBody = ({ user, children, value, index, ...other }) => {
     </div>
   );
 }
+
 
 DashboardBody.propTypes = {
   children: PropTypes.node,
@@ -59,12 +50,21 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
-  // eslint-disable-next-line no-unused-vars
-  const [recipe, setRecipe] = useState([]);
+export default function BasicTabs({user}) {
+  
+  
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
-
+  const [recipe, setRecipe] = useState([]);
+  
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/recipe/user/${user}`)
+      .then(res => {
+        // console.log(res.data);
+        setRecipe(res.data)
+      }).catch(err => console.log(err))
+  }, [user]);
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -72,7 +72,7 @@ export default function BasicTabs() {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-
+  console.log(recipe[1])
   return (
     <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
       <AppBar position="static">
@@ -86,7 +86,7 @@ export default function BasicTabs() {
         >
           <Tab label="Item One" {...a11yProps(0)} />
           <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -94,25 +94,19 @@ export default function BasicTabs() {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <DashboardBody value={value} index={0} dir={theme.direction}>
-          Item One
           <div>
             {
               recipe.map((recipe, i) => {
                 return (
-                  <p>
+                  <DashboardBody value={value} index={0} dir={theme.direction}>
                     {recipe.name}
-                  </p>
+            </DashboardBody>
                 );
               })
             }
           </div>
-        </DashboardBody>
         <DashboardBody value={value} index={1} dir={theme.direction}>
           Item Two
-        </DashboardBody>
-        <DashboardBody value={value} index={2} dir={theme.direction}>
-          Item Three
         </DashboardBody>
       </SwipeableViews>
     </Box>
