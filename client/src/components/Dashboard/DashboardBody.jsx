@@ -69,15 +69,16 @@ export default function BasicTabs({ user }) {
   console.log(recipe[1]);
 
   const thStyle = {
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: 'text.primary'
+    fontSize : 15,
+    fontWeight : 'bold',
+    color : 'text.primary'
   }
 
   const tdStyle = {
-    fontSize: 14,
+    fontSize : 14,
     // fontWeight: 'bold',
-    color: 'text.primary'
+    color : 'text.primary',
+    textDecoration : 'none !important'
   }
 
   return (
@@ -95,7 +96,7 @@ export default function BasicTabs({ user }) {
             }}
           >
             <Tab label="Latest Posts" {...a11yProps(0)} />
-            <Tab label="Manage Posts" {...a11yProps(1)} />
+            
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -104,76 +105,82 @@ export default function BasicTabs({ user }) {
           onChangeIndex={handleChangeIndex}
         >
           <div>
+                <table className="table table-striped">
+                  <thead>
+                    <tr>
+                      <div className='d-flex justify-content-between align-items-center gap-5 px-5'>
+                        <th scope="">
+                          <Typography
+                            sx={thStyle}>
+                            Recipe Name
+                          </Typography>
+                        </th>
+                        <th scope="" align='left'>
+                          <Typography
+                            sx={thStyle}>
+                            Publish Date
+                          </Typography>
+                        </th>
+                      </div>
+                    </tr>
+                  </thead>
+                  <tbody>
             {
               recipe.map((recipe, i) => {
                 let made = recipe.createdAt,
                   createdDate = (new Date(made)).toLocaleString();
                 return (
                   <>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">
-                            <Typography
-                              sx={thStyle}>
-                              Recipe Name
-                            </Typography>
-                          </th>
-                          <th scope="col">
-                            <Typography
-                              sx={thStyle}>
-                              Publish Date
-                            </Typography>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
+                        <tr >
                           <DashboardBody
                             key={i}
                             value={value}
                             index={0}
                             dir={theme.direction}
                           >
-                            <td>
-                              <div className='d-flex align-items-center gap-3 ms-2'>
-                                <Avatar
-                                  src={recipe.image}
-                                  variant="rounded"
-                                />
+                            <div className='d-flex justify-content-between align-items-center px-1  gap-5'>
+                              <td className=''>
+                                <div className='d-flex align-items-center gap-3 ms-2'>
+                                  <Avatar
+                                  component={Link} to={`/recipe/${recipe._id}`}
+                                    src={recipe.image}
+                                    variant="rounded"
+                                  />
+                                  <Typography
+                                  component={Link} to={`/recipe/${recipe._id}`}
+                                    sx={tdStyle}>
+                                    {recipe.name}
+                                  </Typography>
+                                </div>
+                              </td>
+                              <td className=''>
                                 <Typography
                                   sx={tdStyle}>
-                                  {recipe.name}
+                                  {createdDate}
                                 </Typography>
-                              </div>
-                            </td>
-                            <td>
-                              <Typography
-                                sx={tdStyle}>
-                                {createdDate}
-                              </Typography>
-                            </td>
+                              </td>
+                            </div>
                           </DashboardBody>
                         </tr>
-                      </tbody>
-                    </table>
                   </>
                 );
               })
             }
+            </tbody>
+          </table>
           </div>
-          <DashboardBody
+          {/* <DashboardBody
             value={value}
             index={1}
             dir={theme.direction}>
             <ManagePostsTab />
-          </DashboardBody>
+          </DashboardBody> */}
         </SwipeableViews>
       </Box>
       <div className='sticky-footer text-center fixed-bottom'>
-        <p>© <Link to='/' sx={{ textDecoration: 'none !important' }}>
+        <span>© <Link to='/' sx={{ textDecoration: 'none !important' }}>
           OnlyPans</Link> 2022 by Unlimited Nerd Works, Inc.
-        </p>
+        </span>
       </div>
     </div >
   );
