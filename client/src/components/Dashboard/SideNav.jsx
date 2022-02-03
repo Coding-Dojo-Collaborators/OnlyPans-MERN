@@ -99,9 +99,6 @@ export default ({ username, setLogout }) => {
                 </ul>
               </li>
               <li>
-                <Link to="#">Contact</Link>
-              </li>
-              <li>
                 {/* <Link to="/user/edit/:id">Edit Info</Link> */}
                 <EditUserModal
                   setLogout={setLogout}

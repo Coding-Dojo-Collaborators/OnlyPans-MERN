@@ -66,7 +66,7 @@ export default function TransitionsModal({ setLogout }) {
                 sx={buttonStyle}
                 variant="text"
             >
-                Edit Info
+                Edit User Info
             </Button>
             <Modal
                 aria-labelledby="transition-modal-title"
