@@ -10,7 +10,7 @@ export default ({ user, setUser }) => {
 
   const buttonStyle = {
     ':hover': {
-      bgcolor: '#ef5350',
+      bgcolor: '#ef5350 !important',
       color: 'white',
     },
     color: '#fff',
