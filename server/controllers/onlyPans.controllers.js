@@ -50,7 +50,7 @@ module.exports.RecipeSortByAlphabetical = (request, response) => {
 }
 
 module.exports.favoriteRecipes = ( request, response) => {
-    Recipe.find({'Recipe._id' : { $in : request.body}})
+    Recipe.find({'Recipe._id' :  request.body})
         .then(favoriteRecipes => response.json({results : favoriteRecipes, request:request.body}))
         .catch(err=> response.json(err))
 }

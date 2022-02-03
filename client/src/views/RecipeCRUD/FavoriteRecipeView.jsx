@@ -16,7 +16,10 @@ export const FavoriteRecipeView = () => {
             console.log("noUser logged in")
             history.push('/')
       })
+
   }, []);
+
+
 
   return (
     <div>

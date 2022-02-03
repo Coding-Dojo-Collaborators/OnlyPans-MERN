@@ -16,9 +16,9 @@ const RecipeList = ({ user }) => {
   const removeFromDom = recipeId => {
     setRecipes(recipes.filter(recipe => recipe._id !== recipeId))
   }
-  const onFavoriteHandler = (recipeId) => {
-
-    let favorites = [...user.favoriteRecipe, recipeId]
+  const onFavoriteHandler = (id, img, name) => {
+    let newFavorite = {id , img , name}
+    let favorites = [...user.favoriteRecipe, newFavorite]
     axios.put(`http://localhost:8000/api/user/update/${user._id}`, {
       favoriteRecipe: favorites
     })
@@ -68,7 +68,7 @@ const RecipeList = ({ user }) => {
               successCallback={() => removeFromDom(recipe._id)}
             />
             <Button
-              onClick={(e) => onFavoriteHandler(recipe._id)}
+              onClick={(e) => onFavoriteHandler(recipe._id, recipe.image, recipe.name)}
             >
               Favorite
             </Button>
