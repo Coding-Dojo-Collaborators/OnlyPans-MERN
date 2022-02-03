@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams, useHistory, Link } from 'react-router-dom';
-import Form from '../../components/FormComponents/Form';
+import RecipeForm from '../../components/FormComponents/RecipeForm';
 import DeleteButton from '../../components/Buttons/DeleteButton';
 
 const Update = (props) => {
@@ -10,8 +10,17 @@ const Update = (props) => {
   const [recipe, setRecipe] = useState();
   const [loaded, setLoaded] = useState(false);
   const [errors, setErrors] = useState([]);
-
+  const [user, setUser] = useState('')
   useEffect(() => {
+    axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+    .then(res => {
+        console.log(res.data);
+        setUser(res.data)
+    })
+    .catch(err => {
+        history.push('/')
+        console.log("noUser logged in")
+    });
     axios.get('http://localhost:8000/api/recipe/' + id)
       .then(res => {
         setRecipe(res.data);
@@ -23,7 +32,7 @@ const Update = (props) => {
     axios.put('http://localhost:8000/api/recipe/edit/' + id, recipe)
       .then(res => {
         console.log(res);
-        history.push('/home');
+        history.push(`/dashboard/${user._id}`);
       })
       .catch(err => {
         const errorResponse = err.response.data.errors; // Get the errors from err.response.data
@@ -38,11 +47,11 @@ const Update = (props) => {
 
   return (
     <div>
-      <Link to='/home'>Home</Link>
-      <h1>Edit a Recipe</h1>
+      
+      
       {loaded && (
         <>
-          <Form
+          <RecipeForm
             onSubmitProp={updateRecipe}
             initialName={recipe.name}
             initialCuisine={recipe.cuisine}
