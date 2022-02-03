@@ -1,4 +1,4 @@
-const { request } = require('express');
+const { request, response } = require('express');
 const { Recipe } = require('../models/onlypans.model');
 module.exports.getRecipe = (request, response) => {
     Recipe.find()
@@ -47,4 +47,10 @@ module.exports.RecipeSortByAlphabetical = (request, response) => {
         .then(sortedRecipes => response.json(sortedRecipes))
         .catch(err => response.json(err))
 
+}
+
+module.exports.favoriteRecipes = ( request, response) => {
+    Recipe.find({'Recipe._id' : { $in : request.body}})
+        .then(favoriteRecipes => response.json({results : favoriteRecipes, request:request.body}))
+        .catch(err=> response.json(err))
 }

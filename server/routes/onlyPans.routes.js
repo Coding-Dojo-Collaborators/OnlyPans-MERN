@@ -9,6 +9,7 @@ const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 module.exports = app => {
     // recipe
     app.post('/api/recipe/new', RecipeController.createRecipe);
+    app.get('/api/recipe/favorites', RecipeController.favoriteRecipes);
     app.get('/api/recipe', RecipeController.getRecipe);
     app.get('/api/recipe/:id', RecipeController.getOneRecipe);
     app.get('/api/recipe/:category',RecipeController.searchByCategory)

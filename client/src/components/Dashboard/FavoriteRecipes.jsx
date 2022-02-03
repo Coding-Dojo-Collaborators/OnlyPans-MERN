@@ -2,54 +2,44 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
-const FavoriteRecipes = () => {
-  const history = useHistory()
+const FavoriteRecipes = ({favoriteRecipes}) => {
+  
   const [recipes, setRecipes] = useState([])
-  const [user, setUser] = useState('')
+  
+  
+  
+  console.log(favoriteRecipes);
+  useEffect(() => {
 
-  useEffect(async() => {
-    await axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+    favoriteRecipes.map((item,i)=>{
+      axios.get(`http://localhost:8000/api/recipe/favorites`,
+      favoriteRecipes
+      )
       .then(res => {
-        console.log(res.data);
-        setUser(res.data)
-        res.data.favoriteRecipe.map((item, index) => {
-          axios.get(`http://localhost:8000/api/recipe/${item}`)
-          .then(res => {
-            console.log(res.data)
-            setRecipes([...recipes, res.data])
-          })
-          .catch(err => {
-            console.log(err)
-          })
-          console.log(item);
-        })
+        console.log(res.data)
+        setRecipes( res.data.results)
+    
       })
       .catch(err => {
-        console.log("noUser logged in")
-        history.push('/')
-      });
-  }, []);
+        console.log(err)
+      })
+  
+    })
+    
+  },[])
 
-  // useEffect(() => {
-  //   user.favoriteRecipe.map((item, index) => {
-  //     axios.get(`http://localhost:8000/api/recipe/${item}`)
-  //     .then(res => {
-  //       console.log(res.data)
-  //       setRecipes([...recipes, res.data])
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  //     console.log(item);
-  //   })
-  // }, [])
 
+  
+    
+ 
+  console.log(recipes)
   return (
-    <div>
-      {recipes.map((recipe, index) => {
+    <div className='showOne'>
+      { 
+      recipes.map((recipe, index) => {
         return (
           <p key = {index}>
-            <img src = {recipe.image} />
+            <img className='showOne' src = {recipe.image} />
             {recipe.name}
           </p>
         )

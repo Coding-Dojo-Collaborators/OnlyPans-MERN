@@ -11820,3 +11820,7 @@ a[data-toggle="collapse"] {
 .copyright-link:hover {
   color: gray;
 }
+
+.showOne{
+  width: 150px;
+}
