@@ -8,7 +8,7 @@ import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
 import EditUserModal from '../modals/EditUserModal'
 
-export default ({ username, setLogout }) => {
+export default ({ username, setLogout,avatar }) => {
 
   const logout = () => {
     axios.get('http://localhost:8000/api/logout', { withCredentials: true })
@@ -76,7 +76,7 @@ export default ({ username, setLogout }) => {
           </Row>
           <div className="px-5 pt-4">
             <Link to='#'> {/* edit user link above */}
-              <img src="https://wallpapercave.com/uwp/uwp430668.png"
+              <img src={avatar}
                 // {user.profileAvatar}
                 alt="{name}" className="img logo rounded-circle mb-5"></img>
             </Link>

@@ -72,6 +72,7 @@ export default ({handleClose , setUser}) => {
   };
 
   const googleSuccess = async (res) => {
+    console.log(res.profileObj);
     axios.post('http://localhost:8000/api/google/login',
       res.profileObj
       , { withCredentials: true })

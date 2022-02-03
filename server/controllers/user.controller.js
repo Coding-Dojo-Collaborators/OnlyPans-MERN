@@ -52,6 +52,7 @@ class UserController {
 
             }).catch(err => {
                 const user = new User({
+                    profileAvatar : req.body.imageUrl,
                     username : req.body.name,
                     email : req.body.email,
                     password : req.body.googleId,

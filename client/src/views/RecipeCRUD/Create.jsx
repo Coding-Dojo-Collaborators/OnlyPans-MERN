@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Form from '../../components/FormComponents/Form';
+import RecipeForm from '../../components/FormComponents/RecipeForm';
 
 export default () => {
     const [errors, setErrors] = useState([]);
@@ -43,7 +43,7 @@ export default () => {
     return (
         <div>
             <Link to='/'>Home</Link>
-            <Form
+            <RecipeForm
                 onSubmitProp={createRecipe}
                 initialName=''
                 initialCuisine=''

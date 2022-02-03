@@ -31,7 +31,7 @@ export default () => {
   return (
     <div className=''>
       <div className='position-fixed'>
-        <SideNav setLogout={setLogout}  username={user.username}/>
+        <SideNav setLogout={setLogout} avatar={user.profileAvatar} username={user.username}/>
       </div>
       <div className='dashboard-body'>
         <ToggleColorMode currentPage="dashboard">

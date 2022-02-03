@@ -38,7 +38,7 @@ export default ({handleClose, setUser}) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState(false);
-  const history = useHistory();
+  const [profileAvatar, setAvatar] = useState('https://wallpapercave.com/uwp/uwp430668.png')
 
   const logo = require('../static/images/onlypansegglogo.png')
 
@@ -48,7 +48,8 @@ export default ({handleClose, setUser}) => {
       email: email,
       username: userName,
       password: password,
-      confirm: confirmPassword
+      confirm: confirmPassword,
+      profileAvatar :profileAvatar
     })
       .then(res => {
         console.log("response from registering", res);
