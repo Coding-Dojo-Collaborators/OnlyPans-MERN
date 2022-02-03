@@ -1,20 +1,18 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-import { Carousel } from 'react-bootstrap'
-import quick1 from '../static/images/quick/quick1.jpg'
-import quick2 from '../static/images/quick/quick2.jpg'
-import quick3 from '../static/images/quick/quick3.jpg'
-import quick4 from '../static/images/quick/quick4.jpg'
-import quick5 from '../static/images/quick/quick5.jpg'
-import quick6 from '../static/images/quick/quick6.jpg'
-import quick7 from '../static/images/quick/quick7.jpg'
-import quick8 from '../static/images/quick/quick8.jpg'
-import quick9 from '../static/images/quick/quick9.jpg'
-import quick10 from '../static/images/quick/quick10.jpg'
-import quick11 from '../static/images/quick/quick11.jpg'
-import quick12 from '../static/images/quick/quick12.jpg'
-import quick13 from '../static/images/quick/quick13.jpg'
-import quick14 from '../static/images/quick/quick14.jpg'
+import { Carousel } from 'react-bootstrap';
+import quick1 from '../static/images/quick/quick1.jpg';
+import quick2 from '../static/images/quick/quick2.jpg';
+import quick3 from '../static/images/quick/quick3.jpg';
+import quick4 from '../static/images/quick/quick4.jpg';
+import quick5 from '../static/images/quick/quick5.jpg';
+import quick6 from '../static/images/quick/quick6.jpg';
+import quick7 from '../static/images/quick/quick7.jpg';
+import quick8 from '../static/images/quick/quick8.jpg';
+import quick9 from '../static/images/quick/quick9.jpg';
+import quick10 from '../static/images/quick/quick10.jpg';
+import quick11 from '../static/images/quick/quick11.jpg';
+import quick12 from '../static/images/quick/quick12.jpg';
 
 export default () => {
   return (
@@ -105,21 +103,7 @@ export default () => {
             alt="Twelvth slide"
           />
         </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block item-carousel"
-            src={quick13}
-            alt="Thirteenth slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block item-carousel"
-            src={quick14}
-            alt="Fourteenth slide"
-          />
-        </Carousel.Item>
       </Carousel>
     </div>
-  )
+  );
 };

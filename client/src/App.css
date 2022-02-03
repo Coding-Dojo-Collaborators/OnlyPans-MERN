@@ -11783,13 +11783,12 @@ a[data-toggle="collapse"] {
 .carousel {
   margin: 0 auto;
   width: 940px;
-  height: 333px;
+  height: 300px;
   vertical-align: middle;
 }
 .item-carousel {
-  width: 939px;
-  height: 332px;
-  height: 50vh;
+  width: 940px;
+  height: 300px;
   max-width: 100%;
   margin: auto;
   object-fit: cover;
