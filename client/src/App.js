@@ -9,7 +9,7 @@ import {
 // Dashboard Imports
 import ManagePostsTab from './components/Dashboard/ManagePostsTab';
 import UsersLiked from './components/Dashboard/UsersLiked';
-import FavoriteRecipes from './components/Dashboard/FavoriteRecipes';
+
 
 // Recipe Imports
 import CategoryViewAll from './views/RecipeCRUD/CategoryViewAll';
@@ -29,6 +29,7 @@ import EditUser from './views/UserCRUD/EditUser';
 // import ToggleColorMode from './components/Themes/ToggleDarkMode';
 import './App.css';
 import './style.scss';
+import {  FavoriteRecipeView } from './views/RecipeCRUD/FavoriteRecipeView';
 
 export default () => {
   return (
@@ -51,7 +52,7 @@ export default () => {
             <UsersLiked />
           </Route>
           <Route exact path='/dashboard/favorites/:id'>
-            <FavoriteRecipes />
+            <FavoriteRecipeView/>
           </Route>
           {/* User Routes */}
           <Route exact path='/users'>

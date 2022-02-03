@@ -132,7 +132,7 @@ export default ({ initialName, initialCuisine,
                                         onChange={(e) => setCategory(e.target.value)}
                                     >
                                         <MenuItem value="breakfast">Breakfast</MenuItem>
-                                        <MenuItem value="breakfast">Lunch</MenuItem>
+                                        <MenuItem value="lunch">Lunch</MenuItem>
                                         <MenuItem value="dinner">Dinner</MenuItem>
                                         <MenuItem value="quick">Quick And Easy</MenuItem>
                                         <MenuItem value="wineAndDine">Wine And Dine</MenuItem>
