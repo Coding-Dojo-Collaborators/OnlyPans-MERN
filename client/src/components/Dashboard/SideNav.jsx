@@ -108,7 +108,7 @@ export default ({ username, id, setLogout, avatar }) => {
                     <Link to="/dashboard/users/:id">Users Liked</Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/favorites/:id">Favorite Recipes</Link>
+                    <Link to={`/dashboard/favorites/${id}`}>Favorite Recipes</Link>
                   </li>
                 </ul>
               </li>

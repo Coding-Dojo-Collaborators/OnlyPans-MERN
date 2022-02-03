@@ -3,6 +3,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import RecipeForm from '../../components/FormComponents/RecipeForm';
+import ToggleColorMode from '../../components/Themes/ToggleDarkMode';
+import { ThemeProvider } from "@material-ui/styles";
+import { createTheme } from "@material-ui/core";
+const baseTheme = createTheme();
 
 export default () => {
     const [errors, setErrors] = useState([]);
@@ -42,6 +46,9 @@ export default () => {
 
     return (
         <div>
+            <ToggleColorMode currentPage="recipeForm">
+                <ThemeProvider theme={baseTheme}>
+            
             <RecipeForm
                 formName='Create A Recipe'
                 onSubmitProp={createRecipe}
@@ -55,7 +62,9 @@ export default () => {
                 initialCategory=''
                 errors={errors}
                 userId={user._id}
-            />
+                />
+                </ThemeProvider>
+            </ToggleColorMode>
         </div>
     )
 }

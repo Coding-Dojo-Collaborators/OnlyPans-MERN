@@ -38,7 +38,7 @@ export default () => {
       {/* <ToggleColorMode currentPage="landingPage" /> */}
       <div className='d-flex align-items-center justify-content-between'>
         <div className='d-flex justify-content-start'>
-          <Header />
+          <Header currentPage='landingPage'/>
         </div>
         <div className='d-flex justify-content-end'>
           <div className='d-flex justify-content-evenly'>
