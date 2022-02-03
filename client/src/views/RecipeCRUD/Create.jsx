@@ -16,7 +16,7 @@ export default () => {
                 setUser(res.data)
             })
             .catch(err => {
-                history.pushState('/')
+                history.push('/')
                 console.log("noUser logged in")
             });
     }, [history]);
@@ -25,7 +25,7 @@ export default () => {
         console.log(recipe);
         axios.post('http://localhost:8000/api/recipe/new', recipe)
             .then(res => {
-                history.push('/');
+                history.push(`/dashboard/${user._id}`);
             })
             .catch(err => {
                 console.log(err.response.data.errors)
@@ -42,8 +42,8 @@ export default () => {
 
     return (
         <div>
-            <Link to='/'>Home</Link>
             <RecipeForm
+                formName='Create A Recipe'
                 onSubmitProp={createRecipe}
                 initialName=''
                 initialCuisine=''

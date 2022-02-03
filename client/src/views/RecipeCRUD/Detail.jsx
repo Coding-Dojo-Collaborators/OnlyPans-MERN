@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 const Detail = (props) => {
     const [recipe, setRecipe] = useState({})
     const { id } = useParams();
-
+    const history = useHistory();
+    const [user, setUser] = useState('')
     useEffect(() => {
+        axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+        .then(res => {
+            console.log(res.data);
+            setUser(res.data)
+        })
+        .catch(err => {
+            history.push('/')
+            console.log("noUser logged in")
+        });
         axios.get('http://localhost:8000/api/recipe/' + id)
             .then(res => setRecipe(res.data))
             .catch(err => console.error(err));
