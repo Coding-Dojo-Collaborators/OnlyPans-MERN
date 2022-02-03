@@ -115,6 +115,7 @@ export default ({ username, setLogout,avatar }) => {
                 >Log out</Button>
               </p>
             </div>
+
           </div>
         </div>
       </div>
