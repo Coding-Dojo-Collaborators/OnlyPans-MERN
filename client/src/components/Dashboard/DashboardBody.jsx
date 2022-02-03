@@ -109,13 +109,13 @@ export default function BasicTabs({ user }) {
                   <thead>
                     <tr>
                       <div className='d-flex justify-content-between align-items-center gap-5 px-5'>
-                        <th scope="">
+                        <th scope="" className='ps-4'>
                           <Typography
                             sx={thStyle}>
                             Recipe Name
                           </Typography>
                         </th>
-                        <th scope="" align='left'>
+                        <th scope="" className='pe-4'>
                           <Typography
                             sx={thStyle}>
                             Publish Date
