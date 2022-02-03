@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { StyledEngineProvider } from '@mui/material/styles';
+// import { StyledEngineProvider } from '@mui/material/styles';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
@@ -12,9 +12,9 @@ import thunk from 'redux-thunk';
 const store = createStore(compose(applyMiddleware(thunk)));
 ReactDOM.render(
   <Provider store={store}>
-    <StyledEngineProvider injectFirst>
-      <App />
-    </StyledEngineProvider>,
+    {/* <StyledEngineProvider injectFirst> */}
+    <App />
+    {/* </StyledEngineProvider>, */}
   </Provider>,
   document.getElementById('root')
 );

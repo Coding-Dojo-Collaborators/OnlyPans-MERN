@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/aria-role */
-/* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -15,36 +13,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
-const DashboardBody = ({ user, children, value, index, ...other }) => {
-  // eslint-disable-next-line no-unused-vars
-  const [recipe, setRecipe] = useState([]);
-
-  useEffect(() => {
-    axios.get(`http://localhost:8000/api/recipe/user/${user}`)
-      .then(res => {
-        console.log(res.data);
-        setRecipe(res.data)
-      }).catch(err => console.log(err))
-  }, [user]);
-  console.log(recipe);
-
-  return (
-    <div
-      role="DashboardBody"
-      hidden={value !== index}
-      id={`full-width-DashboardBody-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
+import DashboardBody from './DashboardBody';
 
 DashboardBody.propTypes = {
   children: PropTypes.node,
@@ -60,7 +29,6 @@ function a11yProps(index) {
 }
 
 export default function FullWidthTabs() {
-  // eslint-disable-next-line no-unused-vars
   const [recipe, setRecipe] = useState([]);
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
@@ -103,7 +71,7 @@ export default function FullWidthTabs() {
                   <p>
                     {recipe.name}
                   </p>
-                );
+                )
               })
             }
           </div>
