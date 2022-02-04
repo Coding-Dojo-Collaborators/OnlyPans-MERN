@@ -15,7 +15,7 @@ import sweets11 from '../static/images/sweets/sweets11.jpg';
 
 export default () => {
   return (
-    <div className='carousel  py-4'>
+    <div className='carousel'>
       <Carousel prevIcon={
         <span aria-hidden="true" className="carousel-control-prev-icon" />}>
         <Carousel.Item>

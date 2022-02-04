@@ -8,11 +8,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import EditUserModal from '../modals/EditUserModal';
 import ImgUploadModal from '../modals/ImgUploadModal';
+import StickyFooter from '../RecipeBlog/StickyFooter';
 
 export default ({ username, id, setLogout, avatar }) => {
 
   const logout = () => {
-    axios.get('http://localhost:8000/api/logout', { withCredentials: true })
+    axios.get('http://localhost:8000/api/logout',
+      { withCredentials: true })
       .then(res => {
         setLogout('')
       });
@@ -82,7 +84,7 @@ export default ({ username, id, setLogout, avatar }) => {
               </InfoTitle>
             </Info>
           </Row>
-          <div className="px-5 pt-4">
+          <div className="px-5 pt-4 pb-5">
             <div className="avatar-upload">
               <Link to='#'>
                 <img src={avatar}
@@ -129,6 +131,9 @@ export default ({ username, id, setLogout, avatar }) => {
                 >Log out</Button>
               </p>
             </div>
+          </div>
+          <div className='mt-5'>
+            <StickyFooter />
           </div>
         </div>
       </div>

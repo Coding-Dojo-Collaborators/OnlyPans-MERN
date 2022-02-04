@@ -21,7 +21,8 @@ import StickyFooter from './StickyFooter';
 export default ({ user }) => {
   const [recipes, setRecipes] = useState([]);
   const [sortBy, setSortBy] = useState('');
-  const [sortTag, setSortTag] = useState('All POSTS')
+  const [sortTag, setSortTag] = useState('All POSTS');
+
   useEffect(() => {
     axios.get('http://localhost:8000/api/recipe')
       .then(res => setRecipes(res.data));
@@ -219,19 +220,17 @@ export default ({ user }) => {
                     />
                   </Link>
                   <CardContent>
-                    <Link to={`/recipe/${recipe._id}`}>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{
-                          display: '-webkit-box',
-                          overflow: 'hidden',
-                          WebkitBoxOrient: 'vertical',
-                          WebkitLineClamp: 3,
-                        }}>
-                        {recipe.description}
-                      </Typography>
-                    </Link>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{
+                        display: '-webkit-box',
+                        overflow: 'hidden',
+                        WebkitBoxOrient: 'vertical',
+                        WebkitLineClamp: 3,
+                      }}>
+                      {recipe.description}
+                    </Typography>
                   </CardContent>
                   <CardActions disableSpacing>
                     {

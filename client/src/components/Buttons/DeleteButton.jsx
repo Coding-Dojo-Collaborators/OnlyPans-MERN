@@ -18,9 +18,9 @@ export default props => {
       onClick={deleteRecipe}
       Delete Recipe
       variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-      >
-        Delete
+      sx={{ mt: 3, mb: 2 }}
+    >
+      Delete
     </Button>
   )
 }

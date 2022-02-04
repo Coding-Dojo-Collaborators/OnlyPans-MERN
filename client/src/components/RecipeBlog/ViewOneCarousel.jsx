@@ -18,7 +18,7 @@ import random14 from '../static/images/random/random14.jpg';
 
 export default () => {
   return (
-    <div className='carousel  py-4'>
+    <div className='carousel'>
       <Carousel prevIcon={
         <span aria-hidden="true" className="carousel-control-prev-icon" />}>
         <Carousel.Item>

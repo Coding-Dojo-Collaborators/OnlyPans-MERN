@@ -17,14 +17,23 @@ export default () => {
               },
               display: 'flex',
               alignItems: 'center',
+              ':hover': {
+                color: '#ffc107'
+              }
             }}
             className="create-recipe"
           >
             <Typography component={Link} to='/recipe/new'
               className='label-hidden d-flex align-items-center'
+              sx={{ color: '#ffc107 !important' }}
             >Create Recipe
             </Typography>
             <Icon component={Link} to='/recipe/new'
+              sx={{
+                ':hover': {
+                  color: '#ffc107'
+                }
+              }}
               className='iconButton'>
               add_circle</Icon>
           </Box>

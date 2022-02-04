@@ -11808,6 +11808,10 @@ a[data-toggle="collapse"] {
   position: relative;
 }
 
+/* .create-recipe:hover {
+  color: #ffc107 !important;
+} */
+
 .copyright-link {
   text-decoration: none !important;
   color: #ffc107;
@@ -11910,14 +11914,45 @@ a[data-toggle="collapse"] {
   width: 345px;
 }
 
+/* .one-recipe {
+  margin-top: -200px;
+} */
+
+.recipe-body {
+  padding: 0 16px 16px 16px;
+}
+
 #category {
   width: 180px;
 }
 
-.all-posts {
+.all-posts,
+.fave-recipes {
   width: 940px;
 }
 
-.showOne {
-  width: 150px;
+.fave-recipes {
+  padding: 30px;
+  margin: 0 auto;
 }
+
+.grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  /* padding-right: 50%; */
+}
+
+.recipe-card2 {
+  position: relative;
+  flex: 1 calc(50% - 20px);
+  margin: 10px;
+  max-width: 345px;
+  overflow: hidden;
+}
+
+/* .recipe-card2::after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+} */
