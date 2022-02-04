@@ -105,7 +105,7 @@ export default ({ username, id, setLogout, avatar }) => {
                 <Link to="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Collection</Link>
                 <ul className="list-unstyled components ps-2">
                   <li>
-                    <Link to="/dashboard/users/:id">Users Liked</Link>
+                    <Link to="#">Users Liked</Link>
                   </li>
                   <li>
                     <Link to={`/dashboard/favorites/${id}`}>Favorite Recipes</Link>

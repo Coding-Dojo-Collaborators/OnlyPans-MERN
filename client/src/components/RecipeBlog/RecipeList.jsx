@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 const RecipeList = ({ user }) => {
   const [recipes, setRecipes] = useState([]);
   const [sortBy, setSortBy] = useState('');
-
+  const [sortTag, setSortTag] = useState('All POSTS')
   useEffect(() => {
     axios.get('http://localhost:8000/api/recipe')
       .then(res => setRecipes(res.data));
@@ -49,13 +49,15 @@ const RecipeList = ({ user }) => {
 
   return (
     <div className='blog-body'>
-      <h4 className='body-title text-center'>ALL POSTS</h4>
+      <h4 className='body-title text-center'>{sortTag}</h4>
       <div className='mt-5'>
         <ul className='categories-list 
         d-flex align-items-center justify-content-center gap-4'>
           <li>
             <Button component={Link} to='#'
-             onClick={(e) => setSortBy('')}
+             onClick={(e) => {
+               setSortTag('All POSTS')
+               setSortBy('')}}
               sx={linkStyle}
               className=''
             >
@@ -66,7 +68,9 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
-              onClick={(e) => setSortBy('breakfast')}
+              onClick={(e) => {
+                setSortTag('Breakfast')
+                setSortBy('breakfast')}}
             >
               Breakfast
             </Button>
@@ -74,7 +78,9 @@ const RecipeList = ({ user }) => {
           <li>
             <Button component={Link} to='#'
               sx={linkStyle}
-              onClick={(e) => setSortBy('lunch')}
+              onClick={(e) => {
+                setSortTag('Lunch')
+                setSortBy('lunch')}}
               className=''
             >
               Lunch
@@ -84,7 +90,9 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
-              onClick={(e) => setSortBy('dinner')}
+              onClick={(e) =>{
+                setSortTag('Dinner')
+                setSortBy('dinner')}}
             >
               Dinner
             </Button>
@@ -93,7 +101,9 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
-              onClick={(e) => setSortBy('quickAndEasy')}
+              onClick={(e) => {
+                setSortTag('Quick & Easy')
+                setSortBy('quick')}}
             >
               Quick & Easy
             </Button>
@@ -102,7 +112,9 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
-              onClick={(e) => setSortBy('wineAndDine')}
+              onClick={(e) => {
+                setSortTag('Wine And Dine')
+                setSortBy('wineAndDine')}}
             >
               Wine & Dine
             </Button>
@@ -111,7 +123,9 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
-              onClick={(e) => setSortBy('bakedGoods')}
+              onClick={(e) => {
+                setSortTag('Baked Goods')
+                setSortBy('bakedGoods')}}
             >
               Baked Goods
             </Button>
