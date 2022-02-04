@@ -34,7 +34,7 @@ export default ({ handleClose, id, setLogout }) => {
   const [errors, setErrors] = useState("");
   const [profileAvatar, setProfileAvatar] = useState("");
 
-  const logo = require('../static/images/onlypansegglogo.png')
+  const logo = require('../static/images/onlypansegglogo.png');
 
   const handleSubmit = (e) => {
     e.preventDefault();

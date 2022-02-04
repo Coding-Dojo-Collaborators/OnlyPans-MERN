@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
 import { Button } from '@mui/material';
 
@@ -10,8 +10,8 @@ export default props => {
     axios.delete('http://localhost:8000/api/recipe/delete/' + recipeId)
       .then(res => {
         successCallback();
-      })
-  }
+      });
+  };
 
   return (
     <Button
@@ -22,5 +22,5 @@ export default props => {
     >
       Delete
     </Button>
-  )
-}
+  );
+};
