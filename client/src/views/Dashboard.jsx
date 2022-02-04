@@ -19,7 +19,7 @@ export default () => {
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
-        console.log(res.data);
+        
         setUser(res.data)
       })
       .catch(err => {
@@ -27,7 +27,7 @@ export default () => {
         history.push('/')
       });
   }, [history, logout]);
-  console.log(user);
+  
 
   return (
     <div className=''>

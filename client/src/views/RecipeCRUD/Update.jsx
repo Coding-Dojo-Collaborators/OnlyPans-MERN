@@ -17,7 +17,6 @@ const Update = (props) => {
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
-        console.log(res.data);
         setUser(res.data)
       })
       .catch(err => {
@@ -36,7 +35,6 @@ const Update = (props) => {
   const updateRecipe = recipe => {
     axios.put('http://localhost:8000/api/recipe/edit/' + id, recipe)
       .then(res => {
-        console.log(res);
         history.push(`/dashboard/${user._id}`);
       })
       .catch(err => {
@@ -49,9 +47,6 @@ const Update = (props) => {
         setErrors(errorArr);
       })
   }
-  // user._id !== recipe.userId && history.push(`/dashboard/${user._id}`)
-  // console.log(recipe.userId)
-
   return (
     <div>
 

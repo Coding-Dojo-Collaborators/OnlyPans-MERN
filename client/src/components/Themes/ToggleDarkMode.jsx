@@ -152,7 +152,7 @@ export default function ToggleColorMode({ children, currentPage }) {
     }),
     [],
   );
-  console.log(currentPage);
+  
   const theme = React.useMemo(
     () =>
       createTheme({

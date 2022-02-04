@@ -52,14 +52,13 @@ export default ({ pageComponent, user, setLogout }) => {
         setLogout(res)
       });
   };
-  // const searchStyle = {
-  //   width: '550px',
-  //   height: '55px',
-  //   marginTop: '-105px',
-  //   bgcolor: '#fff',
-  // }
+  const searchStyle = {
+    width: '550px',
+    height: '55px',
+    marginTop: '-105px',
+    bgcolor: '#fff',
+  }
 
-  console.log(user)
   return (
     <div className='container-header'>
       <div className='header-links
