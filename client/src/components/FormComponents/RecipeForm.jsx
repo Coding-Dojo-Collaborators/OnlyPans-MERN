@@ -51,10 +51,7 @@ export default ({ initialName, initialCuisine,
   const formStyle = {
     color: 'text.primary'
   }
-  React.useEffect(() => {
-    if (user !== recipeUser) {
-      history.push('/')
-    }
+  
     React.useEffect(() => {
       if (user !== recipeUser) {
         history.push('/')
@@ -231,4 +228,4 @@ export default ({ initialName, initialCuisine,
         <Copyright sx={{ mt: 5 }} />
       </Container>
     );
-  }}}
+  }
