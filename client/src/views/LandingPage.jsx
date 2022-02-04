@@ -9,8 +9,8 @@ import NavLinks from '../components/LandingPage/NavLinks';
 import LandingBody from '../components/LandingPage/LandingBody';
 
 export default () => {
-  const [user, setUser] = useState({id:""});
-
+  const [user, setUser] = useState('');
+  const [id, setId] = useState({id: ''})
   const myStyle = {
     backgroundImage:
       `url(${bgImage})`,
@@ -26,11 +26,12 @@ export default () => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
         setUser(res.data)
+        setId(res.data._id)
       })
       .catch(err => {
         console.log("noUser logged in")
       });
-  }, [user]);
+  }, []);
 
   return (
     <div className='landingPage'
@@ -38,7 +39,7 @@ export default () => {
       {/* <ToggleColorMode currentPage="landingPage" /> */}
       <div className='d-flex align-items-center justify-content-between'>
         <div className='d-flex justify-content-start'>
-          <Header currentPage='landingPage' id={user.id}/>
+          <Header currentPage='landingPage' id={id}/>
         </div>
         <div className='d-flex justify-content-end'>
           <div className='d-flex justify-content-evenly'>
