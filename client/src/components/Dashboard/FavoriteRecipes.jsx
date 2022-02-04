@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
@@ -11,7 +12,7 @@ import Typography from '@mui/material/Typography';
 // import IconButton from '@mui/material/IconButton';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const FavoriteRecipes = ({ favoriteRecipes }) => {
+export default ({ favoriteRecipes }) => {
 
   const linkStyle = {
     fontFamily: 'Open Sans',
@@ -126,7 +127,5 @@ const FavoriteRecipes = ({ favoriteRecipes }) => {
         })
       }
     </div>
-  )
+  );
 };
-
-export default FavoriteRecipes;

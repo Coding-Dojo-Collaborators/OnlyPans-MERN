@@ -31,7 +31,7 @@ const DashboardBody = ({ user, children, value, index, ...other }) => {
       )}
     </div>
   );
-}
+};
 
 DashboardBody.propTypes = {
   children: PropTypes.node,
@@ -44,7 +44,7 @@ function a11yProps(index) {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
   };
-}
+};
 
 const Copyright = (props) => {
   return (
@@ -58,7 +58,7 @@ const Copyright = (props) => {
       {'.'}
     </Typography>
   );
-}
+};
 
 export default function BasicTabs({ user }) {
   const [recipe, setRecipe] = useState([]);
@@ -86,7 +86,7 @@ export default function BasicTabs({ user }) {
     fontSize: 15,
     fontWeight: 'bold',
     color: 'text.primary'
-  }
+  };
 
   const tdStyle = {
     fontSize: 14,
@@ -96,7 +96,7 @@ export default function BasicTabs({ user }) {
     ':hover': {
       color: '#ffc107'
     }
-  }
+  };
 
   return (
     <div className='d-flex justify-content-center'>

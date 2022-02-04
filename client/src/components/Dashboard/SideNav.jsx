@@ -28,7 +28,7 @@ export default ({ username, id, setLogout, avatar }) => {
     backgroundPosition: 'center',
     objectFit: 'cover',
     height: 120,
-  }
+  };
 
   const logoutStyle = {
     color: '#ffc107',
@@ -36,7 +36,7 @@ export default ({ username, id, setLogout, avatar }) => {
     ':hover': {
       color: '#ffc107',
     },
-  }
+  };
 
   return (
     <div className=''>

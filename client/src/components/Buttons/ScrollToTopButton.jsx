@@ -13,7 +13,7 @@ export default () => {
     }
     else if (scrolled <= 300) {
       setVisible(false);
-    }
+    };
   };
 
   const scrollToTop = () => {
@@ -31,4 +31,4 @@ export default () => {
         sx={{ display: visible ? 'inline' : 'none' }} />
     </Button>
   );
-}
+};
