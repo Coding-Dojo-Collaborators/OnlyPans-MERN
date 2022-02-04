@@ -11783,7 +11783,39 @@ a[data-toggle="collapse"] {
 /*# sourceMappingURL=bootstrap.css.map */
 
 .container-header {
-  position: relative;
+  margin-top: 60px;
+}
+
+.header-links {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  z-index: 3;
+  margin-bottom: -10px;
+}
+
+.header-links > * {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+}
+
+.header-links .carousel-header {
+  z-index: 2;
+}
+
+.header-links .blog-logo {
+  z-index: 1;
+}
+
+.blog-links {
+  margin-left: 140px;
+}
+
+.blog-logout {
+  margin-right: 140px;
+}
+
+.carousel-header {
   margin: 20px auto;
   width: 940px;
   height: 500px;
@@ -11793,10 +11825,6 @@ a[data-toggle="collapse"] {
   margin: 0 auto;
   width: 940px;
   height: 300px;
-  /* vertical-align: middle; */
-  position: absolute;
-  top: 50px;
-  left: 0;
 }
 .item-carousel {
   width: 940px;
