@@ -11899,8 +11899,22 @@ a[data-toggle="collapse"] {
   padding-top: 5px;
 }
 
+.blog-body {
+  width: 940px;
+  margin: 0 auto;
+}
+
+/* .recipe-card {
+  min-height: 465px;
+  max-height: 465px;
+} */
+
 #category {
   width: 180px;
+}
+
+.all-posts {
+  width: 940px;
 }
 
 .showOne {
