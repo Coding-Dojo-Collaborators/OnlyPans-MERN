@@ -2,8 +2,12 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Item } from '@mui-treasury/components/flex';
+import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from "@material-ui/icons/Search";
 import MainCarouselContainer from './MainCarouselContainer';
 import ViewOneCarousel from './ViewOneCarousel';
 import BreakfastCarousel from './BreakfastCarousel';
@@ -12,6 +16,26 @@ import DinnerCarousel from './DinnerCarousel';
 import QuickiesCarousel from './QuickiesCarousel';
 import FancyCarousel from './FancyCarousel';
 import SweetsCarousel from './SweetsCarousel';
+
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    display: 'none',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: '#000',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: '#000',
+    },
+    '&:hover fieldset': {
+      borderColor: '#212121',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#000',
+    },
+  },
+});
 
 export default ({ pageComponent, user, logout }) => {
   const logo = require('../static/images/bloglogo.png');
@@ -25,7 +49,6 @@ export default ({ pageComponent, user, logout }) => {
   const searchStyle = {
     width: '550px',
     height: '55px',
-    borderColor: '#000',
     marginTop: '-330px',
     bgcolor: '#fff',
   }
@@ -94,10 +117,24 @@ export default ({ pageComponent, user, logout }) => {
             </div>
           </div>
           <div className="searchfield d-flex justify-content-center">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              label="Search"
+            <CssTextField
+              id="searchfield"
+              label="Search for recipes..."
+              InputLabelProps={{ shrink: false }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton>
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
+              inputProps={{
+                style: {
+                  px: 3
+                }
+              }}
               sx={searchStyle}
             />
           </div>

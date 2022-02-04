@@ -11853,6 +11853,10 @@ a[data-toggle="collapse"] {
   background-color: transparent !important;
 }
 
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  padding-right: 0 !important;
+}
+
 .avatar-upload {
   width: 182px; /*328 co je 1/3 - 20margin left*/
   height: 121px;
