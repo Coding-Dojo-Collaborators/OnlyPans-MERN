@@ -11895,6 +11895,14 @@ a[data-toggle="collapse"] {
   font-weight: bold;
 }
 
+.categories-list li {
+  padding-top: 5px;
+}
+
+#category {
+  width: 180px;
+}
+
 .showOne {
   width: 150px;
 }

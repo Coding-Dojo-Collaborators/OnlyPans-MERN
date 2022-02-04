@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import DeleteButton from '../Buttons/DeleteButton';
+import { useTheme } from '@mui/material/styles';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -36,25 +38,25 @@ const RecipeList = ({ user }) => {
   };
   console.log(user);
 
-  // const linkStyle = {
-  //   fontFamily: 'Open Sans',
-  //   fontWeight: 'normal',
-  //   color: '#000',
-  //   textTransform: 'capitalize',
-  //   p: 0,
-  //   ':hover': {
-  //     color: '#212121'
-  //   },
-  //   ':active': {
-  //     fontWeight: 'bold'
-  //   }
-  // }
+  const linkStyle = {
+    fontFamily: 'Open Sans',
+    fontWeight: 'normal',
+    color: '#000',
+    textTransform: 'capitalize',
+    p: 0,
+    ':hover': {
+      color: '#212121'
+    },
+    ':active': {
+      fontWeight: 'bold'
+    }
+  }
 
   return (
     <div className='blog-body'>
       <h4 className='body-title text-center'>ALL POSTS</h4>
-      <div className=''>
-        {/* <ul className='categories-list 
+      <div className='d-flex align-items-center'>
+        <ul className='categories-list 
         d-flex gap-4'>
           <li>
             <Button component={Link} to='#'
@@ -112,28 +114,18 @@ const RecipeList = ({ user }) => {
               Baked Goods
             </Button>
           </li>
-        </ul> */}
-        <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper category"
-            value={sortBy}
-            label="Sort By"
-            InputLabelProps={{ shrink: false }}
-            onChange={(e) => setSortBy(e.target.value)}
-          >
-            <MenuItem value="">
-              Sort By
-            </MenuItem>
-            <MenuItem value=''>All Recipes</MenuItem>
-            <MenuItem value="breakfast">Breakfast</MenuItem>
-            <MenuItem value="lunch">Lunch</MenuItem>
-            <MenuItem value="dinner">Dinner</MenuItem>
-            <MenuItem value="quick">Quick & Easy</MenuItem>
-            <MenuItem value="wineAndDine">Wine & Dine</MenuItem>
-            <MenuItem value="bakedGoods">Baked Goods</MenuItem>
-          </Select>
-        </FormControl>
+        </ul>
+        <select name="catergory" id="category"
+          className='form-select'
+          value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option selected value="">All Recipes</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+          <option value="quick">Quick And Easy</option>
+          <option value="wineAndDine">Wine And Dine</option>
+          <option value="bakedGoods">Baked Goods</option>
+        </select>
       </div>
       {recipes.filter((recipe) => {
         if (sortBy === '') {
