@@ -16,25 +16,25 @@ const Update = (props) => {
   const [user, setUser] = useState('')
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
-    .then(res => {
+      .then(res => {
         console.log(res.data);
         setUser(res.data)
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         history.push('/')
         console.log("noUser logged in")
-    });
+      });
     axios.get('http://localhost:8000/api/recipe/' + id)
       .then(res => {
         res.data.userId !== user.id ?
-        history.push(``)
-        :
-        setRecipe(res.data);
+          history.push(``)
+          :
+          setRecipe(res.data);
         setLoaded(true);
       }).catch(err => {
         history.push(``)
       })
-  }, []);
+  }, [history, id, user.id]);
 
   const updateRecipe = recipe => {
     axios.put('http://localhost:8000/api/recipe/edit/' + id, recipe)
@@ -57,29 +57,29 @@ const Update = (props) => {
 
   return (
     <div>
-      
+
       <ToggleColorMode currentPage="createRecipe">
-                <ThemeProvider theme={baseTheme}>
-      {loaded && (
-        <>
-          <RecipeForm
-            formName='Update Your Recipe'
-            currentPage='update'
-            onSubmitProp={updateRecipe}
-            initialName={recipe.name}
-            initialCuisine={recipe.cuisine}
-            initialDescription={recipe.description}
-            initialIngredients={recipe.ingredients}
-            initialInstructions={recipe.instructions}
-            initialImage={recipe.image}
-            initialAllergies={recipe.allergies}
-            errors={errors}
-            recipeId={recipe._id}
-          />
-        </>
-      )}
-   </ThemeProvider>
-            </ToggleColorMode>
+        <ThemeProvider theme={baseTheme}>
+          {loaded && (
+            <>
+              <RecipeForm
+                formName='Update Your Recipe'
+                currentPage='update'
+                onSubmitProp={updateRecipe}
+                initialName={recipe.name}
+                initialCuisine={recipe.cuisine}
+                initialDescription={recipe.description}
+                initialIngredients={recipe.ingredients}
+                initialInstructions={recipe.instructions}
+                initialImage={recipe.image}
+                initialAllergies={recipe.allergies}
+                errors={errors}
+                recipeId={recipe._id}
+              />
+            </>
+          )}
+        </ThemeProvider>
+      </ToggleColorMode>
 
     </div>
   )

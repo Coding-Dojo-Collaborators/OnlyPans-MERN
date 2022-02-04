@@ -37,7 +37,7 @@ const CssTextField = styled(TextField)({
   },
 });
 
-export default ({ pageComponent, user, logout }) => {
+export default ({ pageComponent, logout }) => {
   const logo = require('../static/images/bloglogo.png');
 
   const linkStyle = {
@@ -49,7 +49,7 @@ export default ({ pageComponent, user, logout }) => {
   const searchStyle = {
     width: '550px',
     height: '55px',
-    marginTop: '-330px',
+    marginTop: '-105px',
     bgcolor: '#fff',
   }
 

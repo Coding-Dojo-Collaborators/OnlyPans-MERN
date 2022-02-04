@@ -11780,66 +11780,6 @@ a[data-toggle="collapse"] {
   height: 50px;
 }
 
-/*# sourceMappingURL=bootstrap.css.map */
-
-.container-header {
-  margin-top: 60px;
-}
-
-.header-links {
-  display: grid;
-  grid-template: 1fr / 1fr;
-  place-items: center;
-  z-index: 3;
-  margin-bottom: -10px;
-}
-
-.header-links > * {
-  grid-column: 1 / 1;
-  grid-row: 1 / 1;
-}
-
-.header-links .carousel-header {
-  z-index: 2;
-}
-
-.header-links .blog-logo {
-  z-index: 1;
-}
-
-.blog-links {
-  margin-left: 140px;
-}
-
-.blog-logout {
-  margin-right: 140px;
-}
-
-.carousel-header {
-  margin: 20px auto;
-  width: 940px;
-  height: 500px;
-}
-
-.carousel {
-  margin: 0 auto;
-  width: 940px;
-  height: 300px;
-}
-.item-carousel {
-  width: 940px;
-  height: 300px;
-  max-width: 100%;
-  margin: auto;
-  object-fit: cover;
-  object-position: 50% 50%;
-  vertical-align: middle;
-}
-
-.searchfield fieldset {
-  border-radius: 0 !important;
-}
-
 .MuiTabs-indicator {
   background-color: #ffc107 !important;
 }
@@ -11875,6 +11815,84 @@ a[data-toggle="collapse"] {
 
 .copyright-link:hover {
   color: gray;
+}
+
+/*# sourceMappingURL=bootstrap.css.map */
+
+.container-header {
+  margin-top: 60px;
+}
+
+.header-links {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  z-index: 3;
+  margin-bottom: -10px;
+}
+
+.header-links > * {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+}
+
+.header-links .carousel-header {
+  z-index: 2;
+}
+
+.header-links .blog-logo {
+  z-index: 1;
+}
+
+.blog-links {
+  margin-left: 140px;
+}
+
+.blog-logout {
+  margin-right: 140px;
+}
+
+.blog-logo {
+  height: 80px !important;
+}
+
+.carousel-header {
+  margin: 20px auto;
+  width: 940px;
+  height: 500px;
+}
+
+.carousel {
+  margin: 0 auto;
+  width: 940px;
+  height: 300px;
+}
+.item-carousel {
+  width: 940px;
+  height: 300px;
+  max-width: 100%;
+  margin: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+  vertical-align: middle;
+}
+
+.searchfield fieldset {
+  border-radius: 0 !important;
+}
+
+.body-title {
+  margin-top: -150px;
+  letter-spacing: 10px;
+  font-weight: bold;
+}
+
+.categories-list {
+  list-style: none;
+}
+
+.categories-list:active {
+  font-weight: bold;
 }
 
 .showOne {
