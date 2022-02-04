@@ -34,7 +34,7 @@ const theme = createTheme();
 export default ({ initialName, initialCuisine,
     initialDescription, initialIngredients, initialInstructions,
     initialImage, initialAllergies, onSubmitProp, errors, initialCategory,
-     userId , formName, currentPage,recipeId}) => {
+     userId , formName, currentPage,recipeId, user, recipeUser}) => {
     const [name, setName] = useState(initialName);
     const [cuisine, setCuisine] = useState(initialCuisine);
     const [description, setDescription] = useState(initialDescription);
@@ -51,17 +51,13 @@ export default ({ initialName, initialCuisine,
     const formStyle = {
         color:'text.primary'
         }
-    // const deleteRecipe = (e) => {
-    //     axios.delete(`http://localhost:8000/api/recipe/delete/${id}`)
-    //         .then(res => {
-    //         history.push(`/dashboard/${userId}`)
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    //     }
-
-
+        React.useEffect(() => {
+            if(user !== recipeUser){
+                history.push('/')
+            }
+        })
+        console.log(user)
+        console.log(recipeUser)
     const onSubmitHandler = e => {
         e.preventDefault();
         onSubmitProp({

@@ -26,9 +26,6 @@ const Update = (props) => {
       });
     axios.get('http://localhost:8000/api/recipe/' + id)
       .then(res => {
-        res.data.userId !== user.id ?
-          history.push(``)
-          :
           setRecipe(res.data);
         setLoaded(true);
       }).catch(err => {
@@ -75,6 +72,8 @@ const Update = (props) => {
                 initialAllergies={recipe.allergies}
                 errors={errors}
                 recipeId={recipe._id}
+                recipeUser={recipe.userId}
+                user={user._id}
               />
             </>
           )}

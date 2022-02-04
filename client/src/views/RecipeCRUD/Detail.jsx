@@ -22,7 +22,10 @@ const Detail = (props) => {
             .then(res => setRecipe(res.data))
             .catch(err => console.error(err));
     }, []);
+    
 
+    console.log(user._id )
+     console.log(recipe.userId)
     return (
         <div>
             <h1>{recipe.name}</h1>
