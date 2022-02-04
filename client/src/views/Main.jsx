@@ -8,7 +8,7 @@ import BlogHeader from '../components/RecipeBlog/BlogHeader';
 export default () => {
   const [user, setUser] = useState("");
   const history = useHistory();
-
+  const [logout, setLogout] = useState('')
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
@@ -18,11 +18,11 @@ export default () => {
         console.log("noUser logged in")
         history.push('/')
       })
-  }, [history]);
+  }, [logout]);
 
   return (
     <div className='container'>
-      <BlogHeader pageComponent='viewallrecipes' />
+      <BlogHeader setLogout={setLogout} user={user} pageComponent='viewallrecipes' />
       <RecipeList user={user} />
     </div>
   )

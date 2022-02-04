@@ -10,14 +10,14 @@ const Detail = (props) => {
     const [user, setUser] = useState('')
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
-        .then(res => {
-            console.log(res.data);
-            setUser(res.data)
-        })
-        .catch(err => {
-            history.push('/')
-            console.log("noUser logged in")
-        });
+            .then(res => {
+                console.log(res.data);
+                setUser(res.data)
+            })
+            .catch(err => {
+                history.push('/')
+                console.log("noUser logged in")
+            });
         axios.get('http://localhost:8000/api/recipe/' + id)
             .then(res => setRecipe(res.data))
             .catch(err => console.error(err));
@@ -26,20 +26,20 @@ const Detail = (props) => {
     return (
         <div>
             <h1>{recipe.name}</h1>
-            <img src = {recipe.image}></img>
+            <img src={recipe.image}></img>
             <p>Type of Cuisine: {recipe.cuisine}</p>
             <p>Category: {recipe.category}</p>
             <p>Description: {recipe.description}</p>
             <p>Ingredients: {recipe.ingredients}</p>
             <p>Instructions: {recipe.instructions}</p>
-            <p>Image URL: {recipe.image}</p>
             <p>Allergies (optional): {recipe.allergies}</p>
-           {user._id === recipe.userId?
-            <Link to={`/recipe/edit/${recipe._id}`}>
-                Edit Recipe
-            </Link>
-            : <></>
-        }
+            {
+                user._id === recipe.userId ?
+                    <Link to={`/recipe/edit/${recipe._id}`}>
+                        Edit Recipe
+                    </Link>
+                    : <></>
+            }
         </div>
     )
 }

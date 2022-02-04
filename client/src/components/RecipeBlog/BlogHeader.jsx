@@ -12,8 +12,9 @@ import DinnerCarousel from './DinnerCarousel';
 import QuickiesCarousel from './QuickiesCarousel';
 import FancyCarousel from './FancyCarousel';
 import SweetsCarousel from './SweetsCarousel';
+import axios from 'axios';
 
-export default ({ pageComponent, user, logout }) => {
+export default ({ pageComponent, user,setLogout}) => {
   const logo = require('../static/images/bloglogo.png');
 
   const linkStyle = {
@@ -21,7 +22,12 @@ export default ({ pageComponent, user, logout }) => {
     fontWeight: 'normal',
     color: '#000',
   }
-
+  const logout = () => {
+    axios.get('http://localhost:8000/api/logout', { withCredentials: true })
+      .then(res => {
+        setLogout(res)
+      });
+  };
   const searchStyle = {
     width: '550px',
     height: '55px',
@@ -29,13 +35,13 @@ export default ({ pageComponent, user, logout }) => {
     marginTop: '-330px',
     bgcolor: '#fff',
   }
-
+  console.log(user)
   return (
     <div className='container-header'>
       <div className='header-links
       d-flex align-items-center justify-content-between mx-5'>
         <div className="blog-links">
-          <Button component={Link} to={`/dashboard/`}
+          <Button component={Link} to={`/dashboard/${user._id}`}
             sx={linkStyle}
           >Home</Button>
         </div>
