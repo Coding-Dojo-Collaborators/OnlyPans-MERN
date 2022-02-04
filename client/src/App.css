@@ -11904,10 +11904,11 @@ a[data-toggle="collapse"] {
   margin: 0 auto;
 }
 
-/* .recipe-card {
-  min-height: 465px;
-  max-height: 465px;
-} */
+.recipe-card {
+  min-height: 446.05px;
+  max-height: 446.05px;
+  width: 345px;
+}
 
 #category {
   width: 180px;
