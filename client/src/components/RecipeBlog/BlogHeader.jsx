@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Item } from '@mui-treasury/components/flex';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import MainCarouselContainer from './MainCarouselContainer';
 import ViewOneCarousel from './ViewOneCarousel';
 import BreakfastCarousel from './BreakfastCarousel';
@@ -18,7 +19,15 @@ export default ({ pageComponent, user, logout }) => {
   const linkStyle = {
     fontFamily: 'Open Sans',
     fontWeight: 'normal',
-    color: '#585858',
+    color: '#000',
+  }
+
+  const searchStyle = {
+    width: '550px',
+    height: '55px',
+    borderColor: '#000',
+    marginTop: '-330px',
+    bgcolor: '#fff',
   }
 
   return (
@@ -78,11 +87,19 @@ export default ({ pageComponent, user, logout }) => {
                   style={{
                     height: 80,
                     width: 'auto',
-                    padding: '10px 20px 15px',
+                    padding: '10px 20px 18px',
                   }}
                 />
               </Item>
             </div>
+          </div>
+          <div className="searchfield d-flex justify-content-center">
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              label="Search"
+              sx={searchStyle}
+            />
           </div>
         </div>
       </div>

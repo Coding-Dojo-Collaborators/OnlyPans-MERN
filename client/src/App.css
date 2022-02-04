@@ -11836,6 +11836,10 @@ a[data-toggle="collapse"] {
   vertical-align: middle;
 }
 
+.searchfield fieldset {
+  border-radius: 0 !important;
+}
+
 .MuiTabs-indicator {
   background-color: #ffc107 !important;
 }
