@@ -26,8 +26,13 @@ const Update = (props) => {
     });
     axios.get('http://localhost:8000/api/recipe/' + id)
       .then(res => {
+        res.data.userId !== user.id ?
+        history.push(``)
+        :
         setRecipe(res.data);
         setLoaded(true);
+      }).catch(err => {
+        history.push(``)
       })
   }, []);
 
@@ -47,6 +52,8 @@ const Update = (props) => {
         setErrors(errorArr);
       })
   }
+  // user._id !== recipe.userId && history.push(`/dashboard/${user._id}`)
+  // console.log(recipe.userId)
 
   return (
     <div>

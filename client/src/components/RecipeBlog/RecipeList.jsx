@@ -59,6 +59,8 @@ const RecipeList = ({ user }) => {
               Recipe Details
             </Link>
             |
+           {
+           user._id === recipe._id ?
             <Link to={'/recipe/edit/' + recipe._id}>
               Edit Recipe
             </Link>
@@ -67,6 +69,8 @@ const RecipeList = ({ user }) => {
               recipeId={recipe._id}
               successCallback={() => removeFromDom(recipe._id)}
             />
+          : <></>
+          }
             <Button
               onClick={(e) => onFavoriteHandler(recipe._id, recipe.image, recipe.name)}
             >

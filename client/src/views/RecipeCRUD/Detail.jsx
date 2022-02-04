@@ -34,9 +34,12 @@ const Detail = (props) => {
             <p>Instructions: {recipe.instructions}</p>
             <p>Image URL: {recipe.image}</p>
             <p>Allergies (optional): {recipe.allergies}</p>
+           {user._id === recipe.userId?
             <Link to={`/recipe/edit/${recipe._id}`}>
                 Edit Recipe
             </Link>
+            : <></>
+        }
         </div>
     )
 }
