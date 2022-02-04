@@ -18,7 +18,7 @@ export default ({ pageComponent, user, logout }) => {
   const linkStyle = {
     fontFamily: 'Open Sans',
     fontWeight: 'normal',
-    color: '#6c757d',
+    color: '#585858',
   }
 
   return (
