@@ -21,7 +21,6 @@ const Detail = () => {
   const { id } = useParams();
   const history = useHistory();
   const [user, setUser] = useState('');
-  const [favoriteIcon, setFavoriteIcon] = useState({});
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser",
