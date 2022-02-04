@@ -233,6 +233,31 @@ a[data-toggle="collapse"] {
   }
 }
 
+.goTopHidden {
+  display: none;
+}
+
+.goTop {
+  display: block;
+
+  &__text {
+    position: fixed;
+    background: #1d1919;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    bottom: 5%;
+    left: 90%;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
 .footer {
   p {
     color: rgb(255, 255, 255);

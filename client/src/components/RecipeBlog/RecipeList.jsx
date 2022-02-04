@@ -180,7 +180,9 @@ export default ({ user }) => {
                   }}>
                   <CardHeader
                     avatar={
-                      <Link to={`/user/${user._id}`}>
+                      <Link to='#'
+                      // {`/user/${user._id}`}
+                      >
                         <img src={user.profileAvatar}
                           alt="{name}" className="img logo rounded-circle mb-1"
                           style={avatarSize}></img>
@@ -192,7 +194,7 @@ export default ({ user }) => {
                     //   </IconButton>
                     // }
                     title={
-                      <Button component={Link} to={'/recipe/' + recipe._id}
+                      <Button component={Link} to={`/recipe/${recipe._id}`}
                         sx={linkStyle}
                         style={{
                           fontWeight: 'bold',
@@ -208,24 +210,28 @@ export default ({ user }) => {
                     }
                     subheader={createdDate}
                   />
-                  <CardMedia
-                    component="img"
-                    height="194"
-                    image={recipe.image}
-                    alt={recipe.name}
-                  />
+                  <Link to={`/recipe/${recipe._id}`}>
+                    <CardMedia
+                      component="img"
+                      height="194"
+                      image={recipe.image}
+                      alt={recipe.name}
+                    />
+                  </Link>
                   <CardContent>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{
-                        display: '-webkit-box',
-                        overflow: 'hidden',
-                        WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 3,
-                      }}>
-                      {recipe.description}
-                    </Typography>
+                    <Link to={`/recipe/${recipe._id}`}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{
+                          display: '-webkit-box',
+                          overflow: 'hidden',
+                          WebkitBoxOrient: 'vertical',
+                          WebkitLineClamp: 3,
+                        }}>
+                        {recipe.description}
+                      </Typography>
+                    </Link>
                   </CardContent>
                   <CardActions disableSpacing>
                     {

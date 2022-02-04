@@ -1,14 +1,34 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react';
+import React, { useState } from 'react';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Button } from '@mui/material';
 
-export default (props) => {
+export default () => {
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true);
+    }
+    else if (scrolled <= 300) {
+      setVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  window.addEventListener('scroll', toggleVisible);
+
   return (
-    <>
-      <div className={props.showGoTop} onClick={props.scrollUp}>
-        <button className="goTop">
-          <i className="goTop__text fas fa-chevron-up" />
-        </button>
-      </div>
-    </>
+    <Button>
+      <KeyboardArrowUpIcon onClick={scrollToTop}
+        sx={{ display: visible ? 'inline' : 'none' }} />
+    </Button>
   );
-};
+}
