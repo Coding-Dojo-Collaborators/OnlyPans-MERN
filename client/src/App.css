@@ -11905,8 +11905,7 @@ a[data-toggle="collapse"] {
 }
 
 /* .recipe-card {
-  min-height: 465px;
-  max-height: 465px;
+  width: 40%;
 } */
 
 #category {
