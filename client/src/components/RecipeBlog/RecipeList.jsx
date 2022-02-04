@@ -7,8 +7,8 @@ import DeleteButton from '../Buttons/DeleteButton';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Button } from '@mui/material';
-
+import { Button, Grid } from '@mui/material';
+import {  InputLabel } from '@mui/material';
 const RecipeList = ({ user }) => {
   const [recipes, setRecipes] = useState([]);
   const [sortBy, setSortBy] = useState('');
@@ -36,28 +36,29 @@ const RecipeList = ({ user }) => {
   };
   console.log(user);
 
-  // const linkStyle = {
-  //   fontFamily: 'Open Sans',
-  //   fontWeight: 'normal',
-  //   color: '#000',
-  //   textTransform: 'capitalize',
-  //   p: 0,
-  //   ':hover': {
-  //     color: '#212121'
-  //   },
-  //   ':active': {
-  //     fontWeight: 'bold'
-  //   }
-  // }
+  const linkStyle = {
+    fontFamily: 'Open Sans',
+    fontWeight: 'normal',
+    color: '#000',
+    textTransform: 'capitalize',
+    p: 0,
+    ':hover': {
+      color: '#212121'
+    },
+    ':active': {
+      fontWeight: 'bold'
+    }
+  }
 
   return (
     <div className='blog-body'>
       <h4 className='body-title text-center'>ALL POSTS</h4>
       <div className=''>
-        {/* <ul className='categories-list 
+        <ul className='categories-list 
         d-flex gap-4'>
           <li>
             <Button component={Link} to='#'
+             onClick={(e) => setSortBy('')}
               sx={linkStyle}
               className=''
             >
@@ -68,6 +69,7 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
+              onClick={(e) => setSortBy('breakfast')}
             >
               Breakfast
             </Button>
@@ -75,6 +77,7 @@ const RecipeList = ({ user }) => {
           <li>
             <Button component={Link} to='#'
               sx={linkStyle}
+              onClick={(e) => setSortBy('lunch')}
               className=''
             >
               Lunch
@@ -84,6 +87,7 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
+              onClick={(e) => setSortBy('dinner')}
             >
               Dinner
             </Button>
@@ -92,6 +96,7 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
+              onClick={(e) => setSortBy('quickAndEasy')}
             >
               Quick & Easy
             </Button>
@@ -100,6 +105,7 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
+              onClick={(e) => setSortBy('wineAndDine')}
             >
               Wine & Dine
             </Button>
@@ -108,32 +114,14 @@ const RecipeList = ({ user }) => {
             <Button component={Link} to='#'
               sx={linkStyle}
               className=''
+              onClick={(e) => setSortBy('bakedGoods')}
             >
               Baked Goods
             </Button>
           </li>
-        </ul> */}
-        <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper category"
-            value={sortBy}
-            label="Sort By"
-            InputLabelProps={{ shrink: false }}
-            onChange={(e) => setSortBy(e.target.value)}
-          >
-            <MenuItem value="">
-              Sort By
-            </MenuItem>
-            <MenuItem value=''>All Recipes</MenuItem>
-            <MenuItem value="breakfast">Breakfast</MenuItem>
-            <MenuItem value="lunch">Lunch</MenuItem>
-            <MenuItem value="dinner">Dinner</MenuItem>
-            <MenuItem value="quick">Quick & Easy</MenuItem>
-            <MenuItem value="wineAndDine">Wine & Dine</MenuItem>
-            <MenuItem value="bakedGoods">Baked Goods</MenuItem>
-          </Select>
-        </FormControl>
+        </ul>
+        
+
       </div>
       {recipes.filter((recipe) => {
         if (sortBy === '') {
