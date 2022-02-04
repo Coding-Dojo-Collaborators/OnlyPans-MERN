@@ -1,20 +1,20 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
+import { useHistory, useParams } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { FormControl, InputLabel } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme} from '@mui/material/styles';
 import { useState } from 'react'
 
 import { MenuItem, Select } from '@mui/material';
+import axios from 'axios';
+import DeleteButton from '../Buttons/DeleteButton';
 
 function Copyright(props) {
     return (
@@ -33,7 +33,8 @@ const theme = createTheme();
 
 export default ({ initialName, initialCuisine,
     initialDescription, initialIngredients, initialInstructions,
-    initialImage, initialAllergies, onSubmitProp, errors, initialCategory, userId , formName}) => {
+    initialImage, initialAllergies, onSubmitProp, errors, initialCategory,
+     userId , formName, currentPage,recipeId}) => {
     const [name, setName] = useState(initialName);
     const [cuisine, setCuisine] = useState(initialCuisine);
     const [description, setDescription] = useState(initialDescription);
@@ -42,14 +43,23 @@ export default ({ initialName, initialCuisine,
     const [image, setImage] = useState(initialImage)
     const [allergies, setAllergies] = useState(initialAllergies);
     const [category, setCategory] = useState(initialCategory)
-    // const [userId, setUserId] = useState(user._id)
+    const history = useHistory()
     const [favoritedUsers, setFavoritedUsers] = useState([])
-    const logo = require('../static/images/onlypansegglogo.png')
+    // const id = useParams()
+    
     
     const formStyle = {
         color:'text.primary'
         }
-
+    // const deleteRecipe = (e) => {
+    //     axios.delete(`http://localhost:8000/api/recipe/delete/${id}`)
+    //         .then(res => {
+    //         history.push(`/dashboard/${userId}`)
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    //     }
 
 
     const onSubmitHandler = e => {
@@ -68,7 +78,7 @@ export default ({ initialName, initialCuisine,
         })
     }
 
-
+    // console.log(id)
     return (
         // <ThemeProvider theme={theme}>
             <Container 
@@ -154,7 +164,7 @@ export default ({ initialName, initialCuisine,
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
-                                     multiline rows={2}
+                                    multiline rows={2}
                                     required
                                     fullWidth
                                     id="description"
@@ -196,6 +206,13 @@ export default ({ initialName, initialCuisine,
                                 />
                             </Grid>
                         </Grid>
+                        <Grid 
+                        sx={{
+                            mx : 3,
+                            display :'flex',
+                            justifyContent :'space-between'
+                        }}
+                        >
                         <Button
                             type="submit"
                             
@@ -204,11 +221,17 @@ export default ({ initialName, initialCuisine,
                         >
                             Submit
                         </Button>
-                        <Grid container justifyContent="flex-end">
-
+                        {
+                            currentPage == 'update' ?
+                            <DeleteButton
+                            recipeId={recipeId}
+                            successCallback={() => history.push(`/dashboard/${userId}`)}
+                            >Delete</DeleteButton>
+                            : <></>
+                        }
                         </Grid>
                     </Box>
-                </Box>
+                </Box>  
                 <Copyright sx={{ mt: 5 }} />
             </Container>
         

@@ -46,7 +46,7 @@ export default () => {
 
     return (
         <div>
-            <ToggleColorMode currentPage="recipeForm">
+            <ToggleColorMode currentPage="createRecipe">
                 <ThemeProvider theme={baseTheme}>
             
             <RecipeForm

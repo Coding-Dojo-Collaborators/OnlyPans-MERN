@@ -80,7 +80,7 @@ export default function BasicTabs({ user }) {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-  console.log(recipe[1]);
+  // console.log(recipe[1]);
 
   const thStyle = {
     fontSize: 15,

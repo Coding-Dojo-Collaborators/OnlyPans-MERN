@@ -3,7 +3,10 @@ import axios from 'axios';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import RecipeForm from '../../components/FormComponents/RecipeForm';
 import DeleteButton from '../../components/Buttons/DeleteButton';
-
+import ToggleColorMode from '../../components/Themes/ToggleDarkMode';
+import { ThemeProvider } from "@material-ui/styles";
+import { createTheme } from "@material-ui/core";
+const baseTheme = createTheme();
 const Update = (props) => {
   const history = useHistory();
   const { id } = useParams();
@@ -48,10 +51,13 @@ const Update = (props) => {
   return (
     <div>
       
-      
+      <ToggleColorMode currentPage="createRecipe">
+                <ThemeProvider theme={baseTheme}>
       {loaded && (
         <>
           <RecipeForm
+            formName='Update Your Recipe'
+            currentPage='update'
             onSubmitProp={updateRecipe}
             initialName={recipe.name}
             initialCuisine={recipe.cuisine}
@@ -61,13 +67,13 @@ const Update = (props) => {
             initialImage={recipe.image}
             initialAllergies={recipe.allergies}
             errors={errors}
-          />
-          <DeleteButton
             recipeId={recipe._id}
-            successCallback={() => history.push('/')}
           />
         </>
       )}
+   </ThemeProvider>
+            </ToggleColorMode>
+
     </div>
   )
 }

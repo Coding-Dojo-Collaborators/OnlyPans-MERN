@@ -9,7 +9,7 @@ import NavLinks from '../components/LandingPage/NavLinks';
 import LandingBody from '../components/LandingPage/LandingBody';
 
 export default () => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({id:""});
 
   const myStyle = {
     backgroundImage:
@@ -38,7 +38,7 @@ export default () => {
       {/* <ToggleColorMode currentPage="landingPage" /> */}
       <div className='d-flex align-items-center justify-content-between'>
         <div className='d-flex justify-content-start'>
-          <Header currentPage='landingPage'/>
+          <Header currentPage='landingPage' id={user.id}/>
         </div>
         <div className='d-flex justify-content-end'>
           <div className='d-flex justify-content-evenly'>

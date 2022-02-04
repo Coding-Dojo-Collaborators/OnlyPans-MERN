@@ -4,8 +4,8 @@ import Avatar from '@mui/material/Avatar';
 import { Row, Item } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
 import { Typography } from '@mui/material';
-
-export default ({ currentPage }) => {
+import { Link } from 'react-router-dom';
+export default ({ currentPage, id }) => {
   const logo = require('../static/images/onlypansegglogo.png');
 
   return (
@@ -50,7 +50,13 @@ export default ({ currentPage }) => {
               currentPage === 'createRecipe' ?
                 <span className='h1 fw-bold text-white pe-5'>
                   <Typography
-                    sx={{ color: 'text.primary' }}>
+                   variant="h3"
+                   component={Link} to={`/dashboard/${id}`}
+                    sx={{ 
+                      color: 'text.primary' ,
+                      textDecoration:'none'
+                      
+                      }}>
                     N L Y P A N S
                   </Typography>
                 </span>

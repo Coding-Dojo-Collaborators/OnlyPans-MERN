@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
 import axios from 'axios';
+import { Button } from '@mui/material';
 
 export default props => {
   const { recipeId, successCallback } = props;
@@ -13,8 +14,13 @@ export default props => {
   }
 
   return (
-    <button onClick={deleteRecipe}>
+    <Button
+      onClick={deleteRecipe}
       Delete Recipe
-    </button>
+      variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+      >
+        Delete
+    </Button>
   )
 }
