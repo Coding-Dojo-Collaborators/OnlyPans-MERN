@@ -4,11 +4,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import DeleteButton from '../Buttons/DeleteButton';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { Button, Grid } from '@mui/material';
-import {  InputLabel } from '@mui/material';
+import { Button } from '@mui/material';
+
 const RecipeList = ({ user }) => {
   const [recipes, setRecipes] = useState([]);
   const [sortBy, setSortBy] = useState('');
@@ -53,9 +50,9 @@ const RecipeList = ({ user }) => {
   return (
     <div className='blog-body'>
       <h4 className='body-title text-center'>ALL POSTS</h4>
-      <div className=''>
+      <div className='mt-5'>
         <ul className='categories-list 
-        d-flex gap-4'>
+        d-flex align-items-center justify-content-center gap-4'>
           <li>
             <Button component={Link} to='#'
              onClick={(e) => setSortBy('')}
@@ -120,8 +117,6 @@ const RecipeList = ({ user }) => {
             </Button>
           </li>
         </ul>
-        
-
       </div>
       {recipes.filter((recipe) => {
         if (sortBy === '') {

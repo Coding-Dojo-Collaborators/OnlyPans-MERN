@@ -38,7 +38,7 @@ const CssTextField = styled(TextField)({
   },
 });
 
-export default ({ pageComponent, user,setLogout}) => {
+export default ({ pageComponent, user, setLogout }) => {
   const logo = require('../static/images/bloglogo.png');
 
   const linkStyle = {
