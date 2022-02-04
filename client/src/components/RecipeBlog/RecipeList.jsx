@@ -4,11 +4,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import DeleteButton from '../Buttons/DeleteButton';
-import { useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import { Button } from '@mui/material';
 
 const RecipeList = ({ user }) => {
@@ -55,9 +50,9 @@ const RecipeList = ({ user }) => {
   return (
     <div className='blog-body'>
       <h4 className='body-title text-center'>ALL POSTS</h4>
-      <div className='d-flex align-items-center'>
+      <div className='mt-5'>
         <ul className='categories-list 
-        d-flex gap-4'>
+        d-flex align-items-center justify-content-center gap-4'>
           <li>
             <Button component={Link} to='#'
               sx={linkStyle}
@@ -115,17 +110,6 @@ const RecipeList = ({ user }) => {
             </Button>
           </li>
         </ul>
-        <select name="catergory" id="category"
-          className='form-select'
-          value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option selected value="">All Recipes</option>
-          <option value="breakfast">Breakfast</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="quick">Quick And Easy</option>
-          <option value="wineAndDine">Wine And Dine</option>
-          <option value="bakedGoods">Baked Goods</option>
-        </select>
       </div>
       {recipes.filter((recipe) => {
         if (sortBy === '') {
