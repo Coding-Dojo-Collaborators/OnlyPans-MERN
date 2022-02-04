@@ -43,7 +43,7 @@ export default ({ user }) => {
         console.log(err)
       });
   };
-  console.log(user);
+  
 
   const linkStyle = {
     fontFamily: 'Open Sans',

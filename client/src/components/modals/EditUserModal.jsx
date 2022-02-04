@@ -51,7 +51,6 @@ export default function TransitionsModal({ setLogout }) {
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
-                console.log(res.data);
                 setUser(res.data)
             })
             .catch(err => {

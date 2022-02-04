@@ -58,7 +58,7 @@ export default ({ pageComponent, user, setLogout }) => {
     marginTop: '-105px',
     bgcolor: '#fff',
   }
-  console.log(user)
+  
   return (
     <div className='container-header'>
       <div className='header-links

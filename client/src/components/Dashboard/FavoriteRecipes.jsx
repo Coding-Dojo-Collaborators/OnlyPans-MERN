@@ -5,27 +5,6 @@ import { useHistory } from 'react-router-dom';
 const FavoriteRecipes = ({ favoriteRecipes }) => {
   const [recipes, setRecipes] = useState([]);
   
-  console.log(favoriteRecipes);
-  // useEffect(() => {
-
-  //   axios.get(`http://localhost:8000/api/recipe/favorites`,
-  //     favoriteRecipes
-  //   )
-  //     .then(res => {
-  //       console.log(res.data)
-  //       setRecipes(res.data)
-
-  //     //   setRecipes(res.data)
-  //      })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-
-  // }, [])
-
-  // console.log(recipes)
-
-console.log(favoriteRecipes)
   return (
     <div className='showOne'>
      {

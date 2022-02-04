@@ -47,7 +47,6 @@ export default ({ initialName, initialCuisine,
     const [favoritedUsers, setFavoritedUsers] = useState([])
     // const id = useParams()
     
-    
     const formStyle = {
         color:'text.primary'
         }
@@ -56,8 +55,7 @@ export default ({ initialName, initialCuisine,
                 history.push('/')
             }
         })
-        console.log(user)
-        console.log(recipeUser)
+        
     const onSubmitHandler = e => {
         e.preventDefault();
         onSubmitProp({

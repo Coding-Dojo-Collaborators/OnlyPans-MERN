@@ -11,7 +11,7 @@ const Detail = (props) => {
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                
                 setUser(res.data)
             })
             .catch(err => {
@@ -24,8 +24,7 @@ const Detail = (props) => {
     }, []);
     
 
-    console.log(user._id )
-     console.log(recipe.userId)
+    
     return (
         <div>
             <h1>{recipe.name}</h1>

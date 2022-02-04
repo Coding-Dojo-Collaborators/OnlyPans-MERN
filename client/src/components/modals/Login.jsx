@@ -58,12 +58,10 @@ export default ({ handleClose, setUser }) => {
     e.preventDefault();
     axios.post('http://localhost:8000/api/login', loginInfo, { withCredentials: true })
       .then(res => {
-        console.log(res)
         if (res.data.message === "success!") {
           setUser(res.data)
           handleClose()
         } else if (res.data.message) {
-          console.log(res.data.message)
           setErrors(res.data)
         }
       })
@@ -71,12 +69,11 @@ export default ({ handleClose, setUser }) => {
   };
 
   const googleSuccess = async (res) => {
-    console.log(res.profileObj);
     axios.post('http://localhost:8000/api/google/login',
       res.profileObj
       , { withCredentials: true })
       .then(res => {
-        console.log(res)
+        
         if (res.data.message === "success!") {
           setUser(res.data)
           handleClose()
