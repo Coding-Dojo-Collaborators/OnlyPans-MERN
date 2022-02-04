@@ -84,8 +84,8 @@ export default ({ handleClose, setUser }) => {
       .catch(err => console.log(err));
   };
 
-  const googleFailure = () => {
-    console.log("Google sign in not working!");
+  const googleFailure = (res) => {
+    console.log("Google sign in not working!", res);
   };
 
   return (
