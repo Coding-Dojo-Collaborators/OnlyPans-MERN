@@ -76,10 +76,10 @@ export default ({ handleClose, setUser }) => {
         
         if (res.data.message === "success!") {
           setUser(res.data)
-          handleClose()
         } else {
           setErrors(res.data)
         }
+        handleClose()
       })
       .catch(err => console.log(err));
   };

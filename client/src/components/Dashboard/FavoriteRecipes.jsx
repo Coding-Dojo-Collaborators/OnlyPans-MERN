@@ -66,7 +66,7 @@ export default ({ favoriteRecipes }) => {
                     //   </IconButton>
                     // }
                     title={
-                      <Button component={Link} to={`/recipe/${recipe._id}`}
+                      <Button component={Link} to={`/recipe/${recipe.id}`}
                         sx={linkStyle}
                         style={{
                           fontWeight: 'bold',
@@ -81,7 +81,7 @@ export default ({ favoriteRecipes }) => {
                       </Button>
                     }
                   />
-                  <Link to={`/recipe/${recipe._id}`}>
+                  <Link to={`/recipe/${recipe.id}`}>
                     <CardMedia
                       component="img"
                       height="194"
@@ -94,7 +94,7 @@ export default ({ favoriteRecipes }) => {
                       paddingBottom: '0 !important',
                       p: '0 !important'
                     }}>
-                    <Link to={`/recipe/${recipe._id}`}>
+                    <Link to={`/recipe/${recipe.id}`}>
                       <Typography
                         variant="body2"
                         color="text.secondary"
