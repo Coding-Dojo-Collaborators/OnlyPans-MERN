@@ -21,7 +21,7 @@ import StickyFooter from './StickyFooter';
 export default ({ user }) => {
   const [recipes, setRecipes] = useState([]);
   const [sortBy, setSortBy] = useState('');
-  const [sortTag, setSortTag] = useState('All POSTS');
+  const [sortTag, setSortTag] = useState('ALL POSTS');
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/recipe')
@@ -44,7 +44,7 @@ export default ({ user }) => {
         console.log(err)
       });
   };
-  
+
 
   const linkStyle = {
     fontFamily: 'Open Sans',
@@ -77,7 +77,7 @@ export default ({ user }) => {
           <li>
             <Button component={Link} to='#'
               onClick={(e) => {
-                setSortTag('All POSTS')
+                setSortTag('ALL POSTS')
                 setSortBy('')
               }}
               sx={linkStyle}

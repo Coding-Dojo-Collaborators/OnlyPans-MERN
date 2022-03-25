@@ -38,22 +38,22 @@ export default () => {
       <BrowserRouter>
         <Routes>
           {/* Login & Registration Routes */}
-          <Route exact path='/' element={<LandingPage />} />
+          <Route path='/' element={<LandingPage />} />
           {/* Dashboard Routes */}
-          <Route exact path='/dashboard/:id' element={<Dashboard />} />
-          <Route exact path='/dashboard/edit/:id' element={<ManagePostsTab />} />
-          <Route exact path='/dashboard/users/:id' element={<UsersLiked />} />
-          <Route exact path='/dashboard/favorites/:id' element={<FavoriteRecipeView />} />
+          <Route path='dashboard/*' element={<Dashboard />} />
+          <Route path='edit/:id' element={<ManagePostsTab />} />
+          <Route path='users/:id' element={<UsersLiked />} />
+          <Route path='favorites/:id' element={<FavoriteRecipeView />} />
           {/* User Routes */}
-          < Route exact path='/users' element={<ViewAllUsers />} />
-          <Route exact path='/user/:id' element={<DetailUser />} />
-          <Route exact path='/user/edit/:id' element={<EditUser />} />
+          < Route path='users/*' element={<ViewAllUsers />} />
+          <Route path=':id' element={<DetailUser />} />
+          <Route path='edit/:id' element={<EditUser />} />
           {/* Recipe Routes */}
-          < Route exact path='/recipes' element={<Main />} />
-          <Route exact path='/:category/recipes' element={<CategoryViewAll />} />
-          <Route exact path='/recipe/new' element={<Create />} />
-          <Route exact path='/recipe/:id' element={<Detail />} />
-          <Route exact path='/recipe/edit/:id' element={<Update />} />
+          < Route path='recipes/*' element={<Main />} />
+          <Route path=':category' element={<CategoryViewAll />} />
+          <Route path='new' element={<Create />} />
+          <Route path=':id' element={<Detail />} />
+          <Route path='edit/:id' element={<Update />} />
         </Routes>
       </BrowserRouter>
       {/* </ToggleColorMode> */}
