@@ -1,13 +1,13 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RecipeList from '../components/RecipeBlog/RecipeList';
 import BlogHeader from '../components/RecipeBlog/BlogHeader';
 
 export default () => {
   const [user, setUser] = useState("");
-  const history = useHistory();
+  let navigate = useNavigate();
   const [logout, setLogout] = useState('');
 
   useEffect(() => {
@@ -18,9 +18,9 @@ export default () => {
       })
       .catch(err => {
         console.log("noUser logged in")
-        history.push('/')
+        navigate('/')
       })
-  }, [history, logout]);
+  }, [navigate, logout]);
 
   return (
     <div className='container'>

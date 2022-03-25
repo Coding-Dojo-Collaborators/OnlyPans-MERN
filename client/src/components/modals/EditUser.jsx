@@ -2,21 +2,21 @@
 import * as React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-import useStyles from './Styles';
+// import useStyles from './Styles';
 
 
 const Copyright = (props) => {
@@ -41,8 +41,8 @@ export default ({ handleClose, username, email, id, setLogout }) => {
         email: email,
         username: username,
     });
-    const history = useHistory();
-    const classes = useStyles();
+    // let navigate = useNavigate();
+    // const classes = useStyles();
 
     const logo = require('../static/images/onlypansegglogo.png')
 
@@ -135,7 +135,7 @@ export default ({ handleClose, username, email, id, setLogout }) => {
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
                     >
-                        Edit 
+                        Edit
                     </Button>
                     <Grid container
                         sx={{

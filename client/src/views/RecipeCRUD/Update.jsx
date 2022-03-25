@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import RecipeForm from '../../components/FormComponents/RecipeForm';
-import DeleteButton from '../../components/Buttons/DeleteButton';
+// import DeleteButton from '../../components/Buttons/DeleteButton';
 import ToggleColorMode from '../../components/Themes/ToggleDarkMode';
 import { ThemeProvider } from "@material-ui/styles";
 import { createTheme } from "@material-ui/core";
 const baseTheme = createTheme();
 const Update = (props) => {
-  const history = useHistory();
+  let navigate = useNavigate();
   const { id } = useParams();
   const [recipe, setRecipe] = useState();
   const [loaded, setLoaded] = useState(false);
@@ -20,22 +20,22 @@ const Update = (props) => {
         setUser(res.data)
       })
       .catch(err => {
-        history.push('/')
+        navigate('/')
         console.log("noUser logged in")
       });
     axios.get('http://localhost:8000/api/recipe/' + id)
       .then(res => {
-          setRecipe(res.data);
+        setRecipe(res.data);
         setLoaded(true);
       }).catch(err => {
-        history.push(``)
+        navigate(``)
       })
-  }, [history, id, user.id]);
+  }, [navigate, id, user.id]);
 
   const updateRecipe = recipe => {
     axios.put('http://localhost:8000/api/recipe/edit/' + id, recipe)
       .then(res => {
-        history.push(`/dashboard/${user._id}`);
+        navigate(`/dashboard/${user._id}`);
       })
       .catch(err => {
         const errorResponse = err.response.data.errors; // Get the errors from err.response.data

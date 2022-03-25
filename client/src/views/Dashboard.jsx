@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import { useState, useEffect } from "react"
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ToggleColorMode from '../components/Themes/ToggleDarkMode';
 import SideNav from '../components/Dashboard/SideNav';
@@ -14,20 +14,20 @@ const baseTheme = createTheme();
 export default () => {
   const [user, setUser] = useState('');
   const [logout, setLogout] = useState();
-  const history = useHistory();
+  let navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
       .then(res => {
-        
+
         setUser(res.data)
       })
       .catch(err => {
         console.log("noUser logged in")
-        history.push('/')
+        navigate('/')
       });
-  }, [history, logout]);
-  
+  }, [navigate, logout]);
+
 
   return (
     <div className=''>

@@ -7,7 +7,7 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import EditUser from './EditUser';
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const style = {
@@ -23,7 +23,7 @@ const style = {
 };
 
 export default function TransitionsModal({ setLogout }) {
-    const history = useHistory();
+    let navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -55,9 +55,9 @@ export default function TransitionsModal({ setLogout }) {
             })
             .catch(err => {
                 console.log("noUser logged in")
-                history.push('/')
+                navigate('/')
             });
-    }, [history]);
+    }, [navigate]);
 
     return (
         <div>

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import BlogHeader from '../../components/RecipeBlog/BlogHeader';
 import { Button } from '@mui/material';
@@ -19,7 +19,7 @@ import StickyFooter from '../../components/RecipeBlog/StickyFooter';
 const Detail = () => {
   const [recipe, setRecipe] = useState({})
   const { id } = useParams();
-  const history = useHistory();
+  let navigate = useNavigate();
   const [user, setUser] = useState('');
 
   useEffect(() => {
@@ -30,13 +30,13 @@ const Detail = () => {
         setUser(res.data)
       })
       .catch(err => {
-        history.push('/')
+        navigate('/')
         console.log("noUser logged in")
       });
     axios.get('http://localhost:8000/api/recipe/' + id)
       .then(res => setRecipe(res.data))
       .catch(err => console.error(err));
-  }, [history, id]);
+  }, [navigate, id]);
 
   const onFavoriteHandler = (id, img, name) => {
     let newFavorite = { id, img, name }
@@ -71,6 +71,7 @@ const Detail = () => {
     backgroundPosition: 'center',
     objectFit: 'cover',
     height: 60,
+    width: 60,
   }
 
   let made = recipe.createdAt,

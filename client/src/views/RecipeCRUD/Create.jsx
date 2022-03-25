@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RecipeForm from '../../components/FormComponents/RecipeForm';
 import ToggleColorMode from '../../components/Themes/ToggleDarkMode';
 import { ThemeProvider } from "@material-ui/styles";
@@ -11,7 +11,7 @@ const baseTheme = createTheme();
 export default () => {
     const [errors, setErrors] = useState([]);
     const [user, setUser] = useState('')
-    const history = useHistory();
+    let navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
@@ -20,16 +20,16 @@ export default () => {
                 setUser(res.data)
             })
             .catch(err => {
-                history.push('/')
+                navigate('/')
                 console.log("noUser logged in")
             });
-    }, [history]);
+    }, [navigate]);
 
     const createRecipe = (recipe) => {
         console.log(recipe);
         axios.post('http://localhost:8000/api/recipe/new', recipe)
             .then(res => {
-                history.push(`/dashboard/${user._id}`);
+                navigate(`/dashboard/${user._id}`);
             })
             .catch(err => {
                 console.log(err.response.data.errors)
@@ -48,21 +48,21 @@ export default () => {
         <div>
             <ToggleColorMode currentPage="createRecipe">
                 <ThemeProvider theme={baseTheme}>
-            
-            <RecipeForm
-                formName='Create A Recipe'
-                onSubmitProp={createRecipe}
-                initialName=''
-                initialCuisine=''
-                initialDescription=''
-                initialIngredients=''
-                initialInstructions=''
-                initialImage=''
-                initialAllergies=''
-                initialCategory=''
-                errors={errors}
-                userId={user._id}
-                />
+
+                    <RecipeForm
+                        formName='Create A Recipe'
+                        onSubmitProp={createRecipe}
+                        initialName=''
+                        initialCuisine=''
+                        initialDescription=''
+                        initialIngredients=''
+                        initialInstructions=''
+                        initialImage=''
+                        initialAllergies=''
+                        initialCategory=''
+                        errors={errors}
+                        userId={user._id}
+                    />
                 </ThemeProvider>
             </ToggleColorMode>
         </div>

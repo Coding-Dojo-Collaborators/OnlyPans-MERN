@@ -1,6 +1,7 @@
+/* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FavoriteRecipes from '../../components/Dashboard/FavoriteRecipes';
 import SideNav from '../../components/Dashboard/SideNav';
@@ -10,10 +11,10 @@ import { createTheme } from '@material-ui/core';
 
 const baseTheme = createTheme();
 
-export const FavoriteRecipeView = () => {
+export default () => {
   const [user, setUser] = useState(false);
   const [logout, setLogout] = useState();
-  const history = useHistory();
+  let navigate = useNavigate();
 
   useEffect(async () => {
     await axios.get("http://localhost:8000/api/users/getloggedinuser",
@@ -23,7 +24,7 @@ export const FavoriteRecipeView = () => {
       })
       .catch(err => {
         console.log("noUser logged in");
-        history.push('/');
+        navigate('/');
       })
   }, [logout]);
 

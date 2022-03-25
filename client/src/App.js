@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {
   BrowserRouter,
-  Switch,
+  Routes,
   Route
 } from 'react-router-dom';
 
@@ -29,58 +29,32 @@ import EditUser from './views/UserCRUD/EditUser';
 // import ToggleColorMode from './components/Themes/ToggleDarkMode';
 import './App.css';
 import './style.scss';
-import {  FavoriteRecipeView } from './views/RecipeCRUD/FavoriteRecipeView';
+import FavoriteRecipeView from './views/RecipeCRUD/FavoriteRecipeView';
 
 export default () => {
   return (
     <div className="App">
       {/* <ToggleColorMode> */}
       <BrowserRouter>
-        <Switch>
+        <Routes>
           {/* Login & Registration Routes */}
-          <Route exact path='/'>
-            <LandingPage />
-          </Route>
+          <Route exact path='/' element={<LandingPage />} />
           {/* Dashboard Routes */}
-          <Route exact path='/dashboard/:id'>
-            <Dashboard />
-          </Route>
-          <Route exact path='/dashboard/edit/:id'>
-            <ManagePostsTab />
-          </Route>
-          <Route exact path='/dashboard/users/:id'>
-            <UsersLiked />
-          </Route>
-          <Route exact path='/dashboard/favorites/:id'>
-            <FavoriteRecipeView/>
-          </Route>
+          <Route exact path='/dashboard/:id' element={<Dashboard />} />
+          <Route exact path='/dashboard/edit/:id' element={<ManagePostsTab />} />
+          <Route exact path='/dashboard/users/:id' element={<UsersLiked />} />
+          <Route exact path='/dashboard/favorites/:id' element={<FavoriteRecipeView />} />
           {/* User Routes */}
-          <Route exact path='/users'>
-            <ViewAllUsers />
-          </Route>
-          <Route exact path='/user/:id'>
-            <DetailUser />
-          </Route>
-          <Route exact path='/user/edit/:id'>
-            <EditUser />
-          </Route>
+          < Route exact path='/users' element={<ViewAllUsers />} />
+          <Route exact path='/user/:id' element={<DetailUser />} />
+          <Route exact path='/user/edit/:id' element={<EditUser />} />
           {/* Recipe Routes */}
-          <Route exact path='/recipes'>
-            <Main />
-          </Route>
-          <Route exact path='/:category/recipes'>
-            <CategoryViewAll />
-          </Route>
-          <Route exact path='/recipe/new'>
-            <Create />
-          </Route>
-          <Route exact path='/recipe/:id'>
-            <Detail />
-          </Route>
-          <Route exact path='/recipe/edit/:id'>
-            <Update />
-          </Route>
-        </Switch>
+          < Route exact path='/recipes' element={<Main />} />
+          <Route exact path='/:category/recipes' element={<CategoryViewAll />} />
+          <Route exact path='/recipe/new' element={<Create />} />
+          <Route exact path='/recipe/:id' element={<Detail />} />
+          <Route exact path='/recipe/edit/:id' element={<Update />} />
+        </Routes>
       </BrowserRouter>
       {/* </ToggleColorMode> */}
     </div>
